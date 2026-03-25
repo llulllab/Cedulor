@@ -1179,16 +1179,16 @@ body{
 
         <div class="piano-keys" aria-label="Supported EU programmes">
           <div class="piano-key">Horizon Europe</div>
-          <div class="piano-key soon">MSCA</div>
-          <div class="piano-key soon">ERC</div>
-          <div class="piano-key soon">EIC Accel.</div>
+          <div class="piano-key">MSCA</div>
+          <div class="piano-key">ERC</div>
+          <div class="piano-key">EIC Accel.</div>
         </div>
 
         <div class="welcome-hints" id="welcomeHints">
           <button class="hint-chip" data-hint="I have a Horizon Europe project idea">Horizon Europe proposal</button>
-          <button class="hint-chip soon">ERC application</button>
-          <button class="hint-chip soon">MSCA fellowship</button>
-          <button class="hint-chip soon">EIC Accelerator</button>
+          <button class="hint-chip" data-hint="I want to prepare an ERC Starting Grant proposal">ERC application</button>
+          <button class="hint-chip" data-hint="I want to prepare an MSCA Postdoctoral Fellowship proposal">MSCA fellowship</button>
+          <button class="hint-chip" data-hint="I want to prepare an EIC Accelerator short proposal">EIC Accelerator</button>
         </div>
       </div>
     </main>
@@ -1253,6 +1253,12 @@ body{
     chat:API_BASE+'/horizon',
     validate:API_BASE+'/invite-validate',
     request:API_BASE+'/horizon-access-request'
+  };
+  var PROGRAMME_ENDPOINTS={
+    'Horizon Europe':API_BASE+'/horizon',
+    'MSCA':API_BASE+'/msca',
+    'ERC':API_BASE+'/erc',
+    'EIC':API_BASE+'/eic'
   };
 
   /* Generate or restore persistent session ID */
@@ -1576,6 +1582,19 @@ body{
      ══════════════════════════════════════ */
   var detectedProgramme='';
 
+  var PROGRAMME_STEPS={
+    'Horizon Europe':['Basics','Science','Impact','Consortium','Implement.'],
+    'MSCA':['Basics','Research','Training','Impact','Implement.'],
+    'ERC':['Basics','Vision','Track Record','Methodology','Resources'],
+    'EIC':['Company','Technology','Market','Team & Finance','Implement.']
+  };
+  var PROGRAMME_CHECKLIST={
+    'Horizon Europe':['Project basics','Scientific content','Impact strategy','Consortium','Implementation'],
+    'MSCA':['Fellowship basics','Research project','Training & career','Impact & dissemination','Work plan'],
+    'ERC':['Grant basics','Scientific vision','PI track record','Methodology & WPs','Resources & budget'],
+    'EIC':['Company profile','Technology & IP','Market & customers','Team & funding','Implementation']
+  };
+
   function detectProgramme(text){
     if(!text||detectedProgramme)return;
     var lower=text.toLowerCase();
@@ -1591,6 +1610,34 @@ body{
           detectedProgramme=programmes[i].name;
           var el=document.getElementById('sidebarProgramme');
           if(el)el.textContent=detectedProgramme;
+          /* Update progress tracker labels */
+          var steps=PROGRAMME_STEPS[detectedProgramme];
+          if(steps){
+            for(var k=0;k<steps.length;k++){
+              var stepEl=document.getElementById('pStep'+(k+1));
+              if(stepEl){
+                var numSpan=stepEl.querySelector('.step-num');
+                stepEl.textContent='';
+                if(numSpan){stepEl.appendChild(numSpan)}
+                else{var s=document.createElement('span');s.className='step-num';s.textContent=String(k+1);stepEl.appendChild(s)}
+                stepEl.appendChild(document.createTextNode(steps[k]));
+              }
+            }
+          }
+          /* Update sidebar checklist labels */
+          var checklist=PROGRAMME_CHECKLIST[detectedProgramme];
+          if(checklist){
+            for(var k=0;k<checklist.length;k++){
+              var li=document.getElementById('sc'+(k+1));
+              if(li){
+                var check=li.querySelector('.sidebar-check');
+                li.textContent='';
+                if(check){li.appendChild(check)}
+                else{var sp=document.createElement('span');sp.className='sidebar-check';sp.textContent='\u00B7';li.appendChild(sp)}
+                li.appendChild(document.createTextNode(checklist[k]));
+              }
+            }
+          }
           return;
         }
       }
@@ -1625,12 +1672,33 @@ body{
     if(emptyEl)emptyEl.style.display='';
     var items=document.getElementById('sidebarItems');
     if(items)items.innerHTML='';
+    /* Reset progress tracker labels to Horizon defaults */
+    var defaultSteps=['Basics','Science','Impact','Consortium','Implement.'];
     for(var i=1;i<=5;i++){
       var li=document.getElementById('sc'+i);
       if(!li)continue;
       li.classList.remove('done');
       var check=li.querySelector('.sidebar-check');
       if(check)check.textContent='\u00B7';
+      var stepEl=document.getElementById('pStep'+i);
+      if(stepEl){
+        var numSpan=stepEl.querySelector('.step-num');
+        stepEl.textContent='';
+        if(numSpan){stepEl.appendChild(numSpan)}
+        else{var s=document.createElement('span');s.className='step-num';s.textContent=String(i);stepEl.appendChild(s)}
+        stepEl.appendChild(document.createTextNode(defaultSteps[i-1]));
+      }
+    }
+    /* Reset sidebar checklist labels to Horizon defaults */
+    var defaultChecklist=['Project basics','Scientific content','Impact strategy','Consortium','Implementation'];
+    for(var i=1;i<=5;i++){
+      var li=document.getElementById('sc'+i);
+      if(!li)continue;
+      var check=li.querySelector('.sidebar-check');
+      li.textContent='';
+      if(check){li.appendChild(check)}
+      else{var sp=document.createElement('span');sp.className='sidebar-check';sp.textContent='\u00B7';li.appendChild(sp)}
+      li.appendChild(document.createTextNode(defaultChecklist[i-1]));
     }
   }
 
@@ -1645,7 +1713,7 @@ body{
     document.getElementById('docxBtn').classList.remove('visible');
     resetProgress();
     resetSidebar();
-    container.innerHTML='<div class="welcome" id="welcomeScreen"><div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div><h2>Your <em>Proposal</em> Begins Here</h2><div class="welcome-barline" aria-hidden="true"></div><p>Prepare your EU-funded research proposal step by step. Select your programme, share your project idea, and Cedulor will guide you through the full application structure.</p><div class="piano-keys" aria-label="Supported EU programmes"><div class="piano-key">Horizon Europe</div><div class="piano-key soon">MSCA</div><div class="piano-key soon">ERC</div><div class="piano-key soon">EIC Accel.</div></div><div class="welcome-hints" id="welcomeHints"><button class="hint-chip" data-hint="I have a Horizon Europe project idea">Horizon Europe proposal</button><button class="hint-chip soon">ERC application</button><button class="hint-chip soon">MSCA fellowship</button><button class="hint-chip soon">EIC Accelerator</button></div></div>';
+    container.innerHTML='<div class="welcome" id="welcomeScreen"><div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div><h2>Your <em>Proposal</em> Begins Here</h2><div class="welcome-barline" aria-hidden="true"></div><p>Prepare your EU-funded research proposal step by step. Select your programme, share your project idea, and Cedulor will guide you through the full application structure.</p><div class="piano-keys" aria-label="Supported EU programmes"><div class="piano-key">Horizon Europe</div><div class="piano-key">MSCA</div><div class="piano-key">ERC</div><div class="piano-key">EIC Accel.</div></div><div class="welcome-hints" id="welcomeHints"><button class="hint-chip" data-hint="I have a Horizon Europe project idea">Horizon Europe proposal</button><button class="hint-chip" data-hint="I want to prepare an ERC Starting Grant proposal">ERC application</button><button class="hint-chip" data-hint="I want to prepare an MSCA Postdoctoral Fellowship proposal">MSCA fellowship</button><button class="hint-chip" data-hint="I want to prepare an EIC Accelerator short proposal">EIC Accelerator</button></div></div>';
     showSuccess('New session started.');
   }
 
@@ -1933,7 +2001,8 @@ body{
     try{
       var headers={'Content-Type':'application/json'};
       if(CONFIG.apiKey)headers['x-api-key']=CONFIG.apiKey;
-      var res=await fetch(ENDPOINTS.chat,{method:'POST',headers:headers,body:JSON.stringify({message:text,session_id:CONFIG.sessionId,token:sessionToken})});
+      var chatEndpoint=PROGRAMME_ENDPOINTS[detectedProgramme]||ENDPOINTS.chat;
+      var res=await fetch(chatEndpoint,{method:'POST',headers:headers,body:JSON.stringify({message:text,session_id:CONFIG.sessionId,token:sessionToken})});
 
       if(isGenerating){hideGenOverlay()}
       else{hideTyping()}
