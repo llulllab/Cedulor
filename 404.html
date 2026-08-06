@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found. Cedulor.</title>
+<style>
+  :root{
+    --bg:#ffffff; --paper:#f5f7fa; --ink:#1a1f2e; --heading:#0f1624;
+    --muted:#4a5568; --accent:#2f855a; --line:#e2e8f0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f1319; --paper:#151a24; --ink:#e2e8f0; --heading:#f0f4f8;
+      --muted:#a0aec0; --accent:#48a373; --line:#283040; }
+  }
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Libre Franklin','Segoe UI',system-ui,sans-serif;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;
+  }
+  .wrap{max-width:460px}
+  .code{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:72px;font-weight:600;line-height:1;color:var(--accent);margin:0;
+  }
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:600;color:var(--heading);margin:14px 0 10px}
+  p{font-size:15px;line-height:1.65;color:var(--muted);margin:0 0 26px}
+  a{display:inline-block;padding:11px 24px;border:1px solid var(--accent);border-radius:6px;
+    color:var(--accent);font-weight:600;text-decoration:none;font-size:14px}
+  a:hover{background:var(--accent);color:var(--bg)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="code">404</p>
+    <h1>Page not found</h1>
+    <p>The page you are looking for does not exist or has moved.</p>
+    <a href="/">Back to Cedulor</a>
+  </div>
+</body>
+</html>
