@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cedulor.com/">
 <meta property="og:title" content="Cedulor: Project Support Machine">
-<meta property="og:description" content="Computational proposal preparation for Horizon Europe, MSCA, ERC, and EIC Accelerator programmes.">
+<meta property="og:description" content="Computational proposal preparation for Horizon Europe, EIC (Accelerator, Pathfinder, Transition), MSCA, ERC, Digital Europe, Eurostars, LIFE, COST, and EU4Health programmes.">
 <meta property="og:image" content="https://cedulor.com/cedulor.jpg">
 
 <!-- Twitter Card -->
@@ -1316,7 +1316,8 @@ body{
     <div class="gen-box">
       <div class="gen-ring" aria-hidden="true"></div>
       <div class="gen-title">Composing Your Proposal</div>
-      <div class="gen-sub">Structuring sections, aligning objectives, calculating budget...</div>
+      <div class="gen-sub">Structuring sections, aligning objectives, calculating budget. This runs securely in the EU and continues even if it takes a few minutes.</div>
+      <div class="gen-elapsed" id="genElapsed" style="margin-top:12px;font-variant-numeric:tabular-nums;font-weight:700;font-size:15px;color:var(--gold);letter-spacing:0.04em"></div>
       <div class="gen-steps">
         <div class="gen-step"><div class="gen-step-icon" id="genS1">1</div><div class="gen-step-label">Parsing</div></div>
         <div class="gen-step"><div class="gen-step-icon" id="genS2">2</div><div class="gen-step-label">Excellence</div></div>
@@ -1387,22 +1388,62 @@ body{
         <div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div>
         <h2>Your <em>Proposal</em> Begins Here</h2>
         <div class="welcome-barline" aria-hidden="true"></div>
-        <p>Prepare your EU-funded research proposal step by step. Select your programme, share your project idea, and Cedulor will guide you through the full application structure.</p>
-
-        <div class="piano-keys" aria-label="Supported EU programmes">
-          <button class="piano-key" data-hint="I have a Horizon Europe project idea">Horizon Europe</button>
-          <button class="piano-key" data-hint="I want to prepare an MSCA Postdoctoral Fellowship proposal">MSCA</button>
-          <button class="piano-key" data-hint="I want to prepare an ERC Starting Grant proposal">ERC</button>
-          <button class="piano-key" data-hint="I want to prepare an EIC Accelerator short proposal">EIC Accel.</button>
-        </div>
+        <p>Select your EU programme, describe your project, and Cedulor produces a complete, programme-structured Part B draft you can download as a Word document. Use the panel below to begin.</p>
       </div>
     </main>
 
+    <style>
+      .intake-panel{display:flex;flex-direction:column;gap:12px;width:100%}
+      .intake-field{display:flex;flex-direction:column;gap:5px}
+      .intake-label{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3)}
+      .intake-select,.intake-input{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text-1);font-size:14px;font-family:inherit}
+      .intake-select:focus,.intake-input:focus{outline:none;border-color:var(--gold)}
+      .intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+      @media (max-width:640px){.intake-grid{grid-template-columns:1fr}}
+      .gen-progress{font-size:12px;color:var(--text-3);font-variant-numeric:tabular-nums;text-align:center}
+      #genBtn{width:100%;justify-content:center}
+      #genBtn:disabled{opacity:0.55;cursor:not-allowed}
+    </style>
     <div class="input-area">
-      <div class="input-wrapper">
-        <label for="messageInput" class="sr-only">Type your message</label>
-        <textarea class="input-field" id="messageInput" placeholder="Describe your project idea or simply Copy+Paste your existing draft." rows="2" aria-label="Message input"></textarea>
-        <button class="send-btn" id="sendBtn" aria-label="Send message">Send</button>
+      <div class="intake-panel">
+        <div class="intake-field">
+          <label class="intake-label" for="progSelect">Programme</label>
+          <select id="progSelect" class="intake-select" aria-label="EU programme">
+            <option value="" disabled selected>Select a programme...</option>
+            <optgroup label="Horizon Europe &amp; EIC">
+              <option value="horizon-v2">Horizon Europe (RIA / IA / CSA)</option>
+              <option value="pathfinder-v2">EIC Pathfinder</option>
+              <option value="eictrans-v2">EIC Transition</option>
+              <option value="eic-v2">EIC Accelerator (Step 1, short proposal)</option>
+              <option value="accelerator2-v2">EIC Accelerator (Step 2, full business plan)</option>
+            </optgroup>
+            <optgroup label="MSCA &amp; ERC">
+              <option value="msca-v2">MSCA (Doctoral Networks / Postdoctoral)</option>
+              <option value="mscase-v2">MSCA Staff Exchanges</option>
+              <option value="erc-v2">ERC (Starting / Consolidator / Advanced)</option>
+              <option value="ercpoc-v2">ERC Proof of Concept</option>
+            </optgroup>
+            <optgroup label="Other EU programmes">
+              <option value="digital-v2">Digital Europe Programme</option>
+              <option value="eurostars-v2">Eurostars (Eureka)</option>
+              <option value="life-v2">LIFE Programme</option>
+              <option value="cost-v2">COST Actions</option>
+              <option value="eu4health-v2">EU4Health</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="intake-grid">
+          <input id="fldTitle" class="intake-input" placeholder="Project title" aria-label="Project title" />
+          <input id="fldAcronym" class="intake-input" placeholder="Acronym" aria-label="Acronym" />
+          <input id="fldBudget" class="intake-input" placeholder="Total budget (EUR)" aria-label="Total budget" />
+          <input id="fldDuration" class="intake-input" placeholder="Duration (months)" aria-label="Duration" />
+        </div>
+        <div class="intake-field">
+          <label class="intake-label" for="messageInput">Project description</label>
+          <textarea class="input-field" id="messageInput" rows="5" aria-label="Project description" placeholder="Describe your project: the objective, the innovation and how it goes beyond the state of the art, the market or scientific impact, the team or consortium, the work plan, and the main risks. The more detail you give, the stronger the draft. You can also paste an existing draft."></textarea>
+        </div>
+        <button class="send-btn" id="genBtn" aria-label="Generate full proposal draft">Generate full proposal draft</button>
+        <div class="gen-progress" id="genProgress" style="display:none"></div>
       </div>
       <div class="footer-note">Conçu et développé en France</div>
       <div class="footer-note">Built by <a href="https://www.llulllab.com" target="_blank" rel="noopener noreferrer">Llull Lab</a> · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/mentions-legales/">Mentions Légales</a></div>
@@ -1433,7 +1474,7 @@ body{
       </div>
       <div class="sidebar-section" style="margin-top:auto;padding-top:var(--space-md);border-top:1px solid var(--border)">
         <div class="sidebar-section-label">Supported Programmes</div>
-        <div style="font-size:10px;color:var(--text-3);line-height:1.7">Horizon Europe (RIA, IA, CSA), MSCA Doctoral Networks &amp; Postdoctoral Fellowships, ERC Starting / Consolidator / Advanced, EIC Accelerator</div>
+        <div style="font-size:10px;color:var(--text-3);line-height:1.7">Horizon Europe (RIA, IA, CSA), EIC Pathfinder, EIC Transition, EIC Accelerator (Step 1 &amp; Step 2), MSCA (Doctoral Networks, Postdoctoral, Staff Exchanges), ERC (Starting / Consolidator / Advanced, Proof of Concept), Digital Europe, Eurostars, LIFE, COST, EU4Health</div>
       </div>
     </aside>
   </div>
@@ -1460,12 +1501,10 @@ body{
     stripeCheckout:API_BASE+'/stripe-checkout',
     stripePortal:API_BASE+'/stripe-portal'
   };
-  var PROGRAMME_ENDPOINTS={
-    'Horizon Europe':GEN_BASE+'/horizon',
-    'MSCA':GEN_BASE+'/msca',
-    'ERC':GEN_BASE+'/erc',
-    'EIC':GEN_BASE+'/eic'
-  };
+  /* Async v5: each programme has a generate-only endpoint at GEN_BASE + '/<path>'
+     (the <select> option value IS the path). Generation is single-shot: the full
+     brief goes in one message, we receive 202 + job_id, then poll JOB_STATUS_URL. */
+  var JOB_STATUS_URL=GEN_BASE+'/job-status';
 
   /* Generate or restore persistent session ID */
   function getSessionId(){
@@ -1719,7 +1758,7 @@ body{
       try{
         var res=await fetch(ENDPOINTS.validate,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:token})});
         var data=await res.json();
-        if(res.ok&&typeof data.remaining_uses==='number'&&data.remaining_uses>0){unlockInput(data.remaining_uses,data.max_uses);return}
+        if(res.ok&&typeof data.remaining_uses==='number'&&data.remaining_uses>0){unlockInput(data.remaining_uses,data.max_uses);resumeActiveJob();return}
         else if(res.ok&&typeof data.remaining_uses==='number'&&data.remaining_uses<=0){
           /* A fresh deep-link code takes precedence over a spent (used-up) session; the stale
              token is cleared below and the new code auto-validates. A live session is
@@ -1794,19 +1833,17 @@ body{
      DOM REFERENCES
      ══════════════════════════════════════ */
   var messageInput=document.getElementById('messageInput');
-  var sendBtn=document.getElementById('sendBtn');
+  var genBtn=document.getElementById('genBtn');
+  var progSelect=document.getElementById('progSelect');
   var container=document.getElementById('mainConv');
 
   document.getElementById('newSessionBtn').addEventListener('click',newSession);
   document.getElementById('docxBtn').addEventListener('click',downloadDOCX);
-  sendBtn.addEventListener('click',sendMessage);
-  messageInput.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage()}});
+  genBtn.addEventListener('click',generateProposal);
   messageInput.addEventListener('input',function(){autoResize(messageInput)});
-
-  /* Hint chips */
-  document.addEventListener('click',function(e){
-    var chip=e.target.closest('.hint-chip[data-hint]')||e.target.closest('.piano-key[data-hint]');
-    if(chip){messageInput.value=chip.getAttribute('data-hint');sendMessage()}
+  progSelect.addEventListener('change',function(){
+    var lbl=progSelect.value?progSelect.options[progSelect.selectedIndex].text:'Not yet selected';
+    var el=document.getElementById('sidebarProgramme');if(el)el.textContent=lbl;
   });
 
   /* ══════════════════════════════════════
@@ -2025,7 +2062,10 @@ body{
     document.getElementById('docxBtn').classList.remove('visible');
     resetProgress();
     resetSidebar();
-    container.innerHTML='<div class="welcome" id="welcomeScreen"><div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div><h2>Your <em>Proposal</em> Begins Here</h2><div class="welcome-barline" aria-hidden="true"></div><p>Prepare your EU-funded research proposal step by step. Select your programme, share your project idea, and Cedulor will guide you through the full application structure.</p><div class="piano-keys" aria-label="Supported EU programmes"><button class="piano-key" data-hint="I have a Horizon Europe project idea">Horizon Europe</button><button class="piano-key" data-hint="I want to prepare an MSCA Postdoctoral Fellowship proposal">MSCA</button><button class="piano-key" data-hint="I want to prepare an ERC Starting Grant proposal">ERC</button><button class="piano-key" data-hint="I want to prepare an EIC Accelerator short proposal">EIC Accel.</button></div></div>';
+    if(progSelect)progSelect.value='';
+    ['fldTitle','fldAcronym','fldBudget','fldDuration'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
+    if(messageInput){messageInput.value='';autoResize(messageInput)}
+    container.innerHTML='<div class="welcome" id="welcomeScreen"><div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div><h2>Your <em>Proposal</em> Begins Here</h2><div class="welcome-barline" aria-hidden="true"></div><p>Select your EU programme, describe your project, and Cedulor produces a complete, programme-structured Part B draft you can download as a Word document. Use the panel below to begin.</p></div>';
     showSuccess('New session started.');
   }
 
@@ -2034,6 +2074,7 @@ body{
   function parseMarkdown(text){
     if(!text)return'';
     text=text.replace(/^=/,'').trim();
+    text=esc(text); /* neutralise any HTML before applying markdown transforms (defence in depth) */
     var html=text
       .replace(/^### (.+)$/gm,'<h3>$1</h3>')
       .replace(/^## (.+)$/gm,'<h2>$1</h2>')
@@ -2151,15 +2192,15 @@ body{
 
     var wpHtml='';
     if(wps.length>0){
-      var maxMonth=m.duration_months||36;
+      var maxMonth=parseInt(m.duration_months,10)||36;
       wps.forEach(function(wp){if(wp.end_month&&wp.end_month>maxMonth)maxMonth=wp.end_month});
       wpHtml='<div class="wp-timeline-section"><div class="wp-timeline-label">Work Package Timeline</div>';
       wps.forEach(function(wp,i){
-        var sm=wp.start_month||1,em=wp.end_month||maxMonth;
+        var sm=parseInt(wp.start_month,10)||1,em=parseInt(wp.end_month,10)||maxMonth;
         var left=((sm-1)/maxMonth*100).toFixed(1);
         var width=((em-sm+1)/maxMonth*100).toFixed(1);
         var colorCls=WP_COLORS[i%WP_COLORS.length];
-        wpHtml+='<div class="wp-row"><div class="wp-row-label">WP'+(wp.wp_number||i+1)+' '+esc(wp.title||'')+'</div><div class="wp-bar-track"><div class="wp-bar '+colorCls+'" style="left:'+left+'%;width:'+width+'%">M'+sm+'\u2013M'+em+'</div></div></div>';
+        wpHtml+='<div class="wp-row"><div class="wp-row-label">WP'+esc(String(wp.wp_number||i+1))+' '+esc(wp.title||'')+'</div><div class="wp-bar-track"><div class="wp-bar '+colorCls+'" style="left:'+left+'%;width:'+width+'%">M'+sm+'\u2013M'+em+'</div></div></div>';
       });
       wpHtml+='<div class="wp-months-row"><span>M1</span><span>M'+Math.round(maxMonth/3)+'</span><span>M'+Math.round(maxMonth*2/3)+'</span><span>M'+maxMonth+'</span></div>';
       wpHtml+='</div>';
@@ -2185,8 +2226,8 @@ body{
     var html='<div class="proposal-card">';
     html+='<div class="proposal-card-header"><div class="proposal-card-icon" aria-hidden="true">&#9834;</div><div class="proposal-card-title"><h3>'+esc(m.project_title||'Proposal Draft')+'</h3><span>'+esc(m.acronym||'')+' \u00B7 '+esc(m.call_identifier||'')+' \u00B7 '+esc(m.action_type||'RIA')+'</span></div></div>';
     html+='<div class="proposal-meta-grid">';
-    html+='<div class="proposal-meta-item"><label>Duration</label><span>'+(m.duration_months||'\u2014')+' mo.</span></div>';
-    html+='<div class="proposal-meta-item"><label>TRL Range</label><span>'+(m.trl_start||'?')+' \u2192 '+(m.trl_target||'?')+'</span></div>';
+    html+='<div class="proposal-meta-item"><label>Duration</label><span>'+esc(String(m.duration_months||'\u2013'))+' mo.</span></div>';
+    html+='<div class="proposal-meta-item"><label>TRL Range</label><span>'+esc(String(m.trl_start||'?'))+' \u2192 '+esc(String(m.trl_target||'?'))+'</span></div>';
     html+='<div class="proposal-meta-item"><label>Budget</label><span>\u20AC '+fmtNum(m.total_budget_eur)+'</span></div>';
     html+='<div class="proposal-meta-item"><label>EU Contrib.</label><span>\u20AC '+fmtNum(m.eu_contribution_eur)+'</span></div>';
     html+='</div>';
@@ -2266,72 +2307,137 @@ body{
   function showError(msg){var t=document.getElementById('errorToast');if(!t)return;t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none'},4000)}
   function showSuccess(msg){var t=document.getElementById('successToast');if(!t)return;t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none'},3000)}
 
-  async function sendMessage(){
+  function fmtElapsed(s){var m=Math.floor(s/60),ss=s%60;return m+':'+(ss<10?'0':'')+ss}
+
+  function compileBrief(progLabel,title,acronym,budget,duration,desc){
+    var parts=[];
+    parts.push('I want to prepare a '+progLabel+' proposal. Please generate the complete full proposal now as structured JSON, filling every section.');
+    parts.push('');
+    if(title)parts.push('Project title: '+title+'.');
+    if(acronym)parts.push('Acronym: '+acronym+'.');
+    if(budget)parts.push('Total budget: '+budget+(/^[\d.,\s]+$/.test(budget)?' EUR':'')+'.');
+    if(duration)parts.push('Duration: '+duration+(/^\s*\d+\s*$/.test(duration)?' months':'')+'.');
+    parts.push('');
+    parts.push(desc);
+    parts.push('');
+    parts.push('I confirm the details are correct. Go ahead and generate the complete proposal now as structured JSON.');
+    return parts.join('\n');
+  }
+
+  async function pollJob(job){
+    var startMs=Date.now(),maxMs=15*60*1000;
+    while(Date.now()-startMs<maxMs){
+      await new Promise(function(r){setTimeout(r,15000)});
+      var pr=null;
+      try{
+        var res=await fetch(JOB_STATUS_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({job_id:job,token:sessionToken})});
+        pr=await res.json();
+        /* ownership lost / job unknown: stop immediately, do not keep polling for 15 minutes */
+        if(res.status===403||(pr&&pr.error&&!pr.status))return {status:'gone',error_code:'forbidden'};
+      }catch(e){pr=null}
+      if(!pr)continue;
+      if(pr.status==='ready')return pr;
+      if(pr.status==='failed'||pr.status==='expired'||pr.status==='gone')return pr;
+    }
+    return null;
+  }
+
+  var ACTIVE_JOB_KEY='cedulor_active_job';
+  function saveActiveJob(job_id,progLabel,acronym){try{sessionStorage.setItem(ACTIVE_JOB_KEY,JSON.stringify({job_id:job_id,progLabel:progLabel,acronym:acronym||'',ts:Date.now()}))}catch(e){}}
+  function clearActiveJob(){try{sessionStorage.removeItem(ACTIVE_JOB_KEY)}catch(e){}}
+
+  /* Shared generating UI + poll + render. Used by a fresh generate AND by resume-on-load so a
+     tab close mid-production never loses an already-paid document (server holds it for 1h). */
+  async function runJob(job_id,progLabel,acronym){
+    isWaiting=true;genBtn.disabled=true;
+    var welcome=document.getElementById('welcomeScreen');
+    if(welcome&&!welcome.classList.contains('mini')){welcome.classList.add('mini');setProgressStep(1)}
+    showGenOverlay();
+    var elapsedEl=document.getElementById('genElapsed');
+    var progressEl=document.getElementById('genProgress');
+    if(progressEl)progressEl.style.display='block';
+    var t0=Date.now();
+    var timer=setInterval(function(){
+      var s=Math.floor((Date.now()-t0)/1000);
+      if(elapsedEl)elapsedEl.textContent='Producing draft  '+fmtElapsed(s);
+      if(progressEl)progressEl.textContent='Producing your '+progLabel+' draft  '+fmtElapsed(s);
+    },1000);
+    function cleanup(){clearInterval(timer);hideGenOverlay();if(progressEl){progressEl.style.display='none';progressEl.textContent=''}isWaiting=false;genBtn.disabled=false}
+    try{
+      var result=await pollJob(job_id);
+      cleanup();
+      if(!result){
+        /* We stopped polling but the job may still be producing server-side. Do not imply a free
+           retry; reconcile the badge from the server and let the user reopen to pick it up. */
+        try{await refreshUsage()}catch(e){}
+        showError('Your draft is still being produced. Your remaining uses are shown below; reopen this page shortly to collect it.');
+        return;
+      }
+      if(result.status!=='ready'){
+        clearActiveJob();
+        try{await refreshUsage()}catch(e){} /* reflect any server-side refund of a failed/expired job */
+        showError('Generation did not complete ('+(result.error_code||result.status)+'). Your remaining uses are shown below.');
+        return;
+      }
+      clearActiveJob();
+      lastProposalData=result.proposal_json;
+      if(typeof lastProposalData==='string'){try{lastProposalData=JSON.parse(lastProposalData)}catch(e){}}
+      lastDocxBase64=result.docx_base64;
+      lastDocxFilename=result.filename||((acronym||'Cedulor')+'_PartB_Draft.docx');
+      document.getElementById('docxBtn').classList.add('visible');
+      addMessage('Your '+progLabel+' Part B draft is ready. Download it as a Word document below.','bot',lastProposalData);
+      setProgressStep(6);
+      try{await refreshUsage()}catch(e){} /* server is the source of truth for remaining uses */
+      if(remainingUses<=0)showExhausted();
+    }catch(err){
+      cleanup();
+      showError('Connection failed. Please try again.');console.error(err);
+    }
+  }
+
+  async function generateProposal(){
     if(!sessionToken){showError('Please enter a valid invitation code.');return}
     if(remainingUses<=0){showExhausted();return}
+    if(isWaiting)return;
+    if(!progSelect.value){showError('Please select a programme first.');progSelect.focus();return}
+    var desc=messageInput.value.trim();
+    if(desc.length<40){showError('Please describe your project in a little more detail before generating.');messageInput.focus();return}
 
-    var text=messageInput.value.trim();
-    if(!text||isWaiting)return;
-    addMessage(text,'user');messageInput.value='';messageInput.style.height='auto';
-    isWaiting=true;sendBtn.disabled=true;
+    var progLabel=progSelect.options[progSelect.selectedIndex].text;
+    var title=(document.getElementById('fldTitle').value||'').trim();
+    var acronym=(document.getElementById('fldAcronym').value||'').trim();
+    var budget=(document.getElementById('fldBudget').value||'').trim();
+    var duration=(document.getElementById('fldDuration').value||'').trim();
+    var message=compileBrief(progLabel,title,acronym,budget,duration,desc);
 
-    var isGenerating=false;
-    var lower=text.toLowerCase();
-    if(lower.indexOf('generate')!==-1||lower.indexOf('go ahead')!==-1||lower.indexOf('yes')!==-1||lower.indexOf('proceed')!==-1||lower.indexOf('create the proposal')!==-1||lower.indexOf('draft it')!==-1){
-      if(botMessageCount>=3){isGenerating=true}
-    }
+    isWaiting=true;genBtn.disabled=true;
+    addMessage((title?title+' ('+(acronym||progLabel)+')':progLabel)+': preparing your Part B draft.','user');
 
-    if(isGenerating){showGenOverlay()}
-    else{showTyping()}
-
+    var acc=null;
     try{
-      var headers={'Content-Type':'application/json'};
-      if(CONFIG.apiKey)headers['x-api-key']=CONFIG.apiKey;
-      var chatEndpoint=PROGRAMME_ENDPOINTS[detectedProgramme]||ENDPOINTS.chat;
-      var res=await fetch(chatEndpoint,{method:'POST',headers:headers,body:JSON.stringify({message:text,session_id:CONFIG.sessionId,token:sessionToken})});
-
-      if(isGenerating){hideGenOverlay()}
-      else{hideTyping()}
-
-      if(res.status===401){clearToken();lockInput();return}
-      if(!res.ok)throw new Error('Server error ('+res.status+')');
-      var rawText=await res.text();var data;
-      try{data=JSON.parse(rawText)}catch(e){data=null}
-
-      if(data&&data.type==='proposal_complete'){
-        lastProposalData=data.proposal_json;lastDocxBase64=data.docx_base64;
-        lastDocxFilename=data.filename||'Cedulor_PartB_Draft.docx';
-        document.getElementById('docxBtn').classList.add('visible');
-        addMessage(data.message||'Your proposal draft is ready.','bot',lastProposalData);
-        setProgressStep(6);
-        remainingUses=Math.max(0,remainingUses-1);
-        updateUsageBadge(remainingUses,null);
-        if(remainingUses<=0){showExhausted();return}
-        await refreshUsage();
-      }else if(data&&data.proposal_json&&!data.docx_base64){
-        lastProposalData=data.proposal_json;
-        addMessage(data.message||data.conversation_text||'Your structured proposal data is ready.','bot',lastProposalData);
-        setProgressStep(6);
-      }else{
-        var botText='';
-        if(data){
-          botText=data.conversation_text||data.output||data.response||data.text||data.message||data.answer||data.reply||'';
-          if(!botText&&data.data){botText=data.data.conversation_text||data.data.output||data.data.text||data.data.message||''}
-          if(!botText&&typeof data==='string'){botText=data}
-        }
-        if(!botText)botText=rawText||'';
-        botText=botText.replace(/^=\s*/,'').trim();
-        if(botText&&botText!=='null'&&botText!=='undefined'&&botText.length>1){
-          addMessage(botText,'bot');
-        }else{
-          addMessage('The server is momentarily busy. Please resend your last message.','bot');
-        }
-      }
+      var res=await fetch(GEN_BASE+'/'+progSelect.value,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:sessionToken,message:message,session_id:CONFIG.sessionId})});
+      if(res.status===401){isWaiting=false;genBtn.disabled=false;clearToken();lockInput();return}
+      try{acc=await res.json()}catch(e){acc=null}
+      if(res.status===402||(acc&&(acc.status==='quota_exceeded'||acc.error==='quota_exceeded'))){isWaiting=false;genBtn.disabled=false;try{await refreshUsage()}catch(e){}showExhausted();return}
+      if(!acc||!acc.job_id){isWaiting=false;genBtn.disabled=false;showError('Could not start generation. Please try again.');return}
     }catch(err){
-      if(isGenerating){hideGenOverlay()}
-      else{hideTyping()}
-      showError('Connection failed. Please try again.');console.error(err);
-    }finally{isWaiting=false;sendBtn.disabled=false;messageInput.focus()}
+      isWaiting=false;genBtn.disabled=false;showError('Connection failed. Please try again.');console.error(err);return;
+    }
+    /* Accepted: the server created the job and debited one use. Persist so a reload can resume it. */
+    saveActiveJob(acc.job_id,progLabel,acronym);
+    await runJob(acc.job_id,progLabel,acronym);
+  }
+
+  /* On load, if a recent job is still pending for this session, resume polling it rather than
+     losing a paid document to a tab close or refresh. */
+  async function resumeActiveJob(){
+    if(isWaiting||!sessionToken)return;
+    var raw=null;try{raw=sessionStorage.getItem(ACTIVE_JOB_KEY)}catch(e){}
+    if(!raw)return;
+    var j=null;try{j=JSON.parse(raw)}catch(e){}
+    if(!j||!j.job_id){clearActiveJob();return}
+    if(Date.now()-(j.ts||0)>55*60*1000){clearActiveJob();return} /* past the server payload TTL */
+    await runJob(j.job_id,j.progLabel||'proposal',j.acronym||'');
   }
 
   function downloadDOCX(){
