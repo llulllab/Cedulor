@@ -303,6 +303,13 @@ body{
   box-shadow:0 24px 80px rgba(26,31,46,0.10),0 2px 8px rgba(26,31,46,0.06);
 }
 [data-theme="dark"] .gate-box{box-shadow:0 24px 80px rgba(0,0,0,0.35),0 2px 8px rgba(0,0,0,0.2)}
+.gate-close{
+  position:absolute;top:12px;right:14px;z-index:2;
+  width:30px;height:30px;line-height:28px;text-align:center;
+  border:none;background:transparent;cursor:pointer;
+  font-size:24px;color:var(--text-3);border-radius:8px;
+}
+.gate-close:hover{color:var(--text-1);background:var(--bg-warm)}
 
 .gate-box::before{
   content:'';position:absolute;top:0;left:40px;right:40px;height:3px;
@@ -514,7 +521,7 @@ body{
    CONVERSATION AREA
    ═══════════════════════════════ */
 .conv-container{
-  flex:1;overflow-y:auto;
+  flex:1 0 auto;overflow-y:visible;min-height:0;
   padding:var(--space-lg) var(--space-lg);
   display:flex;flex-direction:column;gap:var(--space-md);
   scroll-behavior:smooth;position:relative;z-index:1;
@@ -525,14 +532,14 @@ body{
 /* ═══ WELCOME ═══ */
 .welcome{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  flex:1;gap:var(--space-sm);text-align:center;
+  flex:1 0 auto;min-height:clamp(300px,48vh,440px);gap:var(--space-md);text-align:center;
   animation:welcomeIn 0.8s var(--ease-out);position:relative;z-index:1;
-  padding:var(--space-md) 0;
+  padding:var(--space-xl) 0;
 }
 @keyframes welcomeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
 .welcome-logo{
-  height:70px;overflow:hidden;
+  height:84px;overflow:hidden;
   margin-bottom:var(--space-xs);
   display:flex;align-items:center;justify-content:center;
 }
@@ -556,8 +563,8 @@ body{
 }
 
 .welcome p{
-  font-size:14px;font-weight:300;color:var(--text-2);
-  max-width:460px;line-height:1.8;
+  font-size:15px;font-weight:300;color:var(--text-2);
+  max-width:520px;line-height:1.8;
 }
 
 /* ═══ PIANO KEYS ═══ */
@@ -706,7 +713,7 @@ body{
 
 @media(min-width:1080px){
   .app-content{flex-direction:row}
-  .conv-column{display:flex;flex-direction:column;flex:1;overflow:hidden;min-width:0}
+  .conv-column{display:flex;flex-direction:column;flex:1;overflow-y:auto;min-width:0}
   .context-sidebar{
     width:280px;flex-shrink:0;
     border-left:1px solid var(--border);
@@ -719,6 +726,7 @@ body{
 @media(max-width:1079px){
   .context-sidebar{display:none}
   .conv-column{display:contents}
+  .app-content{overflow-y:auto}
 }
 
 .sidebar-section{display:flex;flex-direction:column;gap:var(--space-sm)}
@@ -1217,7 +1225,7 @@ body{
 </header>
 
 <!-- ① PROGRESS TRACKER -->
-<div class="app-wrapper locked" id="appWrapper">
+<div class="app-wrapper" id="appWrapper">
 
 <div class="progress-tracker" id="progressTracker">
   <div class="progress-tracker-inner">
@@ -1230,8 +1238,9 @@ body{
 </div>
 
   <!-- GATE OVERLAY -->
-  <div class="gate-overlay" id="gateOverlay">
+  <div class="gate-overlay hidden" id="gateOverlay">
     <div class="gate-box">
+      <button class="gate-close" id="gateClose" type="button" aria-label="Continue browsing without signing in">&times;</button>
       <div class="gate-logo">
         <div class="gate-logo-img"><img src="cedulor.jpg" alt="Cedulor" /></div>
         <h2>Enter Cedulor</h2>
@@ -1440,7 +1449,7 @@ body{
         </div>
         <div class="intake-field">
           <label class="intake-label" for="messageInput">Project description</label>
-          <textarea class="input-field" id="messageInput" rows="5" aria-label="Project description" placeholder="Describe your project: the objective, the innovation and how it goes beyond the state of the art, the market or scientific impact, the team or consortium, the work plan, and the main risks. The more detail you give, the stronger the draft. You can also paste an existing draft."></textarea>
+          <textarea class="input-field" id="messageInput" rows="3" aria-label="Project description" placeholder="Describe your project: the objective, the innovation and how it goes beyond the state of the art, the market or scientific impact, the team or consortium, the work plan, and the main risks. The more detail you give, the stronger the draft. You can also paste an existing draft."></textarea>
         </div>
         <button class="send-btn" id="genBtn" aria-label="Generate full proposal draft">Generate full proposal draft</button>
         <div class="gen-progress" id="genProgress" style="display:none"></div>
@@ -1559,6 +1568,7 @@ body{
 
   var sessionToken=null;
   var remainingUses=0;
+  var pendingGenerate=false; /* true when the gate was opened by a Generate click; fires generation after unlock */
   var lastMaxUses=0;
 
   function saveToken(t){sessionToken=t;try{localStorage.setItem('cedulor_token',t)}catch(e){}}
@@ -1575,6 +1585,8 @@ body{
     updateUsageBadge(remaining,maxUses);
     /* ① Show progress tracker on unlock */
     document.getElementById('progressTracker').classList.add('visible');
+    /* If the gate was opened by a Generate click, continue that generation now. */
+    if(pendingGenerate){pendingGenerate=false;generateProposal();}
   }
   function lockInput(){
     appWrapper.classList.add('locked');
@@ -1583,6 +1595,20 @@ body{
     usageBadge.classList.add('hidden');
     resetGateFeedback();
     document.getElementById('progressTracker').classList.remove('visible');
+  }
+  /* Open the gate as a modal in response to a Generate click (visitor has no session yet).
+     The filled intake form stays intact behind the blur; after the visitor gets access the
+     pending generation continues automatically. */
+  function openGateForGenerate(){
+    pendingGenerate=true;
+    lockInput();
+    try{showGateFeedback(subFeedback,'Almost there. Subscribe or enter your invite code to generate your draft.','');}catch(e){}
+  }
+  /* Dismiss the gate and return to browsing (no session). */
+  function closeGate(){
+    pendingGenerate=false;
+    appWrapper.classList.remove('locked');
+    gateOverlay.classList.add('hidden');
   }
   function showExhausted(){
     appWrapper.classList.add('locked');
@@ -1627,6 +1653,8 @@ body{
   });
   var gotoCodeLink=document.getElementById('gotoCodeLink');
   if(gotoCodeLink){gotoCodeLink.addEventListener('click',function(e){e.preventDefault();activateGateTab('code');resetGateFeedback();inviteCodeInput.focus()})}
+  var gateCloseBtn=document.getElementById('gateClose');
+  if(gateCloseBtn){gateCloseBtn.addEventListener('click',closeGate);}
 
   /* Subscribe access */
   var manageSubBtn=document.getElementById('manageSubBtn');
@@ -1772,22 +1800,26 @@ body{
     if(storedEmail){
       try{var unlocked=await checkCedulorSubscribeAccess(storedEmail);if(unlocked){subEmailInput.value=storedEmail;return}}catch(err){}
     }
-    /* No active session: show the gate. Suppress the sub-activated message when a code is
-       also present so a mangled ?sub=activated&code= URL can't leave a false "subscribed"
-       claim on the hidden Subscribe panel. */
-    if(subActivated&&!hasCodeParam){
-      showGateFeedback(subFeedback,'Subscription activated. Enter your email to access Cedulor.','success');
-    }
-    lockInput();
-    /* Deep-link auto-validate. The code panel is already active + pre-filled (above).
-       Only fire in the top frame so an embedded iframe / link-preview bot cannot turn a
-       page load into backend validation traffic. */
-    if(hasCodeParam){
-      if(deepLinkCode){
-        if(window.top===window.self)runValidateCode(true);
-      }else{
-        showGateFeedback(codeFeedback,'Your invite link is missing its code. Enter it above, or use the Request access tab.','error');
-        inviteCodeInput.focus();
+    /* No active session. Visitor mode: leave the site visible and usable so a visitor can
+       see the product and fill the intake; the gate opens only when they click Generate
+       (openGateForGenerate). The gate is auto-opened on load ONLY for an explicit invite-code
+       deep-link or a subscription-activated return. */
+    if(hasCodeParam||subActivated){
+      lockInput();
+      /* Suppress the sub-activated message when a code is also present so a mangled
+         ?sub=activated&code= URL can't leave a false "subscribed" claim. */
+      if(subActivated&&!hasCodeParam){
+        showGateFeedback(subFeedback,'Subscription activated. Enter your email to access Cedulor.','success');
+      }
+      /* Deep-link auto-validate. Only fire in the top frame so an embedded iframe /
+         link-preview bot cannot turn a page load into backend validation traffic. */
+      if(hasCodeParam){
+        if(deepLinkCode){
+          if(window.top===window.self)runValidateCode(true);
+        }else{
+          showGateFeedback(codeFeedback,'Your invite link is missing its code. Enter it above, or use the Request access tab.','error');
+          inviteCodeInput.focus();
+        }
       }
     }
   }
@@ -2284,7 +2316,7 @@ body{
     }
     msg.innerHTML='<div class="msg-avatar" aria-hidden="true">'+avatarText+'</div><div class="msg-content">'+parsedContent+'</div>';
     container.appendChild(msg);
-    container.scrollTop=container.scrollHeight;
+    if(container.lastElementChild)container.lastElementChild.scrollIntoView({block:'nearest'});
     if(type==='bot'){
       lastBotRaw=content;botMessageCount++;
       detectStep(content);
@@ -2300,7 +2332,7 @@ body{
     var typing=document.createElement('div');
     typing.className='typing';typing.id='typingIndicator';
     typing.innerHTML='<div class="msg-avatar" aria-hidden="true">C</div><div class="typing-bubble"><span class="typing-label">composing</span><div class="typing-dots" aria-label="Assistant is typing"><span></span><span></span><span></span></div></div>';
-    container.appendChild(typing);container.scrollTop=container.scrollHeight;
+    container.appendChild(typing);if(container.lastElementChild)container.lastElementChild.scrollIntoView({block:'nearest'});
   }
   function hideTyping(){var el=document.getElementById('typingIndicator');if(el)el.remove()}
 
@@ -2396,7 +2428,7 @@ body{
   }
 
   async function generateProposal(){
-    if(!sessionToken){showError('Please enter a valid invitation code.');return}
+    if(!sessionToken){openGateForGenerate();return}
     if(remainingUses<=0){showExhausted();return}
     if(isWaiting)return;
     if(!progSelect.value){showError('Please select a programme first.');progSelect.focus();return}
