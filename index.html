@@ -2216,7 +2216,33 @@ body{
   /* ══════════════════════════════════════
      ② ③ ④ ⑥ ENHANCED PROPOSAL CARD
      ══════════════════════════════════════ */
+  function buildGenericCard(data){
+    var m=data.metadata||{};
+    var secs=Array.isArray(data.sections)?data.sections:[];
+    var tops=secs.filter(function(s){return s&&((s.type==='heading'&&(s.level||1)===1)||(!s.type&&(s.level||0)===1))&&(s.text||s.heading);});
+    var filled=secs.filter(function(s){return (s.type==='text'||(s.body!=null))&&String(s.text||s.body||'').trim().length>60;}).length;
+    var html='<div class="proposal-card">';
+    html+='<div class="proposal-card-header"><div class="proposal-card-icon" aria-hidden="true">&#9834;</div><div class="proposal-card-title"><h3>'+esc(m.project_title||'Proposal Draft')+'</h3><span>'+esc(m.acronym||'')+' · '+esc(m.call_identifier||'')+' · '+esc(m.programme_name||m.action_type||'')+'</span></div></div>';
+    html+='<div class="proposal-meta-grid">';
+    html+='<div class="proposal-meta-item"><label>Programme</label><span>'+esc(m.programme_name||m.action_type||'-')+'</span></div>';
+    if((Number(m.duration_months)||0)>0){html+='<div class="proposal-meta-item"><label>Duration</label><span>'+esc(String(m.duration_months))+' mo.</span></div>';}
+    if((Number(m.total_budget_eur)||0)>0){html+='<div class="proposal-meta-item"><label>Budget</label><span>€ '+fmtNum(m.total_budget_eur)+'</span></div>';}
+    if((Number(m.eu_contribution_eur)||0)>0){html+='<div class="proposal-meta-item"><label>EU Contrib.</label><span>€ '+fmtNum(m.eu_contribution_eur)+'</span></div>';}
+    html+='</div>';
+    if(tops.length){
+      html+='<div class="depth-grid">';
+      tops.slice(0,6).forEach(function(s,i){html+='<div class="depth-card"><div class="depth-card-label">Section '+(i+1)+'</div><div class="depth-card-title">'+esc((s.text||s.heading||'').replace(/^SECTION\s*\d+\s*[-:]\s*/i,''))+'</div></div>';});
+      html+='</div>';
+    }
+    html+='<div class="proposal-stats-row"><div class="completeness-info" style="padding:8px 0"><strong>Programme-structured draft</strong>'+tops.length+' sections, '+filled+' written blocks</div></div>';
+    html+='<div class="proposal-actions">';
+    html+='<button class="proposal-action-btn primary" id="dlDocx"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Download Part B (DOCX)</button>';
+    html+='<button class="proposal-action-btn secondary" id="dlJson"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Download JSON</button>';
+    html+='</div></div>';
+    return html;
+  }
   function buildProposalCard(data){
+    if(data&&Array.isArray(data.sections)){return buildGenericCard(data);}
     var m=data.metadata||{};
     var s1=data.section_1_excellence||{};
     var s2=data.section_2_impact||{};
