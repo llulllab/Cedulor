@@ -296,9 +296,9 @@ body{
   background:var(--bg-ivory);
   border:1px solid var(--border-mid);
   border-radius:var(--r-xl);
-  padding:var(--space-3xl) var(--space-2xl) var(--space-2xl);
-  width:100%;max-width:440px;
-  position:relative;overflow:hidden;
+  padding:var(--space-lg) var(--space-2xl) var(--space-md);
+  width:100%;max-width:660px;
+  max-height:100%;position:relative;overflow-x:hidden;overflow-y:auto;
   animation:gateIn 0.7s var(--ease-out);
   box-shadow:0 24px 80px rgba(26,31,46,0.10),0 2px 8px rgba(26,31,46,0.06);
 }
@@ -324,8 +324,8 @@ body{
 @keyframes gateIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 .gate-logo{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-md);
-  margin-bottom:var(--space-xl);
+  display:flex;flex-direction:column;align-items:center;gap:var(--space-sm);
+  margin-bottom:var(--space-sm);
 }
 .gate-logo-img{
   height:32px;overflow:hidden;
@@ -340,13 +340,14 @@ body{
 }
 .gate-logo p{
   font-size:13px;color:var(--text-3);text-align:center;
-  max-width:320px;line-height:1.7;font-weight:400;
+  max-width:480px;line-height:1.5;font-weight:400;
 }
 
 .gate-tabs-row{
-  display:flex;gap:0;margin-bottom:var(--space-lg);
+  display:flex;gap:0;margin-bottom:var(--space-md);
   border-bottom:1px solid var(--border);
 }
+#btnSubAccess{margin-top:var(--space-md)}
 .gate-tab{
   flex:1;background:none;border:none;
   padding:var(--space-md) var(--space-sm);
@@ -402,6 +403,33 @@ body{
 .gate-btn.secondary .gate-spinner{border-color:rgba(61,107,142,0.2);border-top-color:var(--gold)}
 .gate-btn.loading .gate-spinner{display:block}
 .gate-btn.loading .gate-btn-text{display:none}
+
+/* Clickable plan cards: price display and subscribe CTA in one, to keep the gate short */
+.plan-row{display:flex;gap:10px;margin-top:12px}
+.plan-card{
+  flex:1;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  min-height:56px;padding:9px 8px;
+  border:1px solid var(--border-mid);border-radius:var(--r);
+  background:transparent;color:var(--text-1);cursor:pointer;font-family:var(--font-body);
+  transition:border-color .2s var(--ease),background .2s var(--ease),transform .15s var(--ease),box-shadow .2s var(--ease);
+}
+.plan-card:hover{border-color:var(--gold);background:var(--gold-ghost);transform:translateY(-1px)}
+.plan-card:active{transform:scale(0.98)}
+.plan-card:disabled{opacity:0.35;cursor:not-allowed;transform:none}
+.plan-card.featured{border-color:var(--gold)}
+.plan-cadence{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3)}
+.plan-card.featured .plan-cadence{color:var(--gold)}
+.plan-price{font-family:var(--font-display);font-size:20px;font-weight:600;line-height:1.1}
+.plan-price span{font-size:11px;font-weight:400;color:var(--text-3)}
+.plan-sub{font-size:10px;color:var(--gold)}
+.plan-card .gate-spinner{
+  width:16px;height:16px;position:absolute;
+  border:2px solid rgba(61,107,142,0.2);border-top-color:var(--gold);
+  border-radius:50%;animation:spin 0.7s linear infinite;display:none;
+}
+.plan-card.loading .gate-spinner{display:block}
+.plan-card.loading .plan-cadence,.plan-card.loading .plan-price,.plan-card.loading .plan-sub{opacity:0}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 .gate-msg{
@@ -1261,31 +1289,29 @@ body{
         <input class="gate-input" id="subEmailInput" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
         <button class="gate-btn" id="btnSubAccess" type="button"><span class="gate-btn-text">Access Now</span><span class="gate-spinner" aria-hidden="true"></span></button>
         <div class="gate-msg" id="subFeedback"></div>
-        <div id="subPricingInfo" style="margin-top:18px;padding-top:18px;border-top:1px solid var(--border)">
+        <div id="subPricingInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
           <p style="font-size:13px;color:var(--text-1);font-weight:600;margin-bottom:4px">New to Cedulor?</p>
-          <p style="font-size:12px;color:var(--text-2);margin-bottom:14px;line-height:1.6">Both plans include <strong style="color:var(--text-1)">5 programme-structured Part B drafts per month</strong>, across every supported EU programme (Horizon Europe, EIC, MSCA, ERC, and more), with quality-control review and DOCX export. Cancel anytime.</p>
-          <div style="display:flex;gap:8px;margin-bottom:8px">
-            <div style="flex:1;border:1px solid var(--border);border-radius:var(--r);padding:12px 10px;text-align:center">
-              <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:4px">Monthly</div>
-              <div style="font-size:20px;font-weight:700;color:var(--text-1)">&#8364;35<span style="font-size:12px;font-weight:400;color:var(--text-3)"> / mo</span></div>
-            </div>
-            <div style="flex:1;border:1px solid var(--gold);border-radius:var(--r);padding:12px 10px;text-align:center;position:relative">
-              <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:4px">Annual</div>
-              <div style="font-size:20px;font-weight:700;color:var(--text-1)">&#8364;350<span style="font-size:12px;font-weight:400;color:var(--text-3)"> / yr</span></div>
-              <div style="font-size:10px;color:var(--gold);margin-top:2px">2 months free</div>
-            </div>
-          </div>
-          <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-2);margin:12px 0;cursor:pointer;line-height:1.5">
+          <p style="font-size:12px;color:var(--text-2);margin-bottom:10px;line-height:1.55"><strong style="color:var(--text-1)">5 Part B drafts / month</strong>, all supported EU programmes, quality-control review, DOCX export. Cancel anytime.</p>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-2);margin-bottom:2px;cursor:pointer;line-height:1.5">
             <input type="checkbox" id="subTermsAgree" style="margin-top:2px;flex-shrink:0">
             <span>I have read and accept the <a href="/terms/" target="_blank" rel="noopener" style="color:var(--gold)">Terms of Service</a>, and I request that the service begin immediately.</span>
           </label>
-          <div style="display:flex;gap:8px;margin-bottom:6px">
-            <button class="gate-btn" id="btnSubMonthly" type="button" style="flex:1"><span class="gate-btn-text">Subscribe monthly</span><span class="gate-spinner" aria-hidden="true"></span></button>
-            <button class="gate-btn secondary" id="btnSubAnnual" type="button" style="flex:1"><span class="gate-btn-text">Subscribe annually</span><span class="gate-spinner" aria-hidden="true"></span></button>
+          <div class="plan-row">
+            <button class="plan-card" id="btnSubMonthly" type="button" aria-label="Subscribe monthly, 35 euros per month">
+              <span class="plan-cadence">Monthly</span>
+              <span class="plan-price">&#8364;35<span> / mo</span></span>
+              <span class="gate-spinner" aria-hidden="true"></span>
+            </button>
+            <button class="plan-card featured" id="btnSubAnnual" type="button" aria-label="Subscribe annually, 350 euros per year, two months free">
+              <span class="plan-cadence">Annual</span>
+              <span class="plan-price">&#8364;350<span> / yr</span></span>
+              <span class="plan-sub">2 months free</span>
+              <span class="gate-spinner" aria-hidden="true"></span>
+            </button>
           </div>
-          <p style="font-size:11px;color:var(--text-3);text-align:center">Enter your email above, then choose a plan. Office plan (20 drafts / month) available on request.</p>
+          <p style="font-size:11px;color:var(--text-3);text-align:center;margin-top:10px">Enter your email above, then choose a plan. Office plan (20 drafts / month) on request.</p>
         </div>
-        <p style="font-size:12px;color:var(--text-3);margin-top:14px;text-align:center">Have an invite code? <a href="#" id="gotoCodeLink" style="color:var(--gold);text-decoration:none">Enter it here &rarr;</a></p>
+        <p style="font-size:12px;color:var(--text-3);margin-top:10px;text-align:center">Have an invite code? <a href="#" id="gotoCodeLink" style="color:var(--gold);text-decoration:none">Enter it here &rarr;</a></p>
       </div>
       <div class="gate-panel" id="panelCode">
         <input class="gate-input code-input" id="inviteCodeInput" type="text" placeholder="Enter your invite code" maxlength="14" autocomplete="off" spellcheck="false" aria-label="Invite code">
