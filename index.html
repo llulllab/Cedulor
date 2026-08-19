@@ -2332,7 +2332,7 @@ body{
     html+='<div class="proposal-card-header"><div class="proposal-card-icon" aria-hidden="true">&#9834;</div><div class="proposal-card-title"><h3>'+esc(m.project_title||'Proposal Draft')+'</h3><span>'+esc(m.acronym||'')+' \u00B7 '+esc(m.call_identifier||'')+' \u00B7 '+esc(m.action_type||'RIA')+'</span></div></div>';
     html+='<div class="proposal-meta-grid">';
     html+='<div class="proposal-meta-item"><label>Duration</label><span>'+esc(String(m.duration_months||'\u2013'))+' mo.</span></div>';
-    html+='<div class="proposal-meta-item"><label>TRL Range</label><span>'+esc(String(m.trl_start||'?'))+' \u2192 '+esc(String(m.trl_target||'?'))+'</span></div>';
+    if((Number(m.trl_start)||0)>0||(Number(m.trl_target)||0)>0){html+='<div class="proposal-meta-item"><label>TRL Range</label><span>'+esc(String(m.trl_start||'?'))+' \u2192 '+esc(String(m.trl_target||'?'))+'</span></div>';}
     html+='<div class="proposal-meta-item"><label>Budget</label><span>\u20AC '+fmtNum(m.total_budget_eur)+'</span></div>';
     html+='<div class="proposal-meta-item"><label>EU Contrib.</label><span>\u20AC '+fmtNum(m.eu_contribution_eur)+'</span></div>';
     html+='</div>';
