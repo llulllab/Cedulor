@@ -1221,6 +1221,10 @@ body{
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
       Manage
     </button>
+    <button class="header-btn" id="signOutBtn" aria-label="Sign out">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+      Sign out
+    </button>
   </div>
 </header>
 
@@ -1253,21 +1257,33 @@ body{
       </div>
       <!-- Subscribe Panel -->
       <div class="gate-panel active" id="panelSubscribe">
-        <p style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6">Enter your email to access Cedulor with an active subscription.</p>
+        <p style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6"><strong style="color:var(--text-1)">Already subscribed?</strong> Enter your email to access Cedulor with an active subscription.</p>
         <input class="gate-input" id="subEmailInput" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
         <button class="gate-btn" id="btnSubAccess" type="button"><span class="gate-btn-text">Access Now</span><span class="gate-spinner" aria-hidden="true"></span></button>
         <div class="gate-msg" id="subFeedback"></div>
-        <div id="subPricingInfo" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
-          <p style="font-size:13px;color:var(--text-2);margin-bottom:12px">Choose a plan to get started:</p>
-          <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-2);margin-bottom:12px;cursor:pointer;line-height:1.5">
+        <div id="subPricingInfo" style="margin-top:18px;padding-top:18px;border-top:1px solid var(--border)">
+          <p style="font-size:13px;color:var(--text-1);font-weight:600;margin-bottom:4px">New to Cedulor?</p>
+          <p style="font-size:12px;color:var(--text-2);margin-bottom:14px;line-height:1.6">Both plans include <strong style="color:var(--text-1)">5 programme-structured Part B drafts per month</strong>, across every supported EU programme (Horizon Europe, EIC, MSCA, ERC, and more), with quality-control review and DOCX export. Cancel anytime.</p>
+          <div style="display:flex;gap:8px;margin-bottom:8px">
+            <div style="flex:1;border:1px solid var(--border);border-radius:var(--r);padding:12px 10px;text-align:center">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:4px">Monthly</div>
+              <div style="font-size:20px;font-weight:700;color:var(--text-1)">&#8364;35<span style="font-size:12px;font-weight:400;color:var(--text-3)"> / mo</span></div>
+            </div>
+            <div style="flex:1;border:1px solid var(--gold);border-radius:var(--r);padding:12px 10px;text-align:center;position:relative">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-bottom:4px">Annual</div>
+              <div style="font-size:20px;font-weight:700;color:var(--text-1)">&#8364;350<span style="font-size:12px;font-weight:400;color:var(--text-3)"> / yr</span></div>
+              <div style="font-size:10px;color:var(--gold);margin-top:2px">2 months free</div>
+            </div>
+          </div>
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-2);margin:12px 0;cursor:pointer;line-height:1.5">
             <input type="checkbox" id="subTermsAgree" style="margin-top:2px;flex-shrink:0">
             <span>I have read and accept the <a href="/terms/" target="_blank" rel="noopener" style="color:var(--gold)">Terms of Service</a>, and I request that the service begin immediately.</span>
           </label>
           <div style="display:flex;gap:8px;margin-bottom:6px">
-            <button class="gate-btn" id="btnSubMonthly" type="button" style="flex:1"><span class="gate-btn-text">&#8364;35 / month</span><span class="gate-spinner" aria-hidden="true"></span></button>
-            <button class="gate-btn secondary" id="btnSubAnnual" type="button" style="flex:1"><span class="gate-btn-text">&#8364;350 / year</span><span class="gate-spinner" aria-hidden="true"></span></button>
+            <button class="gate-btn" id="btnSubMonthly" type="button" style="flex:1"><span class="gate-btn-text">Subscribe monthly</span><span class="gate-spinner" aria-hidden="true"></span></button>
+            <button class="gate-btn secondary" id="btnSubAnnual" type="button" style="flex:1"><span class="gate-btn-text">Subscribe annually</span><span class="gate-spinner" aria-hidden="true"></span></button>
           </div>
-          <p style="font-size:11px;color:var(--text-3);text-align:center">Individual plan: 5 proposals / month (fair use). Office plan (20 / month) available upon request.</p>
+          <p style="font-size:11px;color:var(--text-3);text-align:center">Enter your email above, then choose a plan. Office plan (20 drafts / month) available on request.</p>
         </div>
         <p style="font-size:12px;color:var(--text-3);margin-top:14px;text-align:center">Have an invite code? <a href="#" id="gotoCodeLink" style="color:var(--gold);text-decoration:none">Enter it here &rarr;</a></p>
       </div>
@@ -1283,36 +1299,6 @@ body{
         <p class="gate-hint">We will review your request and send an invite code to your email.</p>
       </div>
 
-      <!-- GATE: Example Outputs -->
-      <div class="gate-examples">
-        <div class="gate-examples-label">Example Outputs: See What You'll Get</div>
-        <div class="gate-examples-grid">
-          <a class="gate-example-link" href="/samples/sample_horizon.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            Horizon Europe
-          </a>
-          <a class="gate-example-link" href="/samples/sample_eic-accelerator.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            EIC Accelerator
-          </a>
-          <a class="gate-example-link" href="/samples/sample_msca.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            MSCA
-          </a>
-          <a class="gate-example-link" href="/samples/sample_erc.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            ERC
-          </a>
-          <a class="gate-example-link" href="/samples/sample_digital-europe.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            Digital Europe
-          </a>
-          <a class="gate-example-link" href="/samples/sample_life.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            LIFE
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -1638,6 +1624,7 @@ body{
   var exhaustedFeedback=document.getElementById('exhaustedFeedback');
   var usageBadge=document.getElementById('usageBadge');
   var usageText=document.getElementById('usageText');
+  var signOutBtn=document.getElementById('signOutBtn');
 
   var sessionToken=null;
   var remainingUses=0;
@@ -1658,6 +1645,8 @@ body{
     updateUsageBadge(remaining,maxUses);
     /* ① Show progress tracker on unlock */
     document.getElementById('progressTracker').classList.add('visible');
+    /* An active session exists: offer an explicit sign-out (all session types). */
+    if(signOutBtn)signOutBtn.classList.add('visible');
     /* If the gate was opened by a Generate click, continue that generation now. */
     if(pendingGenerate){pendingGenerate=false;generateProposal();}
   }
@@ -1688,6 +1677,7 @@ body{
     gateOverlay.classList.add('hidden');
     exhaustedOverlay.classList.remove('hidden');
     usageBadge.classList.add('hidden');
+    if(signOutBtn)signOutBtn.classList.remove('visible');
     clearToken();
   }
   function updateUsageBadge(remaining,maxUses){
@@ -1746,6 +1736,30 @@ body{
     }catch(err){alert('Could not open the subscription portal. To cancel or manage your subscription, email contact@llulllab.com.')}
     finally{setGateLoading(manageSubBtn,false)}
   });
+  /* Explicit user-triggered sign-out. The access token is re-derivable from the invite
+     code or the subscriber email, so clearing it from this device is a complete sign-out:
+     remove the session locally and return to visitor mode. A multi-use invite is not
+     revoked (that would strand the legitimate holder on a shared workstation). The
+     workspace is wiped so a shared computer never leaves the previous user's draft on
+     screen. */
+  function signOut(){
+    if(isWaiting){showError('Please wait for the current draft to finish before signing out.');return;}
+    clearToken();
+    try{localStorage.removeItem('cedulor_sub_email')}catch(e){}
+    try{sessionStorage.removeItem('cedulor_session_id')}catch(e){}
+    remainingUses=0;
+    usageBadge.classList.add('hidden');
+    if(signOutBtn)signOutBtn.classList.remove('visible');
+    manageSubBtn.classList.remove('visible');
+    newSession();
+    /* visitor mode: site stays visible, the gate re-opens only on the next Generate click */
+    appWrapper.classList.remove('locked');
+    gateOverlay.classList.add('hidden');
+    exhaustedOverlay.classList.add('hidden');
+    document.getElementById('progressTracker').classList.remove('visible');
+    showSuccess('Signed out.');
+  }
+  if(signOutBtn)signOutBtn.addEventListener('click',signOut);
   async function checkCedulorSubscribeAccess(email){
     var res=await fetch(ENDPOINTS.subscribeAccess,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,product:'cedulor'})});
     var data=await res.json();
@@ -1756,10 +1770,10 @@ body{
     var email=subEmailInput.value.trim().toLowerCase();
     if(!email||!email.includes('@')||!email.includes('.')){showGateFeedback(subFeedback,'Please enter a valid email address.','error');subEmailInput.focus();return}
     setGateLoading(btnSubAccess,true);
-    subFeedback.className='gate-msg';subFeedback.textContent='';subPricingInfo.style.display='none';
+    subFeedback.className='gate-msg';subFeedback.textContent='';
     try{
       var unlocked=await checkCedulorSubscribeAccess(email);
-      if(!unlocked){showGateFeedback(subFeedback,'No active subscription found for this email.','error');subPricingInfo.style.display='block'}
+      if(!unlocked){showGateFeedback(subFeedback,'No active subscription found for this email. Choose a plan below to subscribe.','error')}
     }catch(err){showGateFeedback(subFeedback,'Connection error. Please try again.','error')}
     finally{setGateLoading(btnSubAccess,false)}
   });
