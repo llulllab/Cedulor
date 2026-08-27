@@ -2547,7 +2547,11 @@ body{
       if(result.status!=='ready'){
         clearActiveJob();
         try{await refreshUsage()}catch(e){} /* reflect any server-side refund of a failed/expired job */
-        showError('Generation did not complete ('+(result.error_code||result.status)+'). Your remaining uses are shown below.');
+        if(result.error_code==='needs_more_info'){
+          showError('We need a bit more detail to generate this draft. Please add specifics (objectives, methodology, work packages, budget) and generate again. Your uses were not spent.');
+        } else {
+          showError('Generation did not complete ('+(result.error_code||result.status)+'). Your remaining uses are shown below.');
+        }
         return;
       }
       clearActiveJob();
