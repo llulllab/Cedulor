@@ -40,7 +40,11 @@ a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent}
 a:hover{border-bottom-color:var(--gold)}
 .topiclink{font-size:13.5px;margin-top:12px}
 .note{background:var(--bg-warm);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin:34px 0 0;font-size:14px;color:var(--text-3)}
-footer.doc{margin-top:52px;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--text-3)}
+footer{margin-top:52px;padding:28px 20px 16px;text-align:center;font-family:var(--font-body);font-size:0.78rem;color:var(--text-3);border-top:1px solid var(--border)}
+footer .footer-line{margin:4px 0;line-height:1.7}
+footer .footer-line a{color:var(--text-3);text-decoration:none;border-bottom:1px solid transparent}
+footer .footer-line a:hover{color:var(--text-1)}
+footer .footer-sep{margin:0 10px;opacity:0.6}
 .post-list{list-style:none;padding:0;margin:34px 0 0}
 .post-list li{padding:24px 0;border-bottom:1px solid var(--border)}.post-list li:first-child{border-top:1px solid var(--border)}
 .post-date{font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-3)}
@@ -62,8 +66,11 @@ footer.doc{margin-top:52px;padding-top:24px;border-top:1px solid var(--border);f
     <p class="post-teaser">Five Horizon Europe calls with deadlines across the first half of 2027, some open and some forthcoming, with indicative budgets where available, exact status, and a specific preparation step for each.</p>
   </li>
 </ul>
-<footer class="doc">
-  <a href="/">Cedulor</a> prepares Horizon Europe, MSCA, ERC, and EIC proposals step by step with computational guidance. Built by <a href="https://www.llulllab.com" target="_blank" rel="noopener noreferrer">Llull Lab</a>.
+<footer>
+  <div class="footer-line">Llull Lab</div>
+  <div class="footer-line">Conçu et développé en France</div>
+  <div class="footer-line"><a href="/privacy/">Privacy Policy</a><span class="footer-sep">·</span><a href="/terms/">Terms</a><span class="footer-sep">·</span><a href="/mentions-legales/">Mentions Légales</a></div>
+  <div class="footer-line">Created by <a href="https://feix.app" target="_blank" rel="noopener">Feix</a></div>
 </footer>
 </div>
 </body>
