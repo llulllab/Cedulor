@@ -1,2647 +1,336 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-
-     <!-- Canonical & Favicons -->
-<link rel="canonical" href="https://cedulor.com/">
-<link rel="icon" type="image/jpeg" href="cedulor.jpg">
-<link rel="apple-touch-icon" href="cedulor.jpg">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<title>Cedulor: Project Support Machine</title>
-<meta name="description" content="Structured project support through combinatorial reasoning. Prepare Horizon Europe, EIC, MSCA, ERC, Digital Europe, Eurostars, LIFE, COST, and EU4Health proposals step by step with computational guidance.">
+<link rel="canonical" href="https://cedulor.com/">
+<link rel="icon" type="image/jpeg" href="/cedulor.jpg"><link rel="apple-touch-icon" href="/cedulor.jpg">
+<title>EU Funding Notes | Cedulor</title>
+<meta name="description" content="Practical notes on EU research funding: upcoming calls across EU research and innovation programmes, indicative budgets, and proposal preparation, from the team behind Cedulor.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cedulor.com/">
-<meta property="og:title" content="Cedulor: Project Support Machine">
-<meta property="og:description" content="Computational proposal preparation for Horizon Europe, EIC (Accelerator, Pathfinder, Transition), MSCA, ERC, Digital Europe, Eurostars, LIFE, COST, and EU4Health programmes.">
+<meta property="og:title" content="Cedulor: EU Funding Notes">
+<meta property="og:description" content="Practical notes on EU research funding: upcoming calls across EU research and innovation programmes, indicative budgets, and proposal preparation, from the team behind Cedulor.">
 <meta property="og:image" content="https://cedulor.com/cedulor.jpg">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cedulor: Project Support Machine">
-<meta name="twitter:description" content="Structured project support through combinatorial reasoning for Horizon Europe, MSCA, ERC, and EIC Accelerator proposals.">
+<meta name="twitter:title" content="Cedulor: EU Funding Notes">
+<meta name="twitter:description" content="Practical notes on EU research funding: upcoming calls across EU research and innovation programmes, indicative budgets, and proposal preparation, from the team behind Cedulor.">
 <meta name="twitter:image" content="https://cedulor.com/cedulor.jpg">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-/* ═══════════════════════════════
-   PALET 2: Bechstein Fildişi
-   ═══════════════════════════════ */
-:root{
-  --bg-ivory:#ffffff;
-  --bg-warm:#f5f7fa;
-  --bg-linen:#edf0f5;
-  --bg-parchment:#e2e8f0;
-  --bg-sand:#cbd5e0;
-
-  --ink:#1a1f2e;
-  --ink-soft:#2d3748;
-  --ink-muted:#4a5568;
-
-  --gold:#3d6b8e;
-  --gold-bright:#4a7fa8;
-  --gold-dim:#2c5470;
-  --gold-glow:rgba(61,107,142,0.10);
-  --gold-ghost:rgba(61,107,142,0.05);
-
-  --wine:#4a5568;
-  --wine-dim:rgba(74,85,104,0.10);
-  --wine-ghost:rgba(74,85,104,0.05);
-
-  --stone:#a0aec0;
-  --stone-light:#b8c4d0;
-
-  --text-1:#1a1f2e;
-  --text-2:#4a5568;
-  --text-3:#718096;
-  --text-heading:#0f1624;
-
-  --success:#2f855a;
-  --error:#c53030;
-
-  --border:rgba(26,31,46,0.08);
-  --border-mid:rgba(26,31,46,0.12);
-  --border-gold:rgba(61,107,142,0.20);
-
-  --font-display:'Cormorant Garamond',Georgia,serif;
-  --font-body:'Libre Franklin','Segoe UI',sans-serif;
-
-  --space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;
-  --space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;
-
-  --ease:cubic-bezier(0.4,0,0.2,1);
-  --ease-out:cubic-bezier(0.0,0,0.2,1);
-  --ease-bounce:cubic-bezier(0.34,1.56,0.64,1);
-  --r:6px;--r-lg:12px;--r-xl:16px;
-}
-
-/* ═══ DARK MODE ═══ */
-[data-theme="dark"]{
-  --bg-ivory:#0f1319;
-  --bg-warm:#151a24;
-  --bg-linen:#1a2030;
-  --bg-parchment:#1f2738;
-  --bg-sand:#283040;
-
-  --ink:#e2e8f0;
-  --ink-soft:#cbd5e0;
-  --ink-muted:#a0aec0;
-
-  --gold:#63a0d4;
-  --gold-bright:#7ab4e4;
-  --gold-dim:#4a7fa8;
-  --gold-glow:rgba(99,160,212,0.10);
-  --gold-ghost:rgba(99,160,212,0.05);
-
-  --wine:#a0aec0;
-  --wine-dim:rgba(160,174,192,0.10);
-  --wine-ghost:rgba(160,174,192,0.05);
-
-  --stone:#718096;
-  --stone-light:#4a5568;
-
-  --text-1:#e2e8f0;
-  --text-2:#a0aec0;
-  --text-3:#718096;
-  --text-heading:#f0f4f8;
-
-  --success:#48bb78;
-  --error:#fc8181;
-
-  --border:rgba(226,232,240,0.06);
-  --border-mid:rgba(226,232,240,0.10);
-  --border-gold:rgba(99,160,212,0.18);
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
-  html{scroll-behavior:auto}
-}
-
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-
-body{
-  font-family:var(--font-body);
-  background:var(--bg-ivory);
-  color:var(--text-1);
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  overflow-x:hidden;
-  font-size:16px;
-  line-height:1.6;
-  font-weight:400;
-}
-
-::selection{background:rgba(61,107,142,0.18);color:var(--text-heading)}
-[data-theme="dark"] ::selection{background:rgba(99,160,212,0.22);color:var(--text-heading)}
-
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--stone-light);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--stone)}
-
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-
-.skip-link{
-  position:absolute;top:-100%;left:var(--space-md);
-  padding:var(--space-sm) var(--space-md);
-  background:var(--gold);color:var(--bg-ivory);
-  font-family:var(--font-body);font-size:12px;font-weight:600;
-  letter-spacing:0.06em;text-transform:uppercase;
-  border-radius:0 0 var(--r) var(--r);z-index:1000;text-decoration:none;
-  transition:top 0.2s var(--ease-out);
-}
-.skip-link:focus{top:0}
-
-/* ═══════════════════════════════
-   HEADER
-   ═══════════════════════════════ */
-.header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px var(--space-lg);
-  border-bottom:1px solid var(--border);
-  background:var(--bg-ivory);
-  flex-shrink:0;position:relative;z-index:10;
-}
-.header::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:
-    linear-gradient(to bottom,
-      var(--border-mid) 0px,var(--border-mid) 1px,
-      transparent 1px,transparent 2px,
-      var(--border-mid) 2px,var(--border-mid) 3px
-    );
-}
-
-.header-left{display:flex;align-items:center;gap:var(--space-md)}
-
-.logo-mark{
-  height:35px;flex-shrink:0;overflow:hidden;
-  display:flex;align-items:center;
-}
-.logo-mark img{height:100%;width:auto;object-fit:contain;display:block}
-[data-theme="dark"] .logo-mark img{filter:invert(1) brightness(0.88)}
-
-.header-title{display:flex;flex-direction:column;gap:0}
-.header-title span{
-  font-family:var(--font-body);font-size:10px;font-weight:500;
-  color:var(--text-3);letter-spacing:0.10em;text-transform:uppercase;
-}
-
-.header-actions{display:flex;align-items:center;gap:6px}
-
-.theme-toggle{
-  width:36px;height:36px;border-radius:50%;
-  border:1px solid var(--border);background:transparent;
-  color:var(--text-3);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color 0.25s var(--ease),color 0.25s var(--ease),background 0.25s var(--ease);
-  min-width:44px;min-height:44px;flex-shrink:0;
-}
-.theme-toggle:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-ghost)}
-.theme-toggle svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-
-.header-btn{
-  display:none;align-items:center;gap:5px;
-  padding:7px 14px;border-radius:var(--r);
-  border:1px solid var(--border-mid);background:transparent;
-  color:var(--text-2);font-family:var(--font-body);
-  font-size:10px;font-weight:600;cursor:pointer;
-  transition:background 0.2s var(--ease),border-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.15s var(--ease);
-  letter-spacing:0.06em;text-transform:uppercase;min-height:44px;
-}
-.header-btn:hover{background:var(--gold-ghost);border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
-.header-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.header-btn.visible{display:flex}
-
-/* ═══ USAGE BADGE ═══ */
-.usage-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:transparent;border:1px solid var(--border-mid);
-  border-radius:var(--r);padding:5px 12px;
-  font-family:var(--font-body);font-size:10px;font-weight:600;
-  color:var(--text-3);white-space:nowrap;
-  letter-spacing:0.04em;text-transform:uppercase;
-}
-.usage-badge.hidden{display:none}
-.usage-badge .usage-dot{width:5px;height:5px;border-radius:50%;background:var(--success);flex-shrink:0}
-.usage-badge.warning{color:var(--gold);border-color:var(--border-gold)}
-.usage-badge.warning .usage-dot{background:var(--gold)}
-.usage-badge.depleted{color:var(--error);border-color:rgba(197,48,48,0.2)}
-.usage-badge.depleted .usage-dot{background:var(--error)}
-
-/* ═══════════════════════════════
-   ① PROGRESS TRACKER
-   ═══════════════════════════════ */
-.progress-tracker{
-  display:none;flex-shrink:0;
-  padding:0 var(--space-lg);
-  background:var(--bg-ivory);
-  border-bottom:1px solid var(--border);
-  position:relative;z-index:9;
-}
-.progress-tracker.visible{display:block}
-.progress-tracker-inner{
-  display:flex;gap:0;max-width:780px;margin:0 auto;
-}
-.progress-step{
-  flex:1;padding:10px 6px;text-align:center;position:relative;
-  font-size:9px;font-weight:600;
-  text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);
-  transition:color 0.3s var(--ease),background 0.3s var(--ease);
-  cursor:default;border-bottom:2px solid transparent;
-}
-.progress-step .step-num{
-  display:block;font-family:var(--font-display);font-size:14px;
-  font-weight:500;margin-bottom:1px;color:var(--text-3);
-  transition:color 0.3s var(--ease);
-}
-.progress-step.done{color:var(--success);border-bottom-color:var(--success)}
-.progress-step.done .step-num{color:var(--success)}
-.progress-step.done .step-num::after{content:' \2713';font-size:10px}
-.progress-step.active{color:var(--gold);border-bottom-color:var(--gold)}
-.progress-step.active .step-num{color:var(--gold)}
-
-/* ═══════════════════════════════
-   APP WRAPPER + GATE
-   ═══════════════════════════════ */
-.app-wrapper{
-  display:flex;flex-direction:column;flex:1;
-  position:relative;overflow:hidden;
-}
-.app-wrapper.locked .app-content{filter:blur(6px);pointer-events:none;user-select:none;opacity:0.4}
-.app-wrapper.locked .progress-tracker{filter:blur(6px);pointer-events:none;opacity:0.4}
-.app-content{display:flex;flex-direction:column;flex:1;overflow:hidden}
-
-/* ═══ GATE OVERLAY ═══ */
-.gate-overlay{
-  position:absolute;inset:0;z-index:20;
-  display:flex;align-items:center;justify-content:center;
-  padding:var(--space-lg);
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-}
-[data-theme="dark"] .gate-overlay{background:rgba(15,19,25,0.5)}
-.gate-overlay.hidden{display:none}
-
-.gate-box{
-  background:var(--bg-ivory);
-  border:1px solid var(--border-mid);
-  border-radius:var(--r-xl);
-  padding:var(--space-lg) var(--space-2xl) var(--space-md);
-  width:100%;max-width:660px;
-  max-height:100%;position:relative;overflow-x:hidden;overflow-y:auto;
-  animation:gateIn 0.7s var(--ease-out);
-  box-shadow:0 24px 80px rgba(26,31,46,0.10),0 2px 8px rgba(26,31,46,0.06);
-}
-[data-theme="dark"] .gate-box{box-shadow:0 24px 80px rgba(0,0,0,0.35),0 2px 8px rgba(0,0,0,0.2)}
-.gate-close{
-  position:absolute;top:12px;right:14px;z-index:2;
-  width:30px;height:30px;line-height:28px;text-align:center;
-  border:none;background:transparent;cursor:pointer;
-  font-size:24px;color:var(--text-3);border-radius:8px;
-}
-.gate-close:hover{color:var(--text-1);background:var(--bg-warm)}
-
-.gate-box::before{
-  content:'';position:absolute;top:0;left:40px;right:40px;height:3px;
-  background:
-    linear-gradient(to bottom,
-      var(--gold) 0px,var(--gold) 1px,
-      transparent 1px,transparent 2px,
-      var(--gold-dim) 2px,var(--gold-dim) 3px
-    );
-}
-
-@keyframes gateIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-.gate-logo{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-sm);
-  margin-bottom:var(--space-sm);
-}
-.gate-logo-img{
-  height:32px;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-.gate-logo-img img{height:100%;width:auto;object-fit:contain;display:block}
-[data-theme="dark"] .gate-logo-img img{filter:invert(1) brightness(0.88)}
-.gate-logo h2{
-  font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,1.9rem);
-  font-weight:500;color:var(--text-heading);text-align:center;line-height:1.15;
-  letter-spacing:-0.01em;
-}
-.gate-logo p{
-  font-size:13px;color:var(--text-3);text-align:center;
-  max-width:480px;line-height:1.5;font-weight:400;
-}
-
-.gate-tabs-row{
-  display:flex;gap:0;margin-bottom:var(--space-md);
-  border-bottom:1px solid var(--border);
-}
-#btnSubAccess{margin-top:var(--space-md)}
-.gate-tab{
-  flex:1;background:none;border:none;
-  padding:var(--space-md) var(--space-sm);
-  font-family:var(--font-body);font-size:0.72rem;font-weight:600;
-  color:var(--text-3);cursor:pointer;
-  border-bottom:2px solid transparent;
-  transition:color 0.2s var(--ease),border-color 0.2s var(--ease);
-  min-height:44px;letter-spacing:0.04em;text-transform:uppercase;
-}
-.gate-tab:hover{color:var(--text-2)}
-.gate-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
-
-.gate-panel{display:none}
-.gate-panel.active{display:block}
-
-.gate-input{
-  width:100%;background:var(--bg-warm);
-  border:1px solid var(--border);border-radius:var(--r);
-  padding:14px 16px;font-family:var(--font-body);font-size:0.88rem;
-  color:var(--text-heading);
-  transition:border-color 0.2s var(--ease),box-shadow 0.2s var(--ease);
-  outline:none;font-weight:400;
-}
-.gate-input::placeholder{color:var(--stone);font-weight:300}
-.gate-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-ghost)}
-.gate-input.code-input{text-align:center;font-size:0.95rem;letter-spacing:0.10em;text-transform:uppercase;font-weight:500}
-
-.gate-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);
-  width:100%;margin-top:var(--space-lg);
-  background:var(--ink);
-  color:var(--bg-ivory);font-family:var(--font-display);
-  font-weight:500;font-size:1rem;font-style:italic;
-  letter-spacing:0.01em;
-  border:none;border-radius:var(--r);padding:14px var(--space-xl);
-  cursor:pointer;min-height:48px;
-  transition:background 0.2s var(--ease),transform 0.15s var(--ease),box-shadow 0.2s var(--ease);
-}
-[data-theme="dark"] .gate-btn{background:var(--gold);color:var(--bg-ivory)}
-.gate-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(26,31,46,0.15)}
-[data-theme="dark"] .gate-btn:hover{box-shadow:0 6px 24px rgba(99,160,212,0.25)}
-.gate-btn:active{transform:scale(0.98)}
-.gate-btn:disabled{opacity:0.35;cursor:not-allowed;transform:none;box-shadow:none}
-.gate-btn.secondary{background:transparent;color:var(--gold);border:1px solid var(--border-gold)}
-.gate-btn.secondary:hover{background:var(--gold-ghost)}
-
-.gate-btn .gate-spinner{
-  width:16px;height:16px;
-  border:2px solid rgba(255,255,255,0.25);border-top-color:var(--bg-ivory);
-  border-radius:50%;animation:spin 0.7s linear infinite;display:none;
-}
-[data-theme="dark"] .gate-btn .gate-spinner{border-color:rgba(15,19,25,0.25);border-top-color:var(--bg-ivory)}
-.gate-btn.secondary .gate-spinner{border-color:rgba(61,107,142,0.2);border-top-color:var(--gold)}
-.gate-btn.loading .gate-spinner{display:block}
-.gate-btn.loading .gate-btn-text{display:none}
-
-/* Clickable plan cards: price display and subscribe CTA in one, to keep the gate short */
-.plan-row{display:flex;gap:10px;margin-top:12px}
-.plan-card{
-  flex:1;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
-  min-height:56px;padding:9px 8px;
-  border:1px solid var(--border-mid);border-radius:var(--r);
-  background:transparent;color:var(--text-1);cursor:pointer;font-family:var(--font-body);
-  transition:border-color .2s var(--ease),background .2s var(--ease),transform .15s var(--ease),box-shadow .2s var(--ease);
-}
-.plan-card:hover{border-color:var(--gold);background:var(--gold-ghost);transform:translateY(-1px)}
-.plan-card:active{transform:scale(0.98)}
-.plan-card:disabled{opacity:0.35;cursor:not-allowed;transform:none}
-.plan-card.featured{border-color:var(--gold)}
-.plan-cadence{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3)}
-.plan-card.featured .plan-cadence{color:var(--gold)}
-.plan-price{font-family:var(--font-display);font-size:20px;font-weight:600;line-height:1.1}
-.plan-price span{font-size:11px;font-weight:400;color:var(--text-3)}
-.plan-sub{font-size:10px;color:var(--gold)}
-.plan-card .gate-spinner{
-  width:16px;height:16px;position:absolute;
-  border:2px solid rgba(61,107,142,0.2);border-top-color:var(--gold);
-  border-radius:50%;animation:spin 0.7s linear infinite;display:none;
-}
-.plan-card.loading .gate-spinner{display:block}
-.plan-card.loading .plan-cadence,.plan-card.loading .plan-price,.plan-card.loading .plan-sub{opacity:0}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.gate-msg{
-  margin-top:var(--space-md);padding:var(--space-md);
-  border-radius:var(--r);font-size:0.78rem;text-align:center;display:none;
-  font-family:var(--font-body);font-weight:500;
-}
-.gate-msg.success{display:block;background:rgba(47,133,90,0.08);color:var(--success);border:1px solid rgba(47,133,90,0.15)}
-.gate-msg.error{display:block;background:rgba(197,48,48,0.06);color:var(--error);border:1px solid rgba(197,48,48,0.12)}
-
-.gate-hint{
-  font-size:0.68rem;color:var(--text-3);margin-top:var(--space-md);
-  text-align:center;line-height:1.6;font-weight:400;
-}
-
-/* ═══ GATE EXAMPLES ═══ */
-.gate-examples{
-  margin-top:var(--space-lg);padding-top:var(--space-lg);
-  border-top:1px solid var(--border);
-}
-.gate-examples-label{
-  font-family:var(--font-body);font-size:8px;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.12em;color:var(--text-3);
-  text-align:center;margin-bottom:var(--space-sm);
-}
-.gate-examples-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:6px;
-}
-.gate-example-link{
-  display:flex;align-items:center;gap:6px;
-  padding:8px 10px;
-  border:1px solid var(--border);border-radius:var(--r);
-  background:var(--bg-warm);
-  font-family:var(--font-body);font-size:10px;font-weight:500;
-  color:var(--text-2);
-  text-decoration:none;
-  cursor:pointer;
-  transition:border-color 0.2s var(--ease),color 0.2s var(--ease),background 0.2s var(--ease),transform 0.15s var(--ease);
-}
-.gate-example-link:hover{
-  border-color:var(--gold);color:var(--gold);
-  background:var(--gold-ghost);transform:translateY(-1px);
-}
-.gate-example-link svg{
-  width:12px;height:12px;flex-shrink:0;
-  fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
-}
-
-/* ═══ EXHAUSTED OVERLAY ═══ */
-.exhausted-overlay{
-  position:absolute;inset:0;z-index:20;
-  display:flex;align-items:center;justify-content:center;
-  padding:var(--space-lg);
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-}
-[data-theme="dark"] .exhausted-overlay{background:rgba(15,19,25,0.5)}
-.exhausted-overlay.hidden{display:none}
-
-.exhausted-box{
-  background:var(--bg-ivory);
-  border:1px solid rgba(197,48,48,0.15);
-  border-radius:var(--r-xl);padding:var(--space-2xl) var(--space-xl);
-  width:100%;max-width:400px;text-align:center;
-  box-shadow:0 24px 80px rgba(26,31,46,0.10);
-}
-.exhausted-icon{font-size:1.8rem;margin-bottom:var(--space-md)}
-.exhausted-box h3{
-  font-family:var(--font-display);font-weight:500;font-size:1.15rem;
-  margin-bottom:var(--space-sm);color:var(--text-heading);
-}
-.exhausted-box p{font-size:0.8rem;color:var(--text-2);margin-bottom:var(--space-lg);line-height:1.7}
-
-/* ═══════════════════════════════
-   ⑤ GENERATION OVERLAY
-   ═══════════════════════════════ */
-.gen-overlay{
-  position:absolute;inset:0;z-index:15;
-  display:flex;align-items:center;justify-content:center;
-  padding:var(--space-lg);
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-}
-[data-theme="dark"] .gen-overlay{background:rgba(15,19,25,0.85)}
-.gen-overlay.hidden{display:none}
-
-.gen-box{text-align:center;max-width:420px;animation:gateIn 0.5s var(--ease-out)}
-
-.gen-ring{
-  width:80px;height:80px;margin:0 auto 20px;border-radius:50%;
-  border:3px solid var(--border-mid);
-  border-top-color:var(--gold);border-right-color:var(--gold-dim);
-  animation:genSpin 1.8s linear infinite;
-}
-@keyframes genSpin{to{transform:rotate(360deg)}}
-
-.gen-title{
-  font-family:var(--font-display);font-size:1.2rem;font-weight:500;
-  font-style:italic;color:var(--gold);margin-bottom:6px;
-}
-.gen-sub{font-size:12px;color:var(--text-3);margin-bottom:24px;line-height:1.6}
-
-.gen-steps{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-.gen-step{text-align:center;min-width:52px}
-.gen-step-icon{
-  width:34px;height:34px;border-radius:50%;margin:0 auto 4px;
-  border:2px solid var(--border);display:flex;align-items:center;justify-content:center;
-  font-size:11px;background:var(--bg-warm);color:var(--text-3);
-  transition:all 0.4s var(--ease);
-}
-.gen-step-icon.active{border-color:var(--gold);color:var(--gold);animation:genPulse 1.5s ease-in-out infinite}
-.gen-step-icon.done{border-color:var(--success);color:var(--success);background:rgba(47,133,90,0.06);animation:none}
-@keyframes genPulse{0%,100%{box-shadow:0 0 0 0 rgba(61,107,142,0.15)}50%{box-shadow:0 0 14px 4px rgba(61,107,142,0.1)}}
-.gen-step-label{font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-3)}
-
-/* ═══════════════════════════════
-   CONVERSATION AREA
-   ═══════════════════════════════ */
-.conv-container{
-  flex:1 0 auto;overflow-y:visible;min-height:0;
-  padding:var(--space-lg) var(--space-lg);
-  display:flex;flex-direction:column;gap:var(--space-md);
-  scroll-behavior:smooth;position:relative;z-index:1;
-}
-/* When welcome is mini, don't center-justify: start from top */
-.conv-container:has(.welcome.mini){justify-content:flex-start}
-
-/* ═══ WELCOME ═══ */
-.welcome{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  flex:1 0 auto;min-height:clamp(300px,48vh,440px);gap:var(--space-md);text-align:center;
-  animation:welcomeIn 0.8s var(--ease-out);position:relative;z-index:1;
-  padding:var(--space-xl) 0;
-}
-@keyframes welcomeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-.welcome-logo{
-  height:84px;overflow:hidden;
-  margin-bottom:var(--space-xs);
-  display:flex;align-items:center;justify-content:center;
-}
-.welcome-logo img{height:100%;width:auto;object-fit:contain;display:block}
-[data-theme="dark"] .welcome-logo img{filter:invert(1) brightness(0.88)}
-
-.welcome h2{
-  font-family:var(--font-display);font-size:clamp(1.8rem,4.5vw,2.6rem);
-  font-weight:400;color:var(--text-heading);letter-spacing:-0.02em;line-height:1.1;
-}
-.welcome h2 em{font-style:italic;color:var(--gold)}
-
-.welcome-barline{
-  width:180px;height:3px;margin:var(--space-xs) auto;
-  background:
-    linear-gradient(to bottom,
-      var(--border-mid) 0px,var(--border-mid) 1px,
-      transparent 1px,transparent 2px,
-      var(--border-mid) 2px,var(--border-mid) 3px
-    );
-}
-
-.welcome p{
-  font-size:15px;font-weight:300;color:var(--text-2);
-  max-width:520px;line-height:1.8;
-}
-
-/* ═══ PIANO KEYS ═══ */
-.piano-keys{
-  display:flex;gap:0;justify-content:center;
-  margin-top:var(--space-md);perspective:600px;
-}
-
-.piano-key{
-  width:88px;padding:14px 8px 18px;
-  background:var(--bg-warm);
-  border:1px solid var(--border-mid);
-  border-top:none;
-  border-radius:0 0 var(--r) var(--r);
-  font-family:var(--font-body);font-size:0.62rem;font-weight:600;
-  color:var(--text-3);text-align:center;
-  letter-spacing:0.06em;text-transform:uppercase;
-  cursor:pointer;position:relative;
-  transition:transform 0.12s var(--ease),box-shadow 0.12s var(--ease),background 0.15s var(--ease);
-  transform-origin:top center;
-  box-shadow:0 4px 8px rgba(26,31,46,0.04),inset 0 -2px 0 rgba(26,31,46,0.03);
-}
-[data-theme="dark"] .piano-key{box-shadow:0 4px 8px rgba(0,0,0,0.15),inset 0 -2px 0 rgba(0,0,0,0.08)}
-
-.piano-key::before{
-  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:1px;height:8px;background:var(--border-mid);
-}
-.piano-key:hover{
-  transform:perspective(600px) rotateX(2deg) translateY(2px);
-  box-shadow:0 2px 4px rgba(26,31,46,0.06);
-  background:var(--bg-linen);
-}
-.piano-key:nth-child(odd){margin-top:4px}
-
-/* ═══ COMING SOON BADGE ═══ */
-.piano-key.soon{opacity:0.45;pointer-events:none}
-.piano-key.soon::after{
-  content:'soon';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
-  font-size:6.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--gold);background:var(--gold-ghost);
-  padding:1px 5px;border-radius:3px;white-space:nowrap;
-}
-.hint-chip.soon{opacity:0.4;pointer-events:none;position:relative}
-.hint-chip.soon::after{
-  content:'soon';margin-left:6px;
-  font-size:8px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--gold);background:var(--gold-ghost);
-  padding:2px 6px;border-radius:3px;white-space:nowrap;
-}
-
-/* ═══ WELCOME MINI: collapsed state after first message ═══ */
-.welcome.mini{
-  flex:none;gap:0;padding:var(--space-md) 0 var(--space-sm);
-  animation:welcomeShrink 0.5s var(--ease-out);
-  align-items:flex-start;text-align:left;
-  max-width:780px;width:100%;margin:0 auto;
-}
-@keyframes welcomeShrink{
-  from{padding:var(--space-2xl) 0;gap:var(--space-lg)}
-  to{padding:var(--space-md) 0 var(--space-sm);gap:0}
-}
-.welcome.mini .welcome-logo{display:none}
-.welcome.mini h2{
-  font-size:clamp(1rem,2.5vw,1.3rem);
-  margin-bottom:2px;
-}
-.welcome.mini .welcome-barline{width:80px;margin:var(--space-xs) 0}
-.welcome.mini p{
-  font-size:12px;max-width:520px;line-height:1.6;margin-bottom:0;
-}
-.welcome.mini .piano-keys{display:none}
-.welcome.mini .welcome-hints{
-  display:flex;margin-top:var(--space-sm);justify-content:flex-start;
-}
-.welcome.mini .hint-chip{
-  padding:6px 14px;font-size:10px;min-height:32px;
-}
-
-/* ═══ LEFT SIDEBAR: Example Outputs ═══ */
-.left-sidebar{
-  display:none;
-}
-@media(min-width:1080px){
-  .left-sidebar{
-    width:260px;flex-shrink:0;
-    border-right:1px solid var(--border);
-    background:var(--bg-warm);
-    overflow-y:auto;padding:var(--space-lg);
-    display:flex;flex-direction:column;gap:var(--space-lg);
-  }
-}
-
-.left-sidebar-section{display:flex;flex-direction:column;gap:var(--space-sm)}
-.left-sidebar-label{
-  font-size:8px;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.12em;color:var(--gold-dim);
-}
-.left-sidebar-desc{
-  font-size:11px;color:var(--text-3);line-height:1.7;font-weight:400;
-}
-
-.example-dl-list{
-  display:flex;flex-direction:column;gap:6px;
-  list-style:none;padding:0;margin:0;
-}
-.example-dl-item{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 12px;
-  background:var(--bg-ivory);
-  border:1px solid var(--border);border-radius:var(--r);
-  text-decoration:none;color:var(--text-2);
-  transition:border-color 0.2s var(--ease),color 0.2s var(--ease),background 0.2s var(--ease),transform 0.15s var(--ease);
-  cursor:pointer;
-}
-.example-dl-item:hover{
-  border-color:var(--gold);color:var(--gold);
-  background:var(--gold-ghost);transform:translateY(-1px);
-}
-.example-dl-icon{
-  width:32px;height:32px;border-radius:var(--r);flex-shrink:0;
-  background:var(--bg-warm);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-}
-.example-dl-icon svg{
-  width:14px;height:14px;
-  fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
-}
-.example-dl-info{display:flex;flex-direction:column;gap:1px;min-width:0}
-.example-dl-name{
-  font-family:var(--font-body);font-size:11px;font-weight:600;
-  color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.example-dl-meta{
-  font-size:9px;color:var(--text-3);font-weight:400;
-  letter-spacing:0.02em;
-}
-
-.left-sidebar-note{
-  margin-top:auto;padding-top:var(--space-md);border-top:1px solid var(--border);
-  font-size:9px;color:var(--text-3);line-height:1.7;font-style:italic;
-}
-
-/* ═══ CONTEXT SIDEBAR: desktop only ═══ */
-.app-content{display:flex;flex-direction:column;flex:1;overflow:hidden;position:relative}
-
-@media(min-width:1080px){
-  .app-content{flex-direction:row}
-  .conv-column{display:flex;flex-direction:column;flex:1;overflow-y:auto;min-width:0}
-  .context-sidebar{
-    width:280px;flex-shrink:0;
-    border-left:1px solid var(--border);
-    background:var(--bg-warm);
-    overflow-y:auto;padding:var(--space-lg);
-    display:flex;flex-direction:column;gap:var(--space-lg);
-  }
-  .context-sidebar.empty{display:flex}
-}
-@media(max-width:1079px){
-  .context-sidebar{display:none}
-  .conv-column{display:contents}
-  .app-content{overflow-y:auto}
-}
-
-.sidebar-section{display:flex;flex-direction:column;gap:var(--space-sm)}
-.sidebar-section-label{
-  font-size:8px;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.12em;color:var(--gold-dim);
-}
-.sidebar-programme{
-  font-family:var(--font-display);font-size:15px;font-weight:500;
-  color:var(--text-heading);
-}
-.sidebar-item{
-  font-size:11px;color:var(--text-2);line-height:1.6;
-  padding:8px 12px;background:var(--bg-ivory);
-  border:1px solid var(--border);border-radius:var(--r);
-}
-.sidebar-item strong{color:var(--text-heading);font-weight:600;display:block;font-size:10px;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:2px}
-.sidebar-empty{
-  font-size:11px;color:var(--text-3);font-style:italic;line-height:1.6;
-}
-.sidebar-checklist{list-style:none;padding:0;margin:0}
-.sidebar-checklist li{
-  font-size:11px;color:var(--text-3);padding:4px 0;
-  display:flex;align-items:center;gap:6px;
-  border-bottom:1px solid var(--border);
-}
-.sidebar-checklist li:last-child{border-bottom:none}
-.sidebar-checklist li.done{color:var(--success)}
-.sidebar-check{font-size:10px;width:14px;text-align:center;flex-shrink:0}
-
-/* ═══ HINT CHIPS ═══ */
-.welcome-hints{
-  display:flex;gap:var(--space-sm);flex-wrap:wrap;justify-content:center;
-  margin-top:var(--space-md);
-}
-.hint-chip{
-  padding:10px 20px;border:1px solid var(--border);border-radius:var(--r);
-  font-size:12px;font-weight:400;color:var(--text-2);cursor:pointer;
-  transition:border-color 0.2s var(--ease),color 0.2s var(--ease),background 0.2s var(--ease),transform 0.15s var(--ease);
-  background:transparent;font-family:var(--font-body);min-height:44px;
-  display:flex;align-items:center;letter-spacing:0.01em;
-}
-.hint-chip:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-ghost);transform:translateY(-2px)}
-
-/* ═══════════════════════════════
-   MESSAGES
-   ═══════════════════════════════ */
-.message{
-  display:flex;gap:var(--space-md);max-width:780px;width:100%;
-  animation:msgIn 0.4s var(--ease-out);position:relative;z-index:1;
-  align-items:flex-start;margin:0 auto;
-}
-@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.message.user{flex-direction:row-reverse}
-
-.msg-avatar{
-  width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:600;
-  border:1px solid var(--border-mid);
-  margin-top:2px;
-}
-.message.bot .msg-avatar{background:var(--bg-warm);color:var(--gold)}
-.message.user .msg-avatar{background:var(--ink);color:var(--bg-ivory)}
-[data-theme="dark"] .message.user .msg-avatar{background:var(--gold-dim);color:var(--bg-ivory)}
-
-.msg-content{
-  padding:14px 20px;border-radius:var(--r-lg);
-  font-family:var(--font-body);font-size:13.5px;line-height:1.75;
-  color:var(--text-1);font-weight:400;
-  max-width:calc(100% - 44px);
-}
-.message.bot .msg-content{
-  background:var(--bg-warm);
-  border:1px solid var(--border);
-  border-top-left-radius:2px;
-}
-.message.user .msg-content{
-  background:var(--ink);
-  color:var(--bg-ivory);
-  border-top-right-radius:2px;
-}
-[data-theme="dark"] .message.user .msg-content{background:var(--bg-parchment);color:var(--text-1)}
-
-/* Markdown in messages */
-.msg-content h2,.msg-content h3{
-  font-family:var(--font-display);font-weight:600;color:var(--text-heading);
-  margin:12px 0 6px;font-size:15px;line-height:1.3;
-}
-.message.user .msg-content h2,.message.user .msg-content h3{color:var(--bg-ivory)}
-[data-theme="dark"] .message.user .msg-content h2,[data-theme="dark"] .message.user .msg-content h3{color:var(--text-heading)}
-.msg-content h2:first-child,.msg-content h3:first-child{margin-top:0}
-.msg-content p{margin:4px 0}
-.msg-content strong{font-weight:600;color:var(--gold)}
-.message.user .msg-content strong{color:var(--bg-ivory)}
-[data-theme="dark"] .message.user .msg-content strong{color:var(--gold)}
-.msg-content em{font-style:italic;color:var(--text-2)}
-.msg-content code{
-  font-family:'JetBrains Mono',monospace;font-size:12px;
-  background:rgba(26,31,46,0.05);padding:2px 6px;border-radius:3px;
-  color:var(--wine);border:1px solid var(--border);
-}
-[data-theme="dark"] .msg-content code{background:rgba(226,232,240,0.06)}
-.msg-content table{border-collapse:collapse;margin:10px 0;width:100%;font-size:12.5px}
-.msg-content th,.msg-content td{padding:8px 12px;border:1px solid var(--border);text-align:left}
-.msg-content th{
-  background:var(--bg-linen);color:var(--text-heading);font-weight:600;
-  font-size:10px;text-transform:uppercase;letter-spacing:0.06em;
-}
-.msg-content blockquote{
-  border-left:2px solid var(--gold);padding:6px 14px;margin:8px 0;
-  background:var(--gold-ghost);color:var(--text-2);font-style:italic;
-}
-.msg-content ul,.msg-content ol{padding-left:20px;margin:6px 0}
-.msg-content li{margin:3px 0}
-.msg-content hr{border:none;height:3px;margin:12px 0;
-  background:linear-gradient(to bottom,var(--border-mid) 0,var(--border-mid) 1px,transparent 1px,transparent 2px,var(--border-mid) 2px,var(--border-mid) 3px);
-}
-
-/* ═══════════════════════════════
-   ② PROPOSAL CARD (enhanced)
-   ═══════════════════════════════ */
-.proposal-card{
-  background:var(--bg-ivory);
-  border:1px solid var(--border-mid);border-radius:var(--r-lg);
-  padding:var(--space-lg);margin-top:var(--space-md);
-  animation:cardIn 0.6s var(--ease-out);position:relative;overflow:hidden;
-}
-.proposal-card::before{
-  content:'';position:absolute;top:0;left:24px;right:24px;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent);
-}
-.proposal-card::after{
-  content:'';position:absolute;top:3px;left:24px;right:24px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-dim) 30%,var(--gold-dim) 70%,transparent);
-  opacity:0.4;
-}
-@keyframes cardIn{from{opacity:0;transform:translateY(10px) scale(0.99)}to{opacity:1;transform:translateY(0) scale(1)}}
-
-.proposal-card-header{
-  display:flex;align-items:center;gap:14px;
-  margin-bottom:var(--space-md);padding-bottom:var(--space-md);
-  border-bottom:1px solid var(--border);
-}
-.proposal-card-icon{
-  width:42px;height:42px;border-radius:var(--r);
-  background:var(--bg-warm);
-  border:1px solid var(--border-mid);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;flex-shrink:0;
-}
-.proposal-card-title h3{
-  font-family:var(--font-display);font-size:16px;font-weight:600;
-  color:var(--text-heading);margin:0 0 3px;line-height:1.2;
-}
-.proposal-card-title span{font-size:11px;color:var(--text-3);font-weight:400;letter-spacing:0.02em}
-
-.proposal-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:var(--space-lg)}
-@media(min-width:640px){.proposal-meta-grid{grid-template-columns:repeat(4,1fr)}}
-
-.proposal-meta-item{
-  background:var(--bg-warm);border-radius:var(--r);padding:12px 14px;
-  border:1px solid var(--border);
-  transition:border-color 0.2s var(--ease);
-}
-.proposal-meta-item:hover{border-color:var(--border-gold)}
-.proposal-meta-item label{
-  display:block;font-size:9px;font-weight:600;color:var(--text-3);
-  text-transform:uppercase;letter-spacing:0.10em;margin-bottom:3px;
-}
-.proposal-meta-item span{
-  font-size:14px;font-weight:600;color:var(--text-heading);
-  font-family:var(--font-display);
-}
-
-/* ④ Completeness + Budget row */
-.proposal-stats-row{
-  display:flex;gap:var(--space-lg);align-items:center;flex-wrap:wrap;
-  margin-bottom:var(--space-lg);padding-bottom:var(--space-lg);
-  border-bottom:1px solid var(--border);
-}
-.completeness-group{display:flex;align-items:center;gap:14px}
-.completeness-ring{position:relative;width:56px;height:56px;flex-shrink:0}
-.completeness-ring svg{width:56px;height:56px;transform:rotate(-90deg)}
-.completeness-ring .ring-bg{fill:none;stroke:var(--border-mid);stroke-width:4}
-.completeness-ring .ring-fill{fill:none;stroke:var(--success);stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset 0.8s var(--ease)}
-.completeness-ring .ring-text{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--text-heading);
-}
-.completeness-info{font-size:11px;color:var(--text-2);line-height:1.5}
-.completeness-info strong{display:block;font-family:var(--font-display);font-size:13px;color:var(--text-heading);font-weight:500}
-
-.budget-group{display:flex;align-items:center;gap:14px;margin-left:auto}
-.budget-donut{position:relative;width:56px;height:56px;flex-shrink:0}
-.budget-donut svg{width:56px;height:56px;transform:rotate(-90deg)}
-.budget-donut .donut-segment{fill:none;stroke-width:6;transition:stroke-dashoffset 0.6s var(--ease)}
-.budget-donut .donut-text{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-size:10px;font-weight:500;color:var(--text-heading);
-}
-.budget-legend{display:flex;flex-direction:column;gap:3px}
-.budget-legend-item{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text-2)}
-.budget-legend-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}
-
-/* ② Section depth cards */
-.depth-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:var(--space-lg)}
-@media(max-width:600px){.depth-grid{grid-template-columns:1fr}}
-
-.depth-card{
-  background:var(--bg-warm);border:1px solid var(--border);border-radius:var(--r);
-  padding:14px;position:relative;overflow:hidden;
-  transition:border-color 0.2s var(--ease),transform 0.2s var(--ease);
-  cursor:default;
-}
-.depth-card:hover{border-color:var(--border-gold);transform:translateY(-2px)}
-.depth-card::before{
-  content:'';position:absolute;top:0;left:14px;right:14px;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold-dim) 30%,var(--gold-dim) 70%,transparent);
-  opacity:0.5;
-}
-.depth-card-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.10em;color:var(--gold-dim);margin-bottom:6px}
-.depth-card-title{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--text-heading);margin-bottom:4px}
-.depth-card-status{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
-.depth-card-status.complete{color:var(--success)}
-.depth-card-status.partial{color:var(--gold)}
-.depth-card-status.pending{color:var(--text-3)}
-.depth-card-bar{height:3px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
-.depth-card-bar-fill{height:100%;border-radius:2px;transition:width 0.6s var(--ease)}
-.depth-card-bar-fill.full{background:var(--success)}
-.depth-card-bar-fill.mid{background:var(--gold)}
-.depth-card-bar-fill.low{background:var(--border-mid)}
-
-/* ③ Consortium chips */
-.consortium-section{margin-bottom:var(--space-lg)}
-.consortium-section-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.10em;color:var(--gold-dim);margin-bottom:8px}
-.consortium-row{display:flex;gap:8px;flex-wrap:wrap}
-.partner-chip{
-  display:flex;align-items:center;gap:8px;
-  background:var(--bg-warm);border:1px solid var(--border);border-radius:var(--r);
-  padding:8px 12px;transition:border-color 0.2s var(--ease);
-}
-.partner-chip:hover{border-color:var(--border-gold)}
-.partner-flag{
-  width:22px;height:16px;border-radius:2px;background:var(--bg-linen);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:8px;color:var(--text-3);font-weight:700;flex-shrink:0;
-}
-.partner-name{font-size:11px;font-weight:600;color:var(--text-heading)}
-.partner-type{font-size:9px;color:var(--text-3)}
-.partner-role-badge{
-  font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;
-  color:var(--gold);padding:2px 7px;background:var(--gold-ghost);border-radius:3px;
-  margin-left:4px;white-space:nowrap;
-}
-
-/* ③ WP Timeline */
-.wp-timeline-section{margin-bottom:var(--space-lg)}
-.wp-timeline-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.10em;color:var(--gold-dim);margin-bottom:8px}
-.wp-row{display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--border)}
-.wp-row:last-child{border-bottom:none}
-.wp-row-label{width:90px;font-size:10px;font-weight:600;color:var(--text-heading);flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.wp-bar-track{flex:1;height:16px;background:var(--bg-ivory);border-radius:3px;position:relative;border:1px solid var(--border);overflow:hidden}
-.wp-bar{
-  position:absolute;top:2px;bottom:2px;border-radius:2px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:7px;font-weight:700;color:var(--bg-ivory);letter-spacing:0.03em;
-  transition:left 0.4s var(--ease),width 0.4s var(--ease);
-}
-.wp-months-row{display:flex;justify-content:space-between;font-size:8px;color:var(--text-3);padding:4px 100px 0}
-
-/* WP bar colors */
-.wp-bar.c0{background:var(--ink)}
-.wp-bar.c1{background:var(--gold)}
-.wp-bar.c2{background:var(--wine)}
-.wp-bar.c3{background:var(--ink-muted)}
-.wp-bar.c4{background:var(--success)}
-.wp-bar.c5{background:var(--gold-dim)}
-.wp-bar.c6{background:var(--stone)}
-
-/* ⑥ Review Score Card */
-.review-card{
-  background:var(--bg-warm);border:1px solid var(--border);border-radius:var(--r);
-  padding:var(--space-lg);margin-bottom:var(--space-md);
-  position:relative;overflow:hidden;
-}
-.review-card::before{
-  content:'';position:absolute;top:0;left:var(--space-lg);right:var(--space-lg);height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent);
-}
-.review-header{display:flex;align-items:flex-start;gap:var(--space-lg);flex-wrap:wrap}
-.review-score{text-align:center;flex-shrink:0}
-.review-score-num{font-family:var(--font-display);font-size:2rem;font-weight:500;color:var(--gold);line-height:1}
-.review-score-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.10em;color:var(--text-3);margin-top:4px}
-.review-score-max{font-size:9px;color:var(--text-3)}
-.review-body{flex:1;min-width:200px}
-.review-quote{
-  background:var(--bg-ivory);border:1px solid var(--border);border-radius:var(--r);
-  padding:14px 16px 14px 28px;position:relative;margin-bottom:10px;
-}
-.review-quote::before{
-  content:'\201C';position:absolute;top:6px;left:10px;
-  font-family:var(--font-display);font-size:1.8rem;color:var(--border-mid);line-height:1;
-}
-.review-quote-text{font-family:var(--font-display);font-size:12px;font-style:italic;color:var(--text-2);line-height:1.7}
-.review-tags{display:flex;gap:6px;flex-wrap:wrap}
-.review-tag{
-  font-size:8px;font-weight:700;padding:3px 9px;border-radius:3px;
-  text-transform:uppercase;letter-spacing:0.04em;
-}
-.review-tag.strong{background:rgba(47,133,90,0.08);color:var(--success)}
-.review-tag.needs-work{background:rgba(61,107,142,0.08);color:var(--gold)}
-.review-tag.weak{background:rgba(197,48,48,0.06);color:var(--error)}
-
-/* Proposal action buttons */
-.proposal-actions{display:flex;gap:8px;flex-direction:column}
-@media(min-width:640px){.proposal-actions{flex-direction:row}}
-
-.proposal-action-btn{
-  display:flex;align-items:center;gap:7px;padding:11px 20px;border-radius:var(--r);
-  font-family:var(--font-body);font-size:12px;font-weight:600;cursor:pointer;
-  transition:transform 0.15s var(--ease),box-shadow 0.2s var(--ease),background 0.2s var(--ease),border-color 0.2s var(--ease);
-  border:none;min-height:44px;letter-spacing:0.02em;
-}
-.proposal-action-btn.primary{background:var(--ink);color:var(--bg-ivory)}
-[data-theme="dark"] .proposal-action-btn.primary{background:var(--gold);color:var(--bg-ivory)}
-.proposal-action-btn.primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,31,46,0.15)}
-.proposal-action-btn.secondary{background:transparent;border:1px solid var(--border);color:var(--text-2)}
-.proposal-action-btn.secondary:hover{border-color:var(--border-gold);color:var(--gold);background:var(--gold-ghost)}
-.proposal-action-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* ═══ TYPING ═══ */
-.typing{
-  display:flex;gap:var(--space-md);max-width:780px;width:100%;margin:0 auto;
-  animation:msgIn 0.3s var(--ease-out);align-items:flex-start;
-}
-.typing .msg-avatar{
-  width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:600;
-  border:1px solid var(--border-mid);
-  background:var(--bg-warm);color:var(--gold);margin-top:2px;
-}
-.typing-bubble{
-  padding:14px 20px;border-radius:var(--r-lg);border-top-left-radius:2px;
-  background:var(--bg-warm);border:1px solid var(--border);
-  display:flex;align-items:center;gap:var(--space-sm);
-}
-.typing-label{
-  font-family:var(--font-body);font-size:12px;color:var(--text-3);
-  font-weight:400;font-style:italic;
-}
-.typing-dots{display:flex;align-items:center;gap:3px}
-.typing-dots span{
-  display:block;width:4px;height:4px;border-radius:50%;
-  background:var(--stone);
-  animation:dotPulse 1.2s ease-in-out infinite;
-}
-.typing-dots span:nth-child(2){animation-delay:0.15s}
-.typing-dots span:nth-child(3){animation-delay:0.3s}
-@keyframes dotPulse{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1)}}
-
-/* ═══════════════════════════════
-   INPUT AREA
-   ═══════════════════════════════ */
-.input-area{
-  padding:var(--space-md) var(--space-lg);
-  border-top:1px solid var(--border);
-  background:var(--bg-ivory);flex-shrink:0;position:relative;
-}
-.input-area::before{
-  content:'';position:absolute;top:-1px;left:0;right:0;height:3px;
-  background:
-    linear-gradient(to bottom,
-      var(--border-mid) 0px,var(--border-mid) 1px,
-      transparent 1px,transparent 2px,
-      var(--border) 2px,var(--border) 3px
-    );
-}
-
-.input-wrapper{display:flex;align-items:flex-end;gap:8px;max-width:780px;margin:0 auto}
-
-.input-field{
-  flex:1;background:var(--bg-warm);
-  border:1px solid var(--border);
-  border-radius:var(--r-lg);padding:13px 18px;
-  font-family:var(--font-body);font-size:13.5px;font-weight:400;
-  color:var(--text-1);resize:none;outline:none;
-  min-height:96px;max-height:200px;line-height:1.55;
-  transition:border-color 0.2s var(--ease),box-shadow 0.2s var(--ease);
-}
-.input-field::placeholder{color:var(--stone);font-weight:300}
-.input-field:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-ghost)}
-
-.send-btn{
-  height:48px;padding:0 24px;border-radius:var(--r);
-  border:1px solid var(--border-mid);
-  background:var(--ink);
-  color:var(--bg-ivory);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s var(--ease),border-color 0.2s var(--ease),transform 0.15s var(--ease),box-shadow 0.25s var(--ease);
-  flex-shrink:0;min-height:44px;
-  font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:0.04em;
-}
-[data-theme="dark"] .send-btn{background:var(--gold);color:var(--bg-ivory);border-color:var(--gold-dim)}
-.send-btn:hover:not(:disabled){
-  transform:translateY(-2px);
-  box-shadow:0 4px 16px rgba(26,31,46,0.15);
-}
-[data-theme="dark"] .send-btn:hover:not(:disabled){box-shadow:0 4px 16px rgba(99,160,212,0.25)}
-.send-btn:active:not(:disabled){transform:scale(0.94)}
-.send-btn:disabled{opacity:0.25;cursor:not-allowed}
-.send-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-.footer-note{
-  text-align:center;margin-top:8px;font-size:10px;color:var(--text-3);
-  letter-spacing:0.04em;font-weight:400;
-}
-.footer-note a{color:var(--text-2);text-decoration:none;transition:color 0.2s var(--ease)}
-.footer-note a:hover{color:var(--gold)}
-
-/* ═══ TOASTS ═══ */
-.toast{
-  position:fixed;top:20px;right:20px;padding:12px 20px;border-radius:var(--r);
-  font-size:12px;font-weight:500;z-index:100;
-  animation:toastIn 0.4s var(--ease-out);display:none;
-  font-family:var(--font-body);
-}
-.error-toast{background:rgba(197,48,48,0.06);border:1px solid var(--error);color:var(--error)}
-.success-toast{background:rgba(47,133,90,0.06);border:1px solid var(--success);color:var(--success)}
-@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
-
-/* ═══ RESPONSIVE ═══ */
-@media(min-width:640px){
-  .conv-container{padding:var(--space-xl) var(--space-2xl)}
-  .header{padding:14px var(--space-xl)}
-  .input-area{padding:var(--space-lg) var(--space-xl)}
-  .progress-tracker{padding:0 var(--space-xl)}
-  .welcome-hints{flex-direction:row}
-  .piano-key{width:96px;padding:16px 10px 20px}
-}
-@media(min-width:768px){
-  .header{padding:14px var(--space-2xl)}
-  .input-area{padding:var(--space-lg) var(--space-2xl)}
-  .conv-container{padding:var(--space-xl) var(--space-3xl)}
-  .progress-tracker{padding:0 var(--space-2xl)}
-}
-@media(min-width:1024px){
-  .piano-key{width:104px}
-}
-/* sidebar layout override: conv-column takes input-area with it */
-@media(min-width:1080px){
-  .conv-container{padding:var(--space-lg) var(--space-xl)}
-}
-
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.hidden{display:none!important}
-</style>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<script defer src="https://stats.llulllab.com/script.js" integrity="sha384-ZMxgpYfO/phGz4GiYTIZhcauuGKTb2onmOB5gsiigjmBR38DGAmIna5J1Y/dM/13" crossorigin="anonymous" data-website-id="6b39cece-7853-4c31-af56-dad674bd91c3" data-domains="cedulor.com,www.cedulor.com" data-do-not-track="true" data-exclude-search="true" data-exclude-hash="true"></script>
+<script>(function(){var q=location.search;if(/[?&](code|sub)=/.test(q)){location.replace("/draft/"+q+location.hash);}})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"EU Funding Notes","description":"Practical notes on EU research funding: upcoming calls across EU research and innovation programmes, indicative budgets, and proposal preparation, from the team behind Cedulor.","url":"https://cedulor.com/","dateModified":"2026-10-30","publisher":{"@type":"Organization","name":"Cedulor","url":"https://cedulor.com/","logo":{"@type":"ImageObject","url":"https://cedulor.com/cedulor.jpg"}}}</script>
+<style>*,*::before,*::after{box-sizing:border-box}
+:root{--paper:#fff;--ink:#18212a;--muted:#52606b;--accent:#294f63;--wash:#f2f5f7;--rule:#c5cdd2;--open:#20583f;--urgent:#8a302c;--focus:#075dcc;
+--display:"Cormorant Garamond",Georgia,serif;--text:"Libre Franklin",Arial,sans-serif;--page-width:1200px;--gap:32px}
+html{color-scheme:light}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.65 var(--text);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:4px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+a,summary{touch-action:manipulation}
+p{margin:0 0 16px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;text-wrap:pretty}
+h2{font-size:44px;line-height:1.08}
+h3{font-size:30px;line-height:1.16}
+ul,ol{padding:0;margin:0;list-style:none}
+time,.number,.meta,.status{font-variant-numeric:lining-nums tabular-nums}
+.wrap{width:min(var(--page-width),calc(100% - 80px));margin:auto}
+.skip{position:absolute;left:20px;top:-100px;z-index:10;background:#fff;padding:12px 20px;min-height:44px}
+.skip:focus{top:12px}
+.block-link{display:flex;align-items:center;min-height:44px;padding:8px 0;width:fit-content;max-width:100%}
+.label{font:600 13px/1.45 var(--text);letter-spacing:.06em;text-transform:uppercase}
+.meta{font-size:14px;line-height:1.5;color:var(--muted)}
+.masthead{display:flex;justify-content:space-between;align-items:end;gap:24px;padding:26px 0 20px}
+.masthead .name{font-family:var(--display);font-weight:600;font-size:76px;line-height:.95;letter-spacing:-.025em;margin:0}
+.masthead .name a{color:var(--ink);text-decoration:none}
+.inner .masthead .name{font-size:44px}
+.publication-name{margin:8px 0 0;font-size:14px;color:var(--muted)}
+.imprint{text-align:right}
+.imprint a{margin-left:auto}
+.section-nav{display:flex;align-items:stretch;flex-wrap:wrap;gap:0 26px;border-top:1px solid var(--ink);border-bottom:2px solid var(--ink)}
+.section-nav a{display:flex;align-items:center;min-height:48px;font-size:14px;font-weight:600;text-decoration:none}
+.section-nav a[aria-current]{text-decoration:underline;text-decoration-thickness:2px}
+.section-nav .tool-nav{margin-left:auto}
+.scope{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--rule);padding:18px 0}
+.scope a{display:flex;align-items:baseline;gap:12px;padding:0 20px;min-height:44px;text-decoration:none;color:var(--ink);border-left:1px solid var(--rule)}
+.scope a:first-child{padding-left:0;border:0}
+.scope .number{font:600 36px/1.2 var(--display)}
+.scope .caption{font-size:13px;line-height:1.4;color:var(--muted)}
+.opening{display:grid;grid-template-columns:minmax(0,2.05fr) minmax(0,1fr);gap:var(--gap);margin-top:32px;align-items:start}
+.opening>*,.selection-grid>*,.columns>*{min-width:0}
+.edition-head .label{margin-bottom:12px}
+.edition-head h2 a,.edition-head h1 a{color:var(--ink);text-decoration:none}
+.edition-head .intro{margin-top:20px;max-width:66ch}
+.call{padding-top:24px;border-top:1px solid var(--rule)}
+.call .label{color:var(--muted);margin-bottom:10px}
+.call h3 a{display:block;min-height:44px;color:var(--ink);text-decoration:none}
+.call h3 a:hover{text-decoration:underline}
+.status{display:flex;flex-wrap:wrap;gap:4px 16px;margin:14px 0 8px;font-size:14px;line-height:1.5}
+.status .open{color:var(--open);font-weight:700}
+.status .opens{color:var(--accent);font-weight:600}
+.status .remaining{color:var(--muted)}
+.status .remaining.urgent{color:var(--urgent);font-weight:600}
+.budget{font-size:14px;color:var(--muted);margin-bottom:16px}
+.call .why{margin-top:16px}
+.preparation{margin:20px 0 12px;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.preparation strong{color:var(--accent)}
+.call-links{display:flex;flex-wrap:wrap;gap:0 24px;font-size:14px;margin-bottom:12px}
+.rail{border-left:1px solid var(--rule);padding-left:32px}
+.rail-section{border-top:3px solid var(--ink);padding-top:12px;margin-bottom:28px}
+.rail-section h2{font-size:27px;line-height:1.15;margin-bottom:12px}
+.deadlines li{border-bottom:1px solid var(--rule);padding:14px 0}
+.deadline-date{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 12px;font-size:14px;font-weight:600}
+.deadline-date .remaining{color:var(--muted)}
+.deadline-date .remaining.urgent{color:var(--urgent)}
+.deadlines a{display:block;min-height:44px;padding-top:8px;font:600 23px/1.2 var(--display);text-decoration:none}
+.deadlines a:hover{text-decoration:underline}
+.rail .utility{font-size:14px}
+.rail .utility a{width:100%;border-bottom:1px solid var(--rule)}
+.section-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:3px solid var(--ink);padding-top:12px;margin:40px 0 20px}
+.section-heading h2{font-size:30px;line-height:1.15}
+.section-heading>a{font-size:14px}
+.selection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.selection-grid .call{padding-top:18px}
+.selection-grid h3{font-size:28px}
+details{border-top:1px solid var(--rule);margin-top:16px}
+summary{min-height:44px;padding:11px 0;cursor:pointer;color:var(--accent);font-size:14px;font-weight:600}
+details .preparation{margin:0 0 8px;padding-top:8px;border-top:0}
+.directory{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px}
+.directory li{min-width:0;border-top:1px solid var(--rule)}
+.directory a{display:block;min-height:100%;padding:16px 0;text-decoration:none}
+.directory a:hover .programme-name{text-decoration:underline}
+.programme-name{display:block;font:600 23px/1.15 var(--display)}
+.programme-count{display:block;margin-top:9px;font-size:13px;color:var(--muted)}
+.programme-count strong{color:var(--ink)}
+.archive-links{display:flex;flex-wrap:wrap;gap:0 32px}
+.archive-links a{font-size:14px}
+.page-head{padding:32px 0 8px}
+.page-head .label{color:var(--muted);margin-bottom:12px}
+.page-head h1{font-size:52px;line-height:1.06;max-width:22ch}
+.page-head .lede{margin-top:18px;max-width:66ch;font-size:18px;line-height:1.6}
+.columns{display:grid;grid-template-columns:minmax(0,2.05fr) minmax(0,1fr);gap:var(--gap);margin-top:24px;align-items:start}
+.call h2{font-size:30px;line-height:1.16}
+p.edition{width:min(var(--page-width),calc(100% - 80px));margin:16px auto 0!important;border-radius:0!important}
+.list .call h3{font-size:25px}
+.list .call{padding-bottom:8px}
+.summary{margin-top:12px}
+.who{margin:0 0 16px;max-width:66ch}
+.note{border-top:1px solid var(--rule);padding-top:16px;margin-top:32px;font-size:14px;line-height:1.55;color:var(--muted);max-width:80ch}
+.stale{border:1px solid var(--urgent);color:var(--urgent);padding:12px 16px;margin:16px 0;font-size:14px}
+.empty{color:var(--muted);font-style:italic}
+.side-list li{border-bottom:1px solid var(--rule)}
+.side-list a{display:flex;justify-content:space-between;gap:12px;min-height:44px;align-items:center;font-size:14px;text-decoration:none}
+.side-list a[aria-current]{font-weight:700;color:var(--ink)}
+.side-list .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.month{margin-top:8px}
+.month h2{font-size:30px;line-height:1.15;border-top:3px solid var(--ink);padding-top:12px;margin:32px 0 4px}
+.cal-list li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 24px;border-bottom:1px solid var(--rule);padding:12px 0}
+.cal-date{font-size:14px;font-weight:600}
+.cal-title a{font:600 21px/1.2 var(--display);text-decoration:none}
+.cal-title a:hover{text-decoration:underline}
+.cal-group{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.article{max-width:66ch}
+.article p{font-size:17px;line-height:1.7}
+.edition-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+.edition-list li{border-bottom:1px solid var(--rule)}
+.edition-list a{display:flex;align-items:center;min-height:44px;font-size:15px}
+.contents li{border-bottom:1px solid var(--rule)}
+.contents a{display:block;min-height:44px;padding:10px 0;font:600 19px/1.25 var(--display);text-decoration:none}
+footer{margin-top:48px;padding:24px 0 36px;border-top:2px solid var(--ink);color:var(--muted);font-size:13px}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px}
+.footer-top p{margin:0}
+.footer-links{display:flex;flex-wrap:wrap;gap:0 24px}
+.footer-links a{min-height:44px;display:flex;align-items:center;color:var(--muted)}
+.id{overflow-wrap:anywhere}
+@media (max-width:1100px){.scope a{display:block}.scope .number,.scope .caption{display:block}.directory{grid-template-columns:repeat(2,minmax(0,1fr))}.edition-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:899px){.wrap{width:calc(100% - 48px)}.opening,.columns{grid-template-columns:1fr}.rail{border-left:0;padding-left:0;display:grid;grid-template-columns:1fr 1fr;gap:24px}.rail-section{margin-bottom:0}.section-nav{gap:0 20px}.section-nav .tool-nav{margin-left:0}}
+@media (max-width:599px){.wrap{width:calc(100% - 40px)}.masthead{padding:20px 0 14px;display:block}.masthead .name{font-size:48px}.inner .masthead .name{font-size:36px}.publication-name{margin-top:6px;font-size:13px}.imprint{text-align:left;margin-top:12px}.imprint .publisher{display:none}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.section-nav a{min-height:44px;font-size:13px}
+.scope{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 0}.scope a{display:flex;align-items:center;gap:10px;padding:4px 12px;min-height:44px}.scope a:nth-child(odd){padding-left:0;border:0}.scope .number{font-size:28px}.scope .caption{font-size:12px}
+.opening{margin-top:24px;gap:24px}h2{font-size:32px}.edition-head .intro{margin-top:16px}.call h3,.call h2{font-size:27px}.list .call h3{font-size:23px}p.edition{width:calc(100% - 40px)}
+.rail,.selection-grid,.directory,.edition-list{grid-template-columns:1fr}.rail{gap:24px}
+.section-heading{margin-top:32px;align-items:start;flex-direction:column;gap:0}.section-heading h2{font-size:28px}
+.directory a{padding:14px 0}.programme-name{font-size:24px}.archive-links{display:block}
+.page-head h1{font-size:36px}.cal-list li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{.skip,.section-nav,.tool-nav{display:none}.wrap{width:100%}.opening,.columns{grid-template-columns:2fr 1fr}a{color:inherit}}</style>
 </head>
 <body>
-<h1 class="sr-only">Cedulor: Structured project support for Horizon Europe, MSCA, ERC, and EIC Accelerator proposals</h1>
-
-<a href="#main-conv" class="skip-link">Skip to conversation</a>
-
-<header class="header" role="banner">
-  <div class="header-left">
-    <div class="logo-mark"><img src="cedulor.jpg" alt="Cedulor" /></div>
-    <div class="header-title">
-      <span>Project Support Machine</span>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap">
+  <div class="masthead">
+    <div>
+      <h1 class="name"><a href="/">CEDULOR</a></h1>
+      <p class="publication-name">EU Funding Notes</p>
+    </div>
+    <div class="imprint meta">
+      <div data-as-of="2026-10-30">As of 30 October 2026</div>
+      <a class="block-link publisher" href="https://llulllab.com/">Llull Lab</a>
     </div>
   </div>
-  <div class="header-actions">
-    <span class="usage-badge hidden" id="usageBadge" aria-live="polite">
-      <span class="usage-dot" aria-hidden="true"></span>
-      <span id="usageText"></span>
-    </span>
-    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode">
-      <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    </button>
-    <button class="header-btn visible" id="newSessionBtn" aria-label="Start new session">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-      New
-    </button>
-    <button class="header-btn" id="docxBtn" aria-label="Download proposal as DOCX">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-      DOCX
-    </button>
-    <button class="header-btn" id="manageSubBtn" aria-label="Manage subscription">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-      Manage
-    </button>
-    <button class="header-btn" id="signOutBtn" aria-label="Sign out">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-      Sign out
-    </button>
-  </div>
+  <nav class="section-nav" aria-label="Publication">
+    <a href="/" aria-current="page">Daily edition</a>
+    <a href="/blog/calls/">Programmes</a>
+    <a href="/blog/calendar/">Calendar</a>
+    <a href="/blog/">Archive</a>
+    <a href="/blog/about/">Method</a>
+    <a class="tool-nav" href="/draft/">Drafting tool &#8599;</a>
+  </nav>
 </header>
-
-<!-- ① PROGRESS TRACKER -->
-<div class="app-wrapper" id="appWrapper">
-
-<div class="progress-tracker" id="progressTracker">
-  <div class="progress-tracker-inner">
-    <div class="progress-step" id="pStep1" data-step="1"><span class="step-num">1</span>Basics</div>
-    <div class="progress-step" id="pStep2" data-step="2"><span class="step-num">2</span>Science</div>
-    <div class="progress-step" id="pStep3" data-step="3"><span class="step-num">3</span>Impact</div>
-    <div class="progress-step" id="pStep4" data-step="4"><span class="step-num">4</span>Consortium</div>
-    <div class="progress-step" id="pStep5" data-step="5"><span class="step-num">5</span>Implement.</div>
-  </div>
+<nav class="scope wrap" aria-label="Coverage">
+  <a href="/blog/calls/"><span class="number">326</span><span class="caption">Calls with a future deadline</span></a>
+  <a href="/blog/calls/"><span class="number">95</span><span class="caption">Open for submission</span></a>
+  <a href="#programmes"><span class="number">16</span><span class="caption">Programme pages</span></a>
+  <a href="/blog/calendar/"><span class="number">348</span><span class="caption">Calendar deadlines</span></a>
+</nav>
+<main id="main" class="wrap">
+<div class="opening">
+  <section aria-labelledby="edition-title">
+    <div class="edition-head">
+      <p class="label">Daily edition &middot; <time datetime="2026-10-30">30 October 2026</time></p>
+      <h2 id="edition-title"><a href="/blog/eu-research-funding-calls-worth-preparing-early-2027/">EU Research Funding Calls Worth Preparing For</a></h2>
+      <p class="intro">This collection spans demonstration projects in bioenergy and social innovation, frontier research consolidation grants, place-based mission experimentation, and cybersecurity deployment for small and medium enterprises. Researchers and research offices working across Horizon Europe, the European Research Council, and Digital Europe will find distinct preparation angles for each opportunity.</p>
+    </div>
+<article class="call" id="HORIZON-CL5-2026-11-D3-05">
+  <p class="label">HORIZON-IA HORIZON Innovation Actions</p>
+  <h3><a href="/blog/eu-research-funding-calls-worth-preparing-early-2027/#HORIZON-CL5-2026-11-D3-05">Demonstration of solid biofuel supply and conversion to high efficiency CHP from fully sustainable regional value chains</a></h3>
+  <p class="status"><span class="open">Open</span>
+<span>Closes on <time datetime="2026-12-01">1 December 2026</time></span>
+<span class="remaining">32 days left</span></p>
+  <p class="budget">Indicative budget: around EUR 6.8 million per grant, about 2 grants expected (2026).</p>
+  <p class="why">This Innovation Action targets the demonstration of fully sustainable regional bioenergy value chains that convert locally sourced solid biofuels from upgraded biogenic residues and wastes into high efficiency combined heat and power. It directly supports EU climate and energy targets while creating opportunities for small and medium enterprises and strengthening European competitiveness in the bioenergy sector. The emphasis on regional sourcing and compliance with the Renewable Energy Directive makes it especially relevant for consortia that can mobilize local biomass supply networks.</p>
+  <div class="preparation"><p><strong>Preparation step.</strong> Map out a concrete regional value chain, from the sourcing of biogenic residues and wastes through upgrading and conversion in a high efficiency combined heat and power plant, ensuring every link aligns with the provisions of the Renewable Energy Directive and demonstrating tangible benefits for local industries and small and medium enterprises.</p></div>
+  <div class="call-links"><a class="block-link" href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl5-2026-11-d3-05" target="_blank" rel="noopener noreferrer">Official topic page:&nbsp;<span class="id">HORIZON-CL5-2026-11-D3-05</span></a><a class="block-link" href="/draft/">Open the computational drafting tool &#8599;</a></div>
+</article>
+  </section>
+  <aside class="rail" aria-label="Deadline calendar">
+    <section class="rail-section" aria-labelledby="next-deadlines">
+      <h2 id="next-deadlines">Deadline calendar</h2>
+      <ol class="deadlines">
+        <li>
+          <div class="deadline-date"><time datetime="2026-11-04">4 November 2026</time><span class="remaining urgent">5 days left</span></div>
+          <a href="/blog/calls/eic/#HORIZON-EIC-2026-ACCELERATOR-01">EIC Accelerator 2026 - Short proposal</a>
+        </li>
+        <li>
+          <div class="deadline-date"><time datetime="2026-11-05">5 November 2026</time><span class="remaining urgent">6 days left</span></div>
+          <a href="/blog/calls/horizon-europe-civil-security/#HORIZON-CL3-2026-01-BM-01">Advanced border surveillance and situational awareness</a>
+        </li>
+        <li>
+          <div class="deadline-date"><time datetime="2026-11-05">5 November 2026</time><span class="remaining urgent">6 days left</span></div>
+          <a href="/blog/calls/horizon-europe-civil-security/#HORIZON-CL3-2026-01-BM-02">Accessible and available travel facilitation</a>
+        </li>
+      </ol>
+      <div class="utility">
+        <a class="block-link" href="/blog/calendar/">All upcoming deadlines &rarr;</a>
+        <a class="block-link" href="/blog/calendar/cedulor-eu-funding-deadlines.ics">Calendar file (.ics)</a>
+      </div>
+    </section>
+    <section class="rail-section" aria-labelledby="funding-notes">
+      <h2 id="funding-notes">EU Funding Notes</h2>
+      <p class="meta">Practical notes on European research funding: upcoming calls with their status, indicative budgets where published, and a preparation step for each. Deadlines and figures are sourced from the EU Funding and Tenders Portal and verified against it.</p>
+      <div class="utility">
+        <a class="block-link" href="/blog/about/">How these pages are made &rarr;</a>
+        <a class="block-link" href="/draft/">Open the computational drafting tool &#8599;</a>
+      </div>
+    </section>
+  </aside>
 </div>
-
-  <!-- GATE OVERLAY -->
-  <div class="gate-overlay hidden" id="gateOverlay">
-    <div class="gate-box">
-      <button class="gate-close" id="gateClose" type="button" aria-label="Continue browsing without signing in">&times;</button>
-      <div class="gate-logo">
-        <div class="gate-logo-img"><img src="cedulor.jpg" alt="Cedulor" /></div>
-        <h2>Enter Cedulor</h2>
-        <p>Structured project support through combinatorial reasoning.</p>
-      </div>
-      <div class="gate-tabs-row">
-        <button class="gate-tab active" data-panel="subscribe" type="button">Subscribe</button>
-        <button class="gate-tab" data-panel="code" type="button">I have a code</button>
-        <button class="gate-tab" data-panel="request" type="button">Request access</button>
-      </div>
-      <!-- Subscribe Panel -->
-      <div class="gate-panel active" id="panelSubscribe">
-        <p style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6"><strong style="color:var(--text-1)">Already subscribed?</strong> Enter your email to access Cedulor with an active subscription.</p>
-        <input class="gate-input" id="subEmailInput" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
-        <button class="gate-btn" id="btnSubAccess" type="button"><span class="gate-btn-text">Access Now</span><span class="gate-spinner" aria-hidden="true"></span></button>
-        <div class="gate-msg" id="subFeedback"></div>
-        <div id="subPricingInfo" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
-          <p style="font-size:13px;color:var(--text-1);font-weight:600;margin-bottom:4px">New to Cedulor?</p>
-          <p style="font-size:12px;color:var(--text-2);margin-bottom:10px;line-height:1.55"><strong style="color:var(--text-1)">5 proposal drafts / month</strong>, all supported EU programmes, quality-control review, DOCX export. Cancel anytime.</p>
-          <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-2);margin-bottom:2px;cursor:pointer;line-height:1.5">
-            <input type="checkbox" id="subTermsAgree" style="margin-top:2px;flex-shrink:0">
-            <span>I have read and accept the <a href="/terms/" target="_blank" rel="noopener" style="color:var(--gold)">Terms of Service</a>, and I request that the service begin immediately.</span>
-          </label>
-          <div class="plan-row">
-            <button class="plan-card" id="btnSubMonthly" type="button" aria-label="Subscribe monthly, 35 euros per month">
-              <span class="plan-cadence">Monthly</span>
-              <span class="plan-price">&#8364;35<span> / mo</span></span>
-              <span class="gate-spinner" aria-hidden="true"></span>
-            </button>
-            <button class="plan-card featured" id="btnSubAnnual" type="button" aria-label="Subscribe annually, 350 euros per year, two months free">
-              <span class="plan-cadence">Annual</span>
-              <span class="plan-price">&#8364;350<span> / yr</span></span>
-              <span class="plan-sub">2 months free</span>
-              <span class="gate-spinner" aria-hidden="true"></span>
-            </button>
-          </div>
-          <p style="font-size:11px;color:var(--text-3);text-align:center;margin-top:10px">Enter your email above, then choose a plan. Office plan (20 drafts / month) on request.</p>
-        </div>
-        <p style="font-size:12px;color:var(--text-3);margin-top:10px;text-align:center">Have an invite code? <a href="#" id="gotoCodeLink" style="color:var(--gold);text-decoration:none">Enter it here &rarr;</a></p>
-      </div>
-      <div class="gate-panel" id="panelCode">
-        <input class="gate-input code-input" id="inviteCodeInput" type="text" placeholder="Enter your invite code" maxlength="14" autocomplete="off" spellcheck="false" aria-label="Invite code">
-        <button class="gate-btn" id="btnValidateCode" type="button"><span class="gate-btn-text">Validate Code</span><span class="gate-spinner" aria-hidden="true"></span></button>
-        <div class="gate-msg" id="codeFeedback" role="status" aria-live="polite"></div>
-      </div>
-      <div class="gate-panel" id="panelRequest">
-        <input class="gate-input" id="requestEmailInput" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
-        <button class="gate-btn secondary" id="btnRequestAccess" type="button"><span class="gate-btn-text">Send Request</span><span class="gate-spinner" aria-hidden="true"></span></button>
-        <div class="gate-msg" id="requestFeedback"></div>
-        <p class="gate-hint">We will review your request and send an invite code to your email.</p>
-      </div>
-
-    </div>
+<section aria-labelledby="more-title">
+  <div class="section-heading"><h2 id="more-title">In this edition</h2><a class="block-link" href="/blog/eu-research-funding-calls-worth-preparing-early-2027/">Read the complete edition &rarr;</a></div>
+  <div class="selection-grid">
+<article class="call" id="HORIZON-NEB-2026-01-BUSINESS-01">
+  <p class="label">HORIZON-IA HORIZON Innovation Actions</p>
+  <h3><a href="/blog/eu-research-funding-calls-worth-preparing-early-2027/#HORIZON-NEB-2026-01-BUSINESS-01">Structurally addressing homelessness through coordinated social infrastructure and services in neighbourhoods</a></h3>
+  <p class="status"><span class="open">Open</span>
+<span>Closes on <time datetime="2026-12-01">1 December 2026</time></span>
+<span class="remaining">32 days left</span></p>
+  <p class="budget">Indicative budget: around EUR 3.5 million per grant, about 3 grants expected (2026).</p>
+  <p class="why">Homelessness affects over 1.2 million people in Europe, and nearly half of surveyed homeless individuals face chronic homelessness lasting more than two years. This Innovation Action goes beyond housing-led approaches by demanding systemic interventions in social infrastructure and services at the neighbourhood level. It seeks to produce evidence that stakeholders can use to structurally address the multidimensional causes of homelessness.</p>
+  <details><summary>Preparation step</summary><div class="preparation"><p>Identify specific neighbourhoods where coordinated social infrastructure and services can be demonstrated, and begin engaging local stakeholders (municipal authorities, social service providers, community organizations) who can contribute evidence on the structural causes of homelessness in those areas.</p></div></details>
+  <div class="call-links"><a class="block-link" href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-neb-2026-01-business-01" target="_blank" rel="noopener noreferrer">Official topic page:&nbsp;<span class="id">HORIZON-NEB-2026-01-BUSINESS-01</span></a></div>
+</article>
+<article class="call" id="ERC-2027-COG">
+  <p class="label">HORIZON-ERC HORIZON ERC Grants</p>
+  <h3><a href="/blog/eu-research-funding-calls-worth-preparing-early-2027/#ERC-2027-COG">ERC Consolidator Grant</a></h3>
+  <p class="status"><span class="open">Open</span>
+<span>Closes on <time datetime="2027-01-12">12 January 2027</time></span>
+<span class="remaining">74 days left</span></p>
+  <p class="why">The European Research Council Consolidator Grant is designed for excellent Principal Investigators who are consolidating an independent research team or programme, requiring demonstrated evidence of research independence. It offers funding for up to 60 months, with the possibility of requesting additional funding when justified by the proposed work. This makes it a substantial instrument for researchers at a pivotal career stage seeking to deepen and expand a distinctive line of inquiry.</p>
+  <details><summary>Preparation step</summary><div class="preparation"><p>Prepare a compelling narrative that clearly documents your track record of research independence, and if your proposed work requires resources beyond the standard grant ceiling, draft a detailed justification for the additional funding request well before the deadline.</p></div></details>
+  <div class="call-links"><a class="block-link" href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/erc-2027-cog" target="_blank" rel="noopener noreferrer">Official topic page:&nbsp;<span class="id">ERC-2027-COG</span></a></div>
+</article>
+<article class="call" id="HORIZON-MISS-2026-07-CROSS-04">
+  <p class="label">HORIZON-IA HORIZON Innovation Actions</p>
+  <h3><a href="/blog/eu-research-funding-calls-worth-preparing-early-2027/#HORIZON-MISS-2026-07-CROSS-04">Demonstrating place-based experimentation and innovation spaces as enabling environments for scaling EU Missions</a></h3>
+  <p class="status"><span class="open">Open</span>
+<span>Closes on <time datetime="2027-01-13">13 January 2027</time></span>
+<span class="remaining">75 days left</span></p>
+  <p class="budget">Indicative budget: EUR 1.0 to 1.5 million per grant, about 3 grants expected (2026).</p>
+  <p class="why">This Innovation Action serves as a strategic instrument for the transition of EU Missions into their scaling phase, focused on wider deployment of mission-relevant solutions across territories. It calls on countries, regions, and interregional partnerships to design governance frameworks, regulatory experimentation, and innovative public-public and public-private collaboration models. The emphasis on turning analytical insights into territorial experimentation and replicable best practices distinguishes it from purely research-oriented calls.</p>
+  <details><summary>Preparation step</summary><div class="preparation"><p>Begin assembling a coalition of territorial actors (regional governments, interregional partnerships, public agencies) that can credibly demonstrate multi-layered governance and regulatory experimentation, and outline how your proposed enabling environment will translate novel solutions into practices replicable across multiple EU funding instruments.</p></div></details>
+  <div class="call-links"><a class="block-link" href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-miss-2026-07-cross-04" target="_blank" rel="noopener noreferrer">Official topic page:&nbsp;<span class="id">HORIZON-MISS-2026-07-CROSS-04</span></a></div>
+</article>
+<article class="call" id="DIGITAL-ECCC-2027-DEPLOY-CYBER-11-AI4SME">
+  <p class="label">DIGITAL-JU-SME DIGITAL JU SME Support Actions</p>
+  <h3><a href="/blog/eu-research-funding-calls-worth-preparing-early-2027/#DIGITAL-ECCC-2027-DEPLOY-CYBER-11-AI4SME">Strengthening cybersecurity capacities of European SMEs  with cybersecure AI-powered solutions</a></h3>
+  <p class="status"><span class="open">Open</span>
+<span>Closes on <time datetime="2027-01-14">14 January 2027</time></span>
+<span class="remaining">76 days left</span></p>
+  <p class="budget">Indicative budget: EUR 3.0 to 5.0 million per grant, about 5 grants expected (2026).</p>
+  <p class="why">This Digital Europe action focuses on strengthening the cybersecurity posture of European small and medium enterprises through the deployment of market-ready, AI-powered cybersecurity solutions. It covers a broad scope: preparing, protecting, and responding to cybersecurity threats while also integrating trustworthy AI into cybersecurity processes. The call explicitly encourages uptake of results from EU-supported research and innovation projects, linking prior Horizon Europe outputs to real-world deployment.</p>
+  <details><summary>Preparation step</summary><div class="preparation"><p>Survey existing AI-powered cybersecurity tools, particularly those developed under EU-supported research and innovation projects, and design a deployment plan that shows how these solutions will be integrated into SME cybersecurity processes, including employee training on the use of AI for threat detection and response.</p></div></details>
+  <div class="call-links"><a class="block-link" href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/digital-eccc-2027-deploy-cyber-11-ai4sme" target="_blank" rel="noopener noreferrer">Official topic page:&nbsp;<span class="id">DIGITAL-ECCC-2027-DEPLOY-CYBER-11-AI4SME</span></a></div>
+</article>
   </div>
-
-  <!-- EXHAUSTED OVERLAY -->
-  <div class="exhausted-overlay hidden" id="exhaustedOverlay">
-    <div class="exhausted-box">
-      <div class="exhausted-icon" aria-hidden="true">&#9711;</div>
-      <h3>No Sessions Remaining</h3>
-      <p>Your allotted sessions have been fully utilised. Request a new invitation code to continue.</p>
-      <input class="gate-input" id="exhaustedEmailInput" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email for new access request">
-      <button class="gate-btn secondary" id="btnExhaustedRequest" type="button"><span class="gate-btn-text">Request New Access</span><span class="gate-spinner" aria-hidden="true"></span></button>
-      <div class="gate-msg" id="exhaustedFeedback"></div>
-    </div>
+</section>
+<section id="programmes" aria-labelledby="programmes-title">
+  <div class="section-heading"><h2 id="programmes-title">EU Funding Calls by Programme</h2><a class="block-link" href="/blog/calls/">All programmes &rarr;</a></div>
+  <ul class="directory">
+    <li><a href="/blog/calls/horizon-europe-health/"><span class="programme-name">Horizon Europe: Health</span><span class="programme-count"><strong>16</strong> calls &middot; <strong>13</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-culture-creativity-inclusive-society/"><span class="programme-name">Horizon Europe: Culture, Creativity and Inclusive Society</span><span class="programme-count"><strong>27</strong> calls &middot; <strong>0</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-civil-security/"><span class="programme-name">Horizon Europe: Civil Security for Society</span><span class="programme-count"><strong>39</strong> calls &middot; <strong>19</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-digital-industry-space/"><span class="programme-name">Horizon Europe: Digital, Industry and Space</span><span class="programme-count"><strong>34</strong> calls &middot; <strong>15</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-climate-energy-mobility/"><span class="programme-name">Horizon Europe: Climate, Energy and Mobility</span><span class="programme-count"><strong>51</strong> calls &middot; <strong>4</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-food-bioeconomy-environment/"><span class="programme-name">Horizon Europe: Food, Bioeconomy, Natural Resources, Agriculture and Environment</span><span class="programme-count"><strong>50</strong> calls &middot; <strong>0</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-missions/"><span class="programme-name">Horizon Europe: Missions</span><span class="programme-count"><strong>26</strong> calls &middot; <strong>1</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-widening/"><span class="programme-name">Horizon Europe: Widening Participation and Strengthening the European Research Area</span><span class="programme-count"><strong>9</strong> calls &middot; <strong>1</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-research-infrastructures/"><span class="programme-name">Horizon Europe: Research Infrastructures</span><span class="programme-count"><strong>9</strong> calls &middot; <strong>0</strong> open</span></a></li>
+    <li><a href="/blog/calls/horizon-europe-other/"><span class="programme-name">Horizon Europe: Other Calls</span><span class="programme-count"><strong>50</strong> calls &middot; <strong>30</strong> open</span></a></li>
+    <li><a href="/blog/calls/eic/"><span class="programme-name">European Innovation Council (EIC)</span><span class="programme-count"><strong>1</strong> call &middot; <strong>1</strong> open</span></a></li>
+    <li><a href="/blog/calls/msca/"><span class="programme-name">Marie Skłodowska-Curie Actions (MSCA)</span><span class="programme-count"><strong>4</strong> calls &middot; <strong>1</strong> open</span></a></li>
+    <li><a href="/blog/calls/erc/"><span class="programme-name">European Research Council (ERC)</span><span class="programme-count"><strong>1</strong> call &middot; <strong>1</strong> open</span></a></li>
+    <li><a href="/blog/calls/digital-europe/"><span class="programme-name">Digital Europe Programme</span><span class="programme-count"><strong>9</strong> calls &middot; <strong>9</strong> open</span></a></li>
+    <li><a href="/blog/calls/life/"><span class="programme-name">LIFE Programme</span><span class="programme-count"><strong>0</strong> calls &middot; <strong>0</strong> open</span></a></li>
+    <li><a href="/blog/calls/eu4health/"><span class="programme-name">EU4Health Programme</span><span class="programme-count"><strong>0</strong> calls &middot; <strong>0</strong> open</span></a></li>
+  </ul>
+</section>
+<section aria-labelledby="archive-title">
+  <div class="section-heading"><h2 id="archive-title">Daily editions</h2><a class="block-link" href="/blog/">All daily editions &rarr;</a></div>
+  <p class="meta">Each day's page is kept here as it was published, with the dates and statuses of that day.</p>
+  <div class="archive-links">
+    <a class="block-link" href="/blog/archive/2026-10-30/"><time datetime="2026-10-30">30 October 2026</time></a>
+    <a class="block-link" href="/blog/archive/2026-10-29/"><time datetime="2026-10-29">29 October 2026</time></a>
+    <a class="block-link" href="/blog/archive/2026-10-28/"><time datetime="2026-10-28">28 October 2026</time></a>
   </div>
-
-  <!-- ⑤ GENERATION OVERLAY -->
-  <div class="gen-overlay hidden" id="genOverlay">
-    <div class="gen-box">
-      <div class="gen-ring" aria-hidden="true"></div>
-      <div class="gen-title">Composing Your Proposal</div>
-      <div class="gen-sub">Structuring sections, aligning objectives, calculating budget. This runs securely in the EU and continues even if it takes a few minutes.</div>
-      <div class="gen-elapsed" id="genElapsed" style="margin-top:12px;font-variant-numeric:tabular-nums;font-weight:700;font-size:15px;color:var(--gold);letter-spacing:0.04em"></div>
-      <div class="gen-steps">
-        <div class="gen-step"><div class="gen-step-icon" id="genS1">1</div><div class="gen-step-label">Parsing</div></div>
-        <div class="gen-step"><div class="gen-step-icon" id="genS2">2</div><div class="gen-step-label">Excellence</div></div>
-        <div class="gen-step"><div class="gen-step-icon" id="genS3">3</div><div class="gen-step-label">Impact</div></div>
-        <div class="gen-step"><div class="gen-step-icon" id="genS4">4</div><div class="gen-step-label">Implement.</div></div>
-        <div class="gen-step"><div class="gen-step-icon" id="genS5">5</div><div class="gen-step-label">DOCX</div></div>
-      </div>
+</section>
+</main>
+<footer class="wrap">
+  <div class="footer-top">
+    <div>
+      <a class="block-link" href="https://llulllab.com/">Llull Lab</a>
+      <p>Conçu et développé en France</p>
+      <p>Created by <a href="https://feix.app" target="_blank" rel="noopener">Feix</a></p>
     </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/blog/about/">Method</a>
+      <a href="/blog/">Archive</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/mentions-legales/">Mentions Légales</a>
+    </nav>
   </div>
-
-  <!-- APP CONTENT -->
-  <div class="app-content">
-
-    <!-- LEFT SIDEBAR: Example Outputs (desktop only) -->
-    <aside class="left-sidebar" id="leftSidebar">
-      <div class="left-sidebar-section">
-        <div class="left-sidebar-label">Example Outputs</div>
-        <div class="left-sidebar-desc">Download sample proposal drafts generated by Cedulor to see the quality and structure before you begin.</div>
-      </div>
-      <div class="left-sidebar-section">
-        <div class="example-dl-list">
-          <div class="example-dl-group" style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim,#b08d57);margin:10px 4px 4px">Horizon Europe & EIC</div>
-          <a class="example-dl-item" href="/samples/sample_horizon.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">Horizon Europe</div>
-              <div class="example-dl-meta">RIA · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_pathfinder.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">EIC Pathfinder</div>
-              <div class="example-dl-meta">Open · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_eic-transition.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">EIC Transition</div>
-              <div class="example-dl-meta">Innovation · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_eic-accelerator.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">EIC Accelerator</div>
-              <div class="example-dl-meta">Step 1 · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_eic-accelerator-step2.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">EIC Accelerator Step 2</div>
-              <div class="example-dl-meta">Business Plan · Draft · PDF</div>
-            </div>
-          </a>
-          <div class="example-dl-group" style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim,#b08d57);margin:10px 4px 4px">MSCA & ERC</div>
-          <a class="example-dl-item" href="/samples/sample_msca.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">MSCA Fellowship</div>
-              <div class="example-dl-meta">Postdoctoral · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_msca-staff-exchanges.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">MSCA Staff Exchanges</div>
-              <div class="example-dl-meta">Exchange · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_erc.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">ERC Grant</div>
-              <div class="example-dl-meta">Starting Grant · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_erc-poc.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">ERC Proof of Concept</div>
-              <div class="example-dl-meta">PoC · Draft · PDF</div>
-            </div>
-          </a>
-          <div class="example-dl-group" style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim,#b08d57);margin:10px 4px 4px">Other EU programmes</div>
-          <a class="example-dl-item" href="/samples/sample_digital-europe.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">Digital Europe</div>
-              <div class="example-dl-meta">Grant · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_eurostars.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">Eurostars</div>
-              <div class="example-dl-meta">SME R&D · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_life.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">LIFE</div>
-              <div class="example-dl-meta">SAP · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_cost.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">COST</div>
-              <div class="example-dl-meta">Action · Draft · PDF</div>
-            </div>
-          </a>
-          <a class="example-dl-item" href="/samples/sample_eu4health.pdf" download>
-            <div class="example-dl-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <div class="example-dl-info">
-              <div class="example-dl-name">EU4Health</div>
-              <div class="example-dl-meta">Grant · Draft · PDF</div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="left-sidebar-note">
-        These are computationally generated drafts for demonstration purposes. Actual outputs are tailored to your specific project details.
-      </div>
-    </aside>
-
-    <div class="conv-column">
-    <main class="conv-container" id="mainConv" role="log" aria-label="Conversation messages">
-      <div class="welcome" id="welcomeScreen">
-        <div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div>
-        <h2>Your <em>Proposal</em> Begins Here</h2>
-        <div class="welcome-barline" aria-hidden="true"></div>
-        <p>Select your EU programme, describe your project, and Cedulor produces a complete, programme-structured proposal draft you can download as a Word document. Use the panel below to begin.</p>
-      </div>
-    </main>
-
-    <style>
-      .intake-panel{display:flex;flex-direction:column;gap:12px;width:100%}
-      .intake-field{display:flex;flex-direction:column;gap:5px}
-      .intake-label{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3)}
-      .intake-select,.intake-input{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text-1);font-size:14px;font-family:inherit}
-      .intake-select:focus,.intake-input:focus{outline:none;border-color:var(--gold)}
-      .intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-      @media (max-width:640px){.intake-grid{grid-template-columns:1fr}}
-      .gen-progress{font-size:12px;color:var(--text-3);font-variant-numeric:tabular-nums;text-align:center}
-      #genBtn{width:100%;justify-content:center}
-      #genBtn:disabled{opacity:0.55;cursor:not-allowed}
-    </style>
-    <div class="input-area">
-      <div class="intake-panel">
-        <div class="intake-field">
-          <label class="intake-label" for="progSelect">Programme</label>
-          <select id="progSelect" class="intake-select" aria-label="EU programme">
-            <option value="" disabled selected>Select a programme...</option>
-            <optgroup label="Horizon Europe &amp; EIC">
-              <option value="horizon-v2">Horizon Europe (RIA / IA / CSA)</option>
-              <option value="pathfinder-v2">EIC Pathfinder</option>
-              <option value="eictrans-v2">EIC Transition</option>
-              <option value="eic-v2">EIC Accelerator (Step 1, short proposal)</option>
-              <option value="accelerator2-v2">EIC Accelerator (Step 2, full business plan)</option>
-            </optgroup>
-            <optgroup label="MSCA &amp; ERC">
-              <option value="msca-v2">MSCA (Doctoral Networks / Postdoctoral)</option>
-              <option value="mscase-v2">MSCA Staff Exchanges</option>
-              <option value="erc-v2">ERC (Starting / Consolidator / Advanced)</option>
-              <option value="ercpoc-v2">ERC Proof of Concept</option>
-            </optgroup>
-            <optgroup label="Other EU programmes">
-              <option value="digital-v2">Digital Europe Programme</option>
-              <option value="eurostars-v2">Eurostars (Eureka)</option>
-              <option value="life-v2">LIFE Programme</option>
-              <option value="cost-v2">COST Actions</option>
-              <option value="eu4health-v2">EU4Health</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="intake-grid">
-          <input id="fldTitle" class="intake-input" placeholder="Project title" aria-label="Project title" />
-          <input id="fldAcronym" class="intake-input" placeholder="Acronym" aria-label="Acronym" />
-          <input id="fldBudget" class="intake-input" placeholder="Total budget (EUR)" aria-label="Total budget" />
-          <input id="fldDuration" class="intake-input" placeholder="Duration (months)" aria-label="Duration" />
-        </div>
-        <div class="intake-field">
-          <label class="intake-label" for="messageInput">Project description</label>
-          <textarea class="input-field" id="messageInput" rows="3" aria-label="Project description" placeholder="Describe your project: the objective, the innovation and how it goes beyond the state of the art, the market or scientific impact, the team or consortium, the work plan, and the main risks. The more detail you give, the stronger the draft. You can also paste an existing draft."></textarea>
-        </div>
-        <button class="send-btn" id="genBtn" aria-label="Generate full proposal draft">Generate full proposal draft</button>
-        <div class="gen-progress" id="genProgress" style="display:none"></div>
-      </div>
-      <div class="footer-note">Conçu et développé en France</div>
-      <div class="footer-note">Built by <a href="https://www.llulllab.com" target="_blank" rel="noopener noreferrer">Llull Lab</a> · <a href="/blog/">Blog</a> · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/mentions-legales/">Mentions Légales</a></div>
-      <div class="footer-note"><a href="https://feix.app" target="_blank" rel="noopener noreferrer">Created by Feix</a></div>
-    </div>
-    </div>
-
-    <!-- CONTEXT SIDEBAR: desktop only -->
-    <aside class="context-sidebar" id="contextSidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-section-label">Programme</div>
-        <div class="sidebar-programme" id="sidebarProgramme">Not yet selected</div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-label">Collected Information</div>
-        <ul class="sidebar-checklist" id="sidebarChecklist">
-          <li id="sc1"><span class="sidebar-check">&middot;</span>Project basics</li>
-          <li id="sc2"><span class="sidebar-check">&middot;</span>Scientific content</li>
-          <li id="sc3"><span class="sidebar-check">&middot;</span>Impact strategy</li>
-          <li id="sc4"><span class="sidebar-check">&middot;</span>Consortium</li>
-          <li id="sc5"><span class="sidebar-check">&middot;</span>Implementation</li>
-        </ul>
-      </div>
-      <div class="sidebar-section" id="sidebarDetails">
-        <div class="sidebar-section-label">Project Details</div>
-        <div class="sidebar-empty" id="sidebarEmpty">Details will appear here as you share information about your project.</div>
-        <div id="sidebarItems"></div>
-      </div>
-      <div class="sidebar-section" style="margin-top:auto;padding-top:var(--space-md);border-top:1px solid var(--border)">
-        <div class="sidebar-section-label">Supported Programmes</div>
-        <div style="font-size:10px;color:var(--text-3);line-height:1.7">Horizon Europe (RIA, IA, CSA), EIC Pathfinder, EIC Transition, EIC Accelerator (Step 1 &amp; Step 2), MSCA (Doctoral Networks, Postdoctoral, Staff Exchanges), ERC (Starting / Consolidator / Advanced, Proof of Concept), Digital Europe, Eurostars, LIFE, COST, EU4Health</div>
-      </div>
-    </aside>
-  </div>
-
-</div>
-
-<div class="toast error-toast" id="errorToast" role="alert"></div>
-<div class="toast success-toast" id="successToast" role="status"></div>
-
-<script>
-'use strict';
-
-(function(){
-  /* ══════════════════════════════════════
-     CONFIG & ENDPOINTS
-     ══════════════════════════════════════ */
-  var API_BASE='https://api.llulllab.com';
-  var GEN_BASE='https://run.llulllab.com/webhook';
-  var ENDPOINTS={
-    chat:GEN_BASE+'/horizon',
-    validate:API_BASE+'/invite-validate',
-    request:API_BASE+'/horizon-access-request',
-    subscribeAccess:API_BASE+'/subscribe-access',
-    stripeCheckout:API_BASE+'/stripe-checkout',
-    stripePortal:API_BASE+'/stripe-portal'
-  };
-  /* Async v5: each programme has a generate-only endpoint at GEN_BASE + '/<path>'
-     (the <select> option value IS the path). Generation is single-shot: the full
-     brief goes in one message, we receive 202 + job_id, then poll JOB_STATUS_URL. */
-  var JOB_STATUS_URL=GEN_BASE+'/job-status';
-
-  /* Generate or restore persistent session ID */
-  function getSessionId(){
-    var key='cedulor_session_id';
-    var existing=null;
-    try{existing=sessionStorage.getItem(key)}catch(e){}
-    if(existing)return existing;
-    var id='session-'+(typeof crypto!=='undefined'&&crypto.randomUUID?crypto.randomUUID().slice(0,12):Math.random().toString(36).substr(2,9))+'-'+Date.now().toString(36).substr(-4);
-    try{sessionStorage.setItem(key,id)}catch(e){}
-    return id;
-  }
-  function resetSessionId(){
-    var id='session-'+Math.random().toString(36).substr(2,9)+Date.now().toString(36).substr(-4);
-    try{sessionStorage.setItem('cedulor_session_id',id)}catch(e){}
-    return id;
-  }
-
-  var CONFIG={
-    sessionId:getSessionId(),
-    apiKey:''
-  };
-
-  var isWaiting=false,lastBotRaw='',botMessageCount=0;
-  var lastProposalData=null,lastDocxBase64=null,lastDocxFilename=null;
-
-  /* WP bar color classes */
-  var WP_COLORS=['c0','c1','c2','c3','c4','c5','c6'];
-
-  /* ══════════════════════════════════════
-     GATE SYSTEM (unchanged logic)
-     ══════════════════════════════════════ */
-  var appWrapper=document.getElementById('appWrapper');
-  var gateOverlay=document.getElementById('gateOverlay');
-  var exhaustedOverlay=document.getElementById('exhaustedOverlay');
-  var subEmailInput=document.getElementById('subEmailInput');
-  var btnSubAccess=document.getElementById('btnSubAccess');
-  var subFeedback=document.getElementById('subFeedback');
-  var subPricingInfo=document.getElementById('subPricingInfo');
-  var btnSubMonthly=document.getElementById('btnSubMonthly');
-  var btnSubAnnual=document.getElementById('btnSubAnnual');
-  var inviteCodeInput=document.getElementById('inviteCodeInput');
-  var btnValidateCode=document.getElementById('btnValidateCode');
-  var codeFeedback=document.getElementById('codeFeedback');
-  var requestEmailInput=document.getElementById('requestEmailInput');
-  var btnRequestAccess=document.getElementById('btnRequestAccess');
-  var requestFeedback=document.getElementById('requestFeedback');
-  var exhaustedEmailInput=document.getElementById('exhaustedEmailInput');
-  var btnExhaustedRequest=document.getElementById('btnExhaustedRequest');
-  var exhaustedFeedback=document.getElementById('exhaustedFeedback');
-  var usageBadge=document.getElementById('usageBadge');
-  var usageText=document.getElementById('usageText');
-  var signOutBtn=document.getElementById('signOutBtn');
-
-  var sessionToken=null;
-  var remainingUses=0;
-  var pendingGenerate=false; /* true when the gate was opened by a Generate click; fires generation after unlock */
-  var lastMaxUses=0;
-
-  function saveToken(t){sessionToken=t;try{localStorage.setItem('cedulor_token',t)}catch(e){}}
-  function loadToken(){try{return localStorage.getItem('cedulor_token')}catch(e){return null}}
-  function clearToken(){sessionToken=null;try{localStorage.removeItem('cedulor_token')}catch(e){}}
-  function saveSubEmail(e){try{localStorage.setItem('cedulor_sub_email',e)}catch(x){}}
-  function loadSubEmail(){try{return localStorage.getItem('cedulor_sub_email')}catch(e){return null}}
-
-  function unlockInput(remaining,maxUses){
-    remainingUses=remaining;
-    appWrapper.classList.remove('locked');
-    gateOverlay.classList.add('hidden');
-    exhaustedOverlay.classList.add('hidden');
-    updateUsageBadge(remaining,maxUses);
-    /* ① Show progress tracker on unlock */
-    document.getElementById('progressTracker').classList.add('visible');
-    /* An active session exists: offer an explicit sign-out (all session types). */
-    if(signOutBtn)signOutBtn.classList.add('visible');
-    /* If the gate was opened by a Generate click, continue that generation now. */
-    if(pendingGenerate){pendingGenerate=false;generateProposal();}
-  }
-  function lockInput(){
-    appWrapper.classList.add('locked');
-    gateOverlay.classList.remove('hidden');
-    exhaustedOverlay.classList.add('hidden');
-    usageBadge.classList.add('hidden');
-    resetGateFeedback();
-    document.getElementById('progressTracker').classList.remove('visible');
-  }
-  /* Open the gate as a modal in response to a Generate click (visitor has no session yet).
-     The filled intake form stays intact behind the blur; after the visitor gets access the
-     pending generation continues automatically. */
-  function openGateForGenerate(){
-    pendingGenerate=true;
-    lockInput();
-    try{showGateFeedback(subFeedback,'Almost there. Subscribe or enter your invite code to generate your draft.','');}catch(e){}
-  }
-  /* Dismiss the gate and return to browsing (no session). */
-  function closeGate(){
-    pendingGenerate=false;
-    appWrapper.classList.remove('locked');
-    gateOverlay.classList.add('hidden');
-  }
-  function showExhausted(){
-    appWrapper.classList.add('locked');
-    gateOverlay.classList.add('hidden');
-    exhaustedOverlay.classList.remove('hidden');
-    usageBadge.classList.add('hidden');
-    if(signOutBtn)signOutBtn.classList.remove('visible');
-    clearToken();
-  }
-  function updateUsageBadge(remaining,maxUses){
-    if(typeof remaining!=='number')return;
-    if(maxUses!=null)lastMaxUses=maxUses;
-    var display=lastMaxUses||'?';
-    usageText.textContent=remaining+' / '+display+' sessions';
-    usageBadge.classList.remove('hidden','warning','depleted');
-    if(remaining<=0)usageBadge.classList.add('depleted');
-    else if(remaining===1)usageBadge.classList.add('warning');
-  }
-  function resetGateFeedback(){
-    [codeFeedback,requestFeedback,exhaustedFeedback].forEach(function(el){if(el){el.className='gate-msg';el.textContent=''}});
-  }
-  function showGateFeedback(el,msg,type){if(el){el.className='gate-msg '+type;el.textContent=msg}}
-  function setGateLoading(btn,loading){
-    if(loading){btn.classList.add('loading');btn.disabled=true}
-    else{btn.classList.remove('loading');btn.disabled=false}
-  }
-
-  /* Gate tabs */
-  var cedulorPanelMap={subscribe:'panelSubscribe',code:'panelCode',request:'panelRequest'};
-  var gateTabBtns=document.querySelectorAll('.gate-tab');
-  var gatePanelEls=document.querySelectorAll('.gate-panel');
-  function activateGateTab(panel){
-    gateTabBtns.forEach(function(t){t.classList.toggle('active',t.dataset.panel===panel)});
-    gatePanelEls.forEach(function(p){p.classList.remove('active')});
-    var targetEl=document.getElementById(cedulorPanelMap[panel]||'panelSubscribe');
-    if(targetEl)targetEl.classList.add('active');
-  }
-  gateTabBtns.forEach(function(tab){
-    tab.addEventListener('click',function(){
-      activateGateTab(tab.dataset.panel);
-      resetGateFeedback();
-    });
-  });
-  var gotoCodeLink=document.getElementById('gotoCodeLink');
-  if(gotoCodeLink){gotoCodeLink.addEventListener('click',function(e){e.preventDefault();activateGateTab('code');resetGateFeedback();inviteCodeInput.focus()})}
-  var gateCloseBtn=document.getElementById('gateClose');
-  if(gateCloseBtn){gateCloseBtn.addEventListener('click',closeGate);}
-
-  /* Subscribe access */
-  var manageSubBtn=document.getElementById('manageSubBtn');
-  // Self-serve subscription management. Shown ONLY for Stripe subscribers (the
-  // subscribe-access path), never for invite-code users (no Stripe sub to manage).
-  function showManageSub(email){if(email){manageSubBtn.dataset.email=email;manageSubBtn.classList.add('visible')}}
-  manageSubBtn.addEventListener('click',async function(){
-    var email=manageSubBtn.dataset.email||loadSubEmail();
-    if(!email)return;
-    setGateLoading(manageSubBtn,true);
-    try{
-      var res=await fetch(ENDPOINTS.stripePortal,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,product:'cedulor',return_url:location.origin+location.pathname})});
-      var data=await res.json();
-      if(res.ok&&data.portal_url){window.open(data.portal_url,'_blank')}
-      else{alert('Could not open the subscription portal. To cancel or manage your subscription, email contact@llulllab.com.')}
-    }catch(err){alert('Could not open the subscription portal. To cancel or manage your subscription, email contact@llulllab.com.')}
-    finally{setGateLoading(manageSubBtn,false)}
-  });
-  /* Explicit user-triggered sign-out. The access token is re-derivable from the invite
-     code or the subscriber email, so clearing it from this device is a complete sign-out:
-     remove the session locally and return to visitor mode. A multi-use invite is not
-     revoked (that would strand the legitimate holder on a shared workstation). The
-     workspace is wiped so a shared computer never leaves the previous user's draft on
-     screen. */
-  function signOut(){
-    if(isWaiting){showError('Please wait for the current draft to finish before signing out.');return;}
-    clearToken();
-    try{localStorage.removeItem('cedulor_sub_email')}catch(e){}
-    try{sessionStorage.removeItem('cedulor_session_id')}catch(e){}
-    remainingUses=0;
-    usageBadge.classList.add('hidden');
-    if(signOutBtn)signOutBtn.classList.remove('visible');
-    manageSubBtn.classList.remove('visible');
-    newSession();
-    /* visitor mode: site stays visible, the gate re-opens only on the next Generate click */
-    appWrapper.classList.remove('locked');
-    gateOverlay.classList.add('hidden');
-    exhaustedOverlay.classList.add('hidden');
-    document.getElementById('progressTracker').classList.remove('visible');
-    showSuccess('Signed out.');
-  }
-  if(signOutBtn)signOutBtn.addEventListener('click',signOut);
-  async function checkCedulorSubscribeAccess(email){
-    var res=await fetch(ENDPOINTS.subscribeAccess,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,product:'cedulor'})});
-    var data=await res.json();
-    if(res.ok&&data.token){saveToken(data.token);saveSubEmail(email);unlockInput(data.remaining_uses,data.max_uses);showManageSub(email);return true}
-    return false;
-  }
-  btnSubAccess.addEventListener('click',async function(){
-    var email=subEmailInput.value.trim().toLowerCase();
-    if(!email||!email.includes('@')||!email.includes('.')){showGateFeedback(subFeedback,'Please enter a valid email address.','error');subEmailInput.focus();return}
-    setGateLoading(btnSubAccess,true);
-    subFeedback.className='gate-msg';subFeedback.textContent='';
-    try{
-      var unlocked=await checkCedulorSubscribeAccess(email);
-      if(!unlocked){showGateFeedback(subFeedback,'No active subscription found for this email. Choose a plan below to subscribe.','error')}
-    }catch(err){showGateFeedback(subFeedback,'Connection error. Please try again.','error')}
-    finally{setGateLoading(btnSubAccess,false)}
-  });
-  subEmailInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();btnSubAccess.click()}});
-
-  async function startCedulorCheckout(plan){
-    var email=subEmailInput.value.trim().toLowerCase();
-    if(!email||!email.includes('@')||!email.includes('.')){showGateFeedback(subFeedback,'Please enter your email above first.','error');subEmailInput.focus();return}
-    var agree=document.getElementById('subTermsAgree');
-    if(!agree||!agree.checked){showGateFeedback(subFeedback,'Please accept the Terms of Service to continue.','error');return}
-    var btn=plan==='individual_monthly'?btnSubMonthly:btnSubAnnual;
-    setGateLoading(btn,true);
-    try{
-      var cr=await fetch('https://api.h-q.io/v1/consent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product:'cedulor',email:email,accepted:true,locale:(navigator.language||'').slice(0,5)})});
-      var cj=await cr.json().catch(function(){return{}});
-      if(!cj.consent_id){showGateFeedback(subFeedback,'Could not record your acceptance. Please try again.','error');setGateLoading(btn,false);return}
-      var res=await fetch(ENDPOINTS.stripeCheckout,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,product:'cedulor',plan:plan,consent_id:cj.consent_id})});
-      var data=await res.json();
-      if(res.ok&&data.checkout_url){window.location.href=data.checkout_url}
-      else{showGateFeedback(subFeedback,data.error||'Could not start checkout.','error');setGateLoading(btn,false)}
-    }catch(err){showGateFeedback(subFeedback,'Connection error. Please try again.','error');setGateLoading(btn,false)}
-  }
-  btnSubMonthly.addEventListener('click',function(){startCedulorCheckout('individual_monthly')});
-  btnSubAnnual.addEventListener('click',function(){startCedulorCheckout('individual_annual')});
-
-  /* Validate invite code. auto=true when fired by a #code= / ?code= deep-link, so a failed
-     validation gives a recovery path instead of a bare error. */
-  async function runValidateCode(auto){
-    var code=inviteCodeInput.value.trim().toUpperCase();
-    if(!code){showGateFeedback(codeFeedback,'Please enter your invite code.','error');inviteCodeInput.focus();return}
-    setGateLoading(btnValidateCode,true);resetGateFeedback();
-    try{
-      var res=await fetch(ENDPOINTS.validate,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({invite_code:code})});
-      var data=await res.json();
-      if(res.ok&&data.token){
-        saveToken(data.token);
-        showGateFeedback(codeFeedback,'Access granted.','success');
-        setTimeout(function(){unlockInput(data.remaining_uses,data.max_uses)},600);
-      }else{
-        var msg=data.message||'Invalid invite code.';
-        if(auto){
-          if(!/[.!?]$/.test(msg))msg+='.';
-          msg+=' If it has expired, use the Request access tab above to get a new one.';
-        }
-        showGateFeedback(codeFeedback,msg,'error');
-      }
-    }catch(err){showGateFeedback(codeFeedback,'Connection error. Please try again.','error')}
-    finally{setGateLoading(btnValidateCode,false)}
-  }
-  btnValidateCode.addEventListener('click',function(){runValidateCode(false)});
-  inviteCodeInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();btnValidateCode.click()}});
-
-  /* Access request */
-  async function handleAccessRequest(emailInput,btn,feedbackEl){
-    var email=emailInput.value.trim();
-    if(!email||!email.includes('@')||!email.includes('.')){showGateFeedback(feedbackEl,'Please enter a valid email address.','error');emailInput.focus();return}
-    setGateLoading(btn,true);
-    try{
-      var res=await fetch(ENDPOINTS.request,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})});
-      var data=await res.json();
-      if(res.ok){showGateFeedback(feedbackEl,'Request received. Check your email for an invite code.','success');emailInput.value=''}
-      else{showGateFeedback(feedbackEl,data.message||'Something went wrong.','error')}
-    }catch(err){showGateFeedback(feedbackEl,'Connection error. Please try again.','error')}
-    finally{setGateLoading(btn,false)}
-  }
-  btnRequestAccess.addEventListener('click',function(){handleAccessRequest(requestEmailInput,btnRequestAccess,requestFeedback)});
-  requestEmailInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();btnRequestAccess.click()}});
-  btnExhaustedRequest.addEventListener('click',function(){handleAccessRequest(exhaustedEmailInput,btnExhaustedRequest,exhaustedFeedback)});
-  exhaustedEmailInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();btnExhaustedRequest.click()}});
-
-  /* Session check on load */
-  async function checkSession(){
-    /* Capture deep-link invite params up front. Support #code= (fragment, never sent to
-       the server or in Referer) and ?code= (query, back-compat). Cleanup runs on EVERY
-       path below so a code never lingers in the address bar for a logged-in/subscriber
-       user (shared-link exposure), and utm/other params are preserved for analytics. */
-    var sp=new URLSearchParams(window.location.search);
-    var hashMatch=/[#&?]code=([^&]*)/.exec(window.location.hash||'');
-    var rawCode;
-    if(hashMatch){try{rawCode=decodeURIComponent(hashMatch[1])}catch(e){rawCode=hashMatch[1]}}
-    else{rawCode=sp.has('code')?sp.get('code'):null}
-    var hasCodeParam=(rawCode!==null);
-    var deepLinkCode=rawCode?rawCode.trim().toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,14):'';
-    var subActivated=(sp.get('sub')==='activated');
-    if(hasCodeParam||subActivated){
-      sp.delete('code');sp.delete('sub');
-      var restQs=sp.toString();
-      history.replaceState(null,'',window.location.pathname+(restQs?'?'+restQs:''));
-    }
-    /* Surface the code panel synchronously (before any async session check) so a code
-       recipient never sees the Subscribe paywall flash during token validation. */
-    if(hasCodeParam){activateGateTab('code');if(deepLinkCode)inviteCodeInput.value=deepLinkCode;}
-
-    var token=loadToken();
-    if(token){
-      sessionToken=token;
-      try{
-        var res=await fetch(ENDPOINTS.validate,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:token})});
-        var data=await res.json();
-        if(res.ok&&typeof data.remaining_uses==='number'&&data.remaining_uses>0){unlockInput(data.remaining_uses,data.max_uses);resumeActiveJob();return}
-        else if(res.ok&&typeof data.remaining_uses==='number'&&data.remaining_uses<=0){
-          /* A fresh deep-link code takes precedence over a spent (used-up) session; the stale
-             token is cleared below and the new code auto-validates. A live session is
-             untouched (handled above). */
-          if(!(hasCodeParam&&deepLinkCode)){showExhausted();return}
-        }
-      }catch(err){}
-      clearToken();
-    }
-    var storedEmail=loadSubEmail();
-    if(storedEmail){
-      try{var unlocked=await checkCedulorSubscribeAccess(storedEmail);if(unlocked){subEmailInput.value=storedEmail;return}}catch(err){}
-    }
-    /* No active session. Visitor mode: leave the site visible and usable so a visitor can
-       see the product and fill the intake; the gate opens only when they click Generate
-       (openGateForGenerate). The gate is auto-opened on load ONLY for an explicit invite-code
-       deep-link or a subscription-activated return. */
-    if(hasCodeParam||subActivated){
-      lockInput();
-      /* Suppress the sub-activated message when a code is also present so a mangled
-         ?sub=activated&code= URL can't leave a false "subscribed" claim. */
-      if(subActivated&&!hasCodeParam){
-        showGateFeedback(subFeedback,'Subscription activated. Enter your email to access Cedulor.','success');
-      }
-      /* Deep-link auto-validate. Only fire in the top frame so an embedded iframe /
-         link-preview bot cannot turn a page load into backend validation traffic. */
-      if(hasCodeParam){
-        if(deepLinkCode){
-          if(window.top===window.self)runValidateCode(true);
-        }else{
-          showGateFeedback(codeFeedback,'Your invite link is missing its code. Enter it above, or use the Request access tab.','error');
-          inviteCodeInput.focus();
-        }
-      }
-    }
-  }
-  checkSession();
-
-  async function refreshUsage(){
-    if(!sessionToken)return;
-    try{
-      var res=await fetch(ENDPOINTS.validate,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:sessionToken})});
-      var data=await res.json();
-      if(res.ok){remainingUses=data.remaining_uses;updateUsageBadge(data.remaining_uses,data.max_uses);if(data.remaining_uses<=0)showExhausted()}
-    }catch(e){}
-  }
-
-  /* ══════════════════════════════════════
-     THEME TOGGLE
-     ══════════════════════════════════════ */
-  var SUN_SVG='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-  var MOON_SVG='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-  var themeToggle=document.getElementById('themeToggle');
-  var themeIcon=document.getElementById('themeIcon');
-  var savedTheme=null;
-  try{savedTheme=localStorage.getItem('cedulor-theme')}catch(e){}
-  var osPrefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var currentTheme=savedTheme||(osPrefersDark?'dark':'light');
-
-  function applyTheme(t){
-    currentTheme=t;
-    document.documentElement.setAttribute('data-theme',t);
-    try{localStorage.setItem('cedulor-theme',t)}catch(e){}
-    if(t==='light'){
-      themeIcon.innerHTML=MOON_SVG;
-      themeToggle.setAttribute('aria-label','Switch to dark mode');
-    }else{
-      themeIcon.innerHTML=SUN_SVG;
-      themeToggle.setAttribute('aria-label','Switch to light mode');
-    }
-  }
-  themeToggle.addEventListener('click',function(){applyTheme(currentTheme==='light'?'dark':'light')});
-  applyTheme(currentTheme);
-
-  /* ══════════════════════════════════════
-     DOM REFERENCES
-     ══════════════════════════════════════ */
-  var messageInput=document.getElementById('messageInput');
-  var genBtn=document.getElementById('genBtn');
-  var progSelect=document.getElementById('progSelect');
-  var container=document.getElementById('mainConv');
-
-  document.getElementById('newSessionBtn').addEventListener('click',newSession);
-  document.getElementById('docxBtn').addEventListener('click',downloadDOCX);
-  genBtn.addEventListener('click',generateProposal);
-  messageInput.addEventListener('input',function(){autoResize(messageInput)});
-  progSelect.addEventListener('change',function(){
-    var lbl=progSelect.value?progSelect.options[progSelect.selectedIndex].text:'Not yet selected';
-    var el=document.getElementById('sidebarProgramme');if(el)el.textContent=lbl;
-  });
-
-  /* ══════════════════════════════════════
-     ① PROGRESS TRACKER LOGIC
-     ══════════════════════════════════════ */
-  var currentStep=0;
-
-  var STEP_BOT_KEYWORDS=[
-    ['noted','got it','received','project basics','title','acronym','recorded','let me summarize','summary of','call identifier','action type','duration'],
-    ['objectives','methodology','state of the art','scientific','TRL','innovation','concept','beyond the state','approach','ambition'],
-    ['impact','dissemination','exploitation','stakeholder','beneficiar','communication','KPI','pathway','societal'],
-    ['consortium','partner','coordinator','complementarity','added value','organization'],
-    ['work package','milestone','deliverable','budget','person-month','implementation','gantt','timeline','resource']
-  ];
-
-  function detectStep(text){
-    if(!text)return;
-    var lower=text.toLowerCase();
-    for(var i=currentStep;i<STEP_BOT_KEYWORDS.length;i++){
-      var hits=0;
-      STEP_BOT_KEYWORDS[i].forEach(function(kw){if(lower.indexOf(kw)!==-1)hits++});
-      if(hits>=2&&i>=currentStep){
-        setProgressStep(i+1);
-      }
-    }
-  }
-
-  function setProgressStep(step){
-    if(step<=currentStep)return;
-    currentStep=step;
-    for(var i=1;i<=5;i++){
-      var el=document.getElementById('pStep'+i);
-      if(!el)continue;
-      el.classList.remove('done','active');
-      if(i<step)el.classList.add('done');
-      else if(i===step)el.classList.add('active');
-    }
-  }
-
-  function resetProgress(){
-    currentStep=0;
-    for(var i=1;i<=5;i++){
-      var el=document.getElementById('pStep'+i);
-      if(el)el.classList.remove('done','active');
-    }
-  }
-
-  /* ══════════════════════════════════════
-     ⑤ GENERATION OVERLAY LOGIC
-     ══════════════════════════════════════ */
-  var genOverlay=document.getElementById('genOverlay');
-  var genInterval=null;
-
-  function showGenOverlay(){
-    genOverlay.classList.remove('hidden');
-    var steps=['genS1','genS2','genS3','genS4','genS5'];
-    steps.forEach(function(id){
-      var el=document.getElementById(id);
-      if(el)el.className='gen-step-icon';
-    });
-    var idx=0;
-    function advanceStep(){
-      if(idx>0){
-        var prev=document.getElementById(steps[idx-1]);
-        if(prev){prev.className='gen-step-icon done';prev.textContent='\u2713'}
-      }
-      if(idx<steps.length){
-        var cur=document.getElementById(steps[idx]);
-        if(cur){cur.className='gen-step-icon active'}
-        idx++;
-      }else{clearInterval(genInterval)}
-    }
-    advanceStep();
-    genInterval=setInterval(advanceStep,3000);
-  }
-
-  function hideGenOverlay(){
-    clearInterval(genInterval);
-    var steps=['genS1','genS2','genS3','genS4','genS5'];
-    steps.forEach(function(id){
-      var el=document.getElementById(id);
-      if(el){el.className='gen-step-icon done';el.textContent='\u2713'}
-    });
-    setTimeout(function(){genOverlay.classList.add('hidden')},400);
-  }
-
-  /* ══════════════════════════════════════
-     SIDEBAR HELPERS
-     ══════════════════════════════════════ */
-  var detectedProgramme='';
-
-  var PROGRAMME_STEPS={
-    'Horizon Europe':['Basics','Science','Impact','Consortium','Implement.'],
-    'MSCA':['Basics','Research','Training','Impact','Implement.'],
-    'ERC':['Basics','Vision','Track Record','Methodology','Resources'],
-    'EIC':['Company','Technology','Market','Team & Finance','Implement.']
-  };
-  var PROGRAMME_CHECKLIST={
-    'Horizon Europe':['Project basics','Scientific content','Impact strategy','Consortium','Implementation'],
-    'MSCA':['Fellowship basics','Research project','Training & career','Impact & dissemination','Work plan'],
-    'ERC':['Grant basics','Scientific vision','PI track record','Methodology & WPs','Resources & budget'],
-    'EIC':['Company profile','Technology & IP','Market & customers','Team & funding','Implementation']
-  };
-
-  function detectProgramme(text){
-    if(!text||detectedProgramme)return;
-    var lower=text.toLowerCase();
-    var programmes=[
-      {keys:['horizon europe','ria','ia ','csa','cluster','pillar'],name:'Horizon Europe'},
-      {keys:['msca','marie','doctoral network','postdoctoral fellowship'],name:'MSCA'},
-      {keys:['erc','starting grant','consolidator','advanced grant','frontier research'],name:'ERC'},
-      {keys:['eic','accelerator','pathfinder'],name:'EIC'}
-    ];
-    for(var i=0;i<programmes.length;i++){
-      for(var j=0;j<programmes[i].keys.length;j++){
-        if(lower.indexOf(programmes[i].keys[j])!==-1){
-          detectedProgramme=programmes[i].name;
-          var el=document.getElementById('sidebarProgramme');
-          if(el)el.textContent=detectedProgramme;
-          var steps=PROGRAMME_STEPS[detectedProgramme];
-          if(steps){
-            for(var k=0;k<steps.length;k++){
-              var stepEl=document.getElementById('pStep'+(k+1));
-              if(stepEl){
-                var numSpan=stepEl.querySelector('.step-num');
-                stepEl.textContent='';
-                if(numSpan){stepEl.appendChild(numSpan)}
-                else{var s=document.createElement('span');s.className='step-num';s.textContent=String(k+1);stepEl.appendChild(s)}
-                stepEl.appendChild(document.createTextNode(steps[k]));
-              }
-            }
-          }
-          var checklist=PROGRAMME_CHECKLIST[detectedProgramme];
-          if(checklist){
-            for(var k=0;k<checklist.length;k++){
-              var li=document.getElementById('sc'+(k+1));
-              if(li){
-                var check=li.querySelector('.sidebar-check');
-                li.textContent='';
-                if(check){li.appendChild(check)}
-                else{var sp=document.createElement('span');sp.className='sidebar-check';sp.textContent='\u00B7';li.appendChild(sp)}
-                li.appendChild(document.createTextNode(checklist[k]));
-              }
-            }
-          }
-          return;
-        }
-      }
-    }
-  }
-
-  function updateSidebarChecklist(){
-    for(var i=1;i<=5;i++){
-      var li=document.getElementById('sc'+i);
-      if(!li)continue;
-      var check=li.querySelector('.sidebar-check');
-      if(i<currentStep){
-        li.classList.add('done');
-        if(check)check.textContent='\u2713';
-      }else if(i===currentStep){
-        li.classList.remove('done');
-        if(check)check.innerHTML='<span style="color:var(--gold)">\u25B8</span>';
-      }else{
-        li.classList.remove('done');
-        if(check)check.textContent='\u00B7';
-      }
-    }
-    var emptyEl=document.getElementById('sidebarEmpty');
-    if(emptyEl&&currentStep>0)emptyEl.style.display='none';
-  }
-
-  function resetSidebar(){
-    detectedProgramme='';
-    var el=document.getElementById('sidebarProgramme');
-    if(el)el.textContent='Not yet selected';
-    var emptyEl=document.getElementById('sidebarEmpty');
-    if(emptyEl)emptyEl.style.display='';
-    var items=document.getElementById('sidebarItems');
-    if(items)items.innerHTML='';
-    var defaultSteps=['Basics','Science','Impact','Consortium','Implement.'];
-    for(var i=1;i<=5;i++){
-      var li=document.getElementById('sc'+i);
-      if(!li)continue;
-      li.classList.remove('done');
-      var check=li.querySelector('.sidebar-check');
-      if(check)check.textContent='\u00B7';
-      var stepEl=document.getElementById('pStep'+i);
-      if(stepEl){
-        var numSpan=stepEl.querySelector('.step-num');
-        stepEl.textContent='';
-        if(numSpan){stepEl.appendChild(numSpan)}
-        else{var s=document.createElement('span');s.className='step-num';s.textContent=String(i);stepEl.appendChild(s)}
-        stepEl.appendChild(document.createTextNode(defaultSteps[i-1]));
-      }
-    }
-    var defaultChecklist=['Project basics','Scientific content','Impact strategy','Consortium','Implementation'];
-    for(var i=1;i<=5;i++){
-      var li=document.getElementById('sc'+i);
-      if(!li)continue;
-      var check=li.querySelector('.sidebar-check');
-      li.textContent='';
-      if(check){li.appendChild(check)}
-      else{var sp=document.createElement('span');sp.className='sidebar-check';sp.textContent='\u00B7';li.appendChild(sp)}
-      li.appendChild(document.createTextNode(defaultChecklist[i-1]));
-    }
-  }
-
-  /* ══════════════════════════════════════
-     FUNCTIONS
-     ══════════════════════════════════════ */
-  function newSession(){
-    if(isWaiting)return;
-    CONFIG.sessionId=resetSessionId();
-    lastProposalData=null;lastDocxBase64=null;lastDocxFilename=null;
-    lastBotRaw='';botMessageCount=0;
-    document.getElementById('docxBtn').classList.remove('visible');
-    resetProgress();
-    resetSidebar();
-    if(progSelect)progSelect.value='';
-    ['fldTitle','fldAcronym','fldBudget','fldDuration'].forEach(function(id){var el=document.getElementById(id);if(el)el.value=''});
-    if(messageInput){messageInput.value='';autoResize(messageInput)}
-    container.innerHTML='<div class="welcome" id="welcomeScreen"><div class="welcome-logo"><img src="cedulor.jpg" alt="Cedulor" /></div><h2>Your <em>Proposal</em> Begins Here</h2><div class="welcome-barline" aria-hidden="true"></div><p>Select your EU programme, describe your project, and Cedulor produces a complete, programme-structured proposal draft you can download as a Word document. Use the panel below to begin.</p></div>';
-    showSuccess('New session started.');
-  }
-
-  function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,200)+'px'}
-
-  function parseMarkdown(text){
-    if(!text)return'';
-    text=text.replace(/^=/,'').trim();
-    text=esc(text); /* neutralise any HTML before applying markdown transforms (defence in depth) */
-    var html=text
-      .replace(/^### (.+)$/gm,'<h3>$1</h3>')
-      .replace(/^## (.+)$/gm,'<h2>$1</h2>')
-      .replace(/^---$/gm,'<hr>')
-      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g,'<em>$1</em>')
-      .replace(/`([^`]+)`/g,'<code>$1</code>')
-      .replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>');
-    if(html.includes('|')){
-      html=html.replace(/((?:\|.+\|\n?)+)/g,function(match){
-        var rows=match.trim().split('\n').filter(function(r){return!r.match(/^\|[\s\-:|]+\|$/)});
-        if(rows.length<1)return match;
-        var table='<table>';
-        rows.forEach(function(row,i){
-          var cells=row.split('|').filter(function(c){return c.trim()});
-          var tag=i===0?'th':'td';
-          table+='<tr>'+cells.map(function(c){return'<'+tag+'>'+c.trim()+'</'+tag+'>'}).join('')+'</tr>';
-        });
-        return table+'</table>';
-      });
-    }
-    html=html.replace(/\n\n/g,'</p><p>');
-    html='<p>'+html+'</p>';
-    html=html.replace(/<p>\s*<(h[23]|hr|table|blockquote)/g,'<$1')
-      .replace(/<\/(h[23]|hr|table|blockquote)>\s*<\/p>/g,'</$1>')
-      .replace(/<p><\/p>/g,'')
-      .replace(/\n/g,'<br>');
-    return html;
-  }
-
-  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
-  function fmtNum(n){return Number(n||0).toLocaleString('en-US')}
-
-  /* ══════════════════════════════════════
-     ② ③ ④ ⑥ ENHANCED PROPOSAL CARD
-     ══════════════════════════════════════ */
-  function buildGenericCard(data){
-    var m=data.metadata||{};
-    var secs=Array.isArray(data.sections)?data.sections:[];
-    var tops=secs.filter(function(s){return s&&((s.type==='heading'&&(s.level||1)===1)||(!s.type&&(s.level||0)===1))&&(s.text||s.heading);});
-    var filled=secs.filter(function(s){return (s.type==='text'||(s.body!=null))&&String(s.text||s.body||'').trim().length>60;}).length;
-    var html='<div class="proposal-card">';
-    html+='<div class="proposal-card-header"><div class="proposal-card-icon" aria-hidden="true">&#9834;</div><div class="proposal-card-title"><h3>'+esc(m.project_title||'Proposal Draft')+'</h3><span>'+esc(m.acronym||'')+' · '+esc(m.call_identifier||'')+' · '+esc(m.programme_name||m.action_type||'')+'</span></div></div>';
-    html+='<div class="proposal-meta-grid">';
-    html+='<div class="proposal-meta-item"><label>Programme</label><span>'+esc(m.programme_name||m.action_type||'-')+'</span></div>';
-    if((Number(m.duration_months)||0)>0){html+='<div class="proposal-meta-item"><label>Duration</label><span>'+esc(String(m.duration_months))+' mo.</span></div>';}
-    if((Number(m.total_budget_eur)||0)>0){html+='<div class="proposal-meta-item"><label>Budget</label><span>€ '+fmtNum(m.total_budget_eur)+'</span></div>';}
-    if((Number(m.eu_contribution_eur)||0)>0){html+='<div class="proposal-meta-item"><label>EU Contrib.</label><span>€ '+fmtNum(m.eu_contribution_eur)+'</span></div>';}
-    html+='</div>';
-    if(tops.length){
-      html+='<div class="depth-grid">';
-      tops.slice(0,6).forEach(function(s,i){html+='<div class="depth-card"><div class="depth-card-label">Section '+(i+1)+'</div><div class="depth-card-title">'+esc((s.text||s.heading||'').replace(/^SECTION\s*\d+\s*[-:]\s*/i,''))+'</div></div>';});
-      html+='</div>';
-    }
-    html+='<div class="proposal-stats-row"><div class="completeness-info" style="padding:8px 0"><strong>Programme-structured draft</strong>'+tops.length+' sections, '+filled+' written blocks</div></div>';
-    html+='<div class="proposal-actions">';
-    html+='<button class="proposal-action-btn primary" id="dlDocx"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Download Proposal (DOCX)</button>';
-    html+='<button class="proposal-action-btn secondary" id="dlJson"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Download JSON</button>';
-    html+='</div></div>';
-    return html;
-  }
-  function buildProposalCard(data){
-    if(data&&Array.isArray(data.sections)){return buildGenericCard(data);}
-    var m=data.metadata||{};
-    var s1=data.section_1_excellence||{};
-    var s2=data.section_2_impact||{};
-    var s3=data.section_3_implementation||{};
-    var wps=s3.s3_1_work_packages||[];
-    var consortium=s3.s3_2_consortium||{};
-    var partners=consortium.partners||[];
-    var coordinator=consortium.coordinator;
-    var milestones=s3.s3_3_milestones||[];
-    var deliverables=s3.s3_4_deliverables||[];
-    var budget=s3.s3_5_budget_summary||{};
-
-    var subSections=['s1_1_objectives_and_ambition','s1_2_relation_to_work_programme','s1_3_concept_and_methodology','s1_4_interdisciplinary_considerations'];
-    var s1Filled=0;subSections.forEach(function(k){if(s1[k])s1Filled++});
-    var s2Keys=['s2_1_pathways_towards_impact','s2_2_dissemination_exploitation_communication','s2_3_impact_indicators'];
-    var s2Filled=0;s2Keys.forEach(function(k){if(s2[k])s2Filled++});
-    var s3Parts=[wps.length>0,partners.length>0||coordinator,milestones.length>0,deliverables.length>0,budget.personnel_costs>0];
-    var s3Filled=0;s3Parts.forEach(function(b){if(b)s3Filled++});
-    var totalFilled=s1Filled+s2Filled+s3Filled;
-    var totalSubs=subSections.length+s2Keys.length+s3Parts.length;
-    var pct=Math.round(totalFilled/totalSubs*100);
-
-    var budgetItems=[
-      {label:'Personnel',val:budget.personnel_costs||0,color:'var(--ink)'},
-      {label:'Equipment',val:budget.equipment||0,color:'var(--gold)'},
-      {label:'Subcontracting',val:budget.subcontracting||0,color:'var(--wine)'},
-      {label:'Travel + Other',val:(budget.travel_costs||0)+(budget.other_direct_costs||0),color:'var(--ink-muted)'},
-      {label:'Indirect',val:budget.indirect_costs||0,color:'var(--stone-light)'}
-    ];
-    var budgetTotal=0;budgetItems.forEach(function(b){budgetTotal+=b.val});
-
-    var circumf=2*Math.PI*22;
-    var offset=circumf-(pct/100)*circumf;
-    var completenessRing='<div class="completeness-ring"><svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="22"/><circle class="ring-fill" cx="28" cy="28" r="22" stroke-dasharray="'+circumf+'" stroke-dashoffset="'+offset+'"/></svg><div class="ring-text">'+pct+'%</div></div>';
-
-    var donutSvg='<div class="budget-donut"><svg viewBox="0 0 56 56">';
-    var donutR=22,donutCircumf=2*Math.PI*donutR,donutOffset=0;
-    budgetItems.forEach(function(item){
-      if(budgetTotal<=0)return;
-      var segLen=(item.val/budgetTotal)*donutCircumf;
-      donutSvg+='<circle class="donut-segment" cx="28" cy="28" r="'+donutR+'" stroke="'+item.color+'" stroke-dasharray="'+segLen+' '+(donutCircumf-segLen)+'" stroke-dashoffset="-'+donutOffset+'"/>';
-      donutOffset+=segLen;
-    });
-    var totalBudgetDisplay=budgetTotal>=1000000?'\u20AC'+(budgetTotal/1000000).toFixed(1)+'M':'\u20AC'+fmtNum(budgetTotal);
-    donutSvg+='</svg><div class="donut-text">'+totalBudgetDisplay+'</div></div>';
-
-    var budgetLegend='<div class="budget-legend">';
-    budgetItems.forEach(function(item){
-      if(item.val<=0)return;
-      var pctB=budgetTotal>0?Math.round(item.val/budgetTotal*100):0;
-      budgetLegend+='<div class="budget-legend-item"><span class="budget-legend-dot" style="background:'+item.color+'"></span>'+esc(item.label)+' ('+pctB+'%)</div>';
-    });
-    budgetLegend+='</div>';
-
-    function depthStatus(filled,total){
-      if(filled>=total)return{text:filled+'/'+total+' complete',cls:'complete',barCls:'full',w:100};
-      if(filled>0)return{text:filled+'/'+total+' complete',cls:'partial',barCls:'mid',w:Math.round(filled/total*100)};
-      return{text:'pending',cls:'pending',barCls:'low',w:0};
-    }
-    var ds1=depthStatus(s1Filled,subSections.length);
-    var ds2=depthStatus(s2Filled,s2Keys.length);
-    var ds3=depthStatus(s3Filled,s3Parts.length);
-
-    var partnerHtml='';
-    if(coordinator||partners.length>0){
-      partnerHtml='<div class="consortium-section"><div class="consortium-section-label">Consortium</div><div class="consortium-row">';
-      if(coordinator){
-        var cc=coordinator.country||'';
-        partnerHtml+='<div class="partner-chip"><div class="partner-flag">'+esc(cc.substring(0,2).toUpperCase())+'</div><div><div class="partner-name">'+esc(coordinator.name||'Coordinator')+'</div><div class="partner-type">'+esc(coordinator.type||'')+'</div></div><span class="partner-role-badge">Coord.</span></div>';
-      }
-      partners.forEach(function(p){
-        var pc=p.country||'';
-        var role=p.role||'';
-        partnerHtml+='<div class="partner-chip"><div class="partner-flag">'+esc(pc.substring(0,2).toUpperCase())+'</div><div><div class="partner-name">'+esc(p.name||'Partner')+'</div><div class="partner-type">'+esc(p.type||'')+'</div></div>'+(role?'<span class="partner-role-badge">'+esc(role)+'</span>':'')+'</div>';
-      });
-      partnerHtml+='</div></div>';
-    }
-
-    var wpHtml='';
-    if(wps.length>0){
-      var maxMonth=parseInt(m.duration_months,10)||36;
-      wps.forEach(function(wp){if(wp.end_month&&wp.end_month>maxMonth)maxMonth=wp.end_month});
-      wpHtml='<div class="wp-timeline-section"><div class="wp-timeline-label">Work Package Timeline</div>';
-      wps.forEach(function(wp,i){
-        var sm=parseInt(wp.start_month,10)||1,em=parseInt(wp.end_month,10)||maxMonth;
-        var left=((sm-1)/maxMonth*100).toFixed(1);
-        var width=((em-sm+1)/maxMonth*100).toFixed(1);
-        var colorCls=WP_COLORS[i%WP_COLORS.length];
-        wpHtml+='<div class="wp-row"><div class="wp-row-label">WP'+esc(String(wp.wp_number||i+1))+' '+esc(wp.title||'')+'</div><div class="wp-bar-track"><div class="wp-bar '+colorCls+'" style="left:'+left+'%;width:'+width+'%">M'+sm+'\u2013M'+em+'</div></div></div>';
-      });
-      wpHtml+='<div class="wp-months-row"><span>M1</span><span>M'+Math.round(maxMonth/3)+'</span><span>M'+Math.round(maxMonth*2/3)+'</span><span>M'+maxMonth+'</span></div>';
-      wpHtml+='</div>';
-    }
-
-    var reviewHtml='';
-    var review=data.review||data.review_score;
-    if(review){
-      var score=review.score||review.overall_score||0;
-      var summary=review.summary||review.feedback||'';
-      var ratings=review.section_ratings||{};
-      reviewHtml='<div class="review-card"><div class="review-header"><div class="review-score"><div class="review-score-num">'+Number(score).toFixed(1)+'</div><div class="review-score-label">Review Score</div><div class="review-score-max">/ 10</div></div><div class="review-body"><div class="review-quote"><div class="review-quote-text">'+esc(summary)+'</div></div><div class="review-tags">';
-      ['excellence','impact','implementation'].forEach(function(key){
-        var val=ratings[key]||'';
-        if(!val)return;
-        var lower=val.toLowerCase();
-        var cls=lower.indexOf('strong')!==-1||lower.indexOf('good')!==-1?'strong':(lower.indexOf('weak')!==-1?'weak':'needs-work');
-        reviewHtml+='<span class="review-tag '+cls+'">'+esc(key)+': '+esc(val)+'</span>';
-      });
-      reviewHtml+='</div></div></div></div>';
-    }
-
-    var html='<div class="proposal-card">';
-    html+='<div class="proposal-card-header"><div class="proposal-card-icon" aria-hidden="true">&#9834;</div><div class="proposal-card-title"><h3>'+esc(m.project_title||'Proposal Draft')+'</h3><span>'+esc(m.acronym||'')+' \u00B7 '+esc(m.call_identifier||'')+' \u00B7 '+esc(m.action_type||'RIA')+'</span></div></div>';
-    html+='<div class="proposal-meta-grid">';
-    html+='<div class="proposal-meta-item"><label>Duration</label><span>'+esc(String(m.duration_months||'\u2013'))+' mo.</span></div>';
-    if((Number(m.trl_start)||0)>0||(Number(m.trl_target)||0)>0){html+='<div class="proposal-meta-item"><label>TRL Range</label><span>'+esc(String(m.trl_start||'?'))+' \u2192 '+esc(String(m.trl_target||'?'))+'</span></div>';}
-    html+='<div class="proposal-meta-item"><label>Budget</label><span>\u20AC '+fmtNum(m.total_budget_eur)+'</span></div>';
-    html+='<div class="proposal-meta-item"><label>EU Contrib.</label><span>\u20AC '+fmtNum(m.eu_contribution_eur)+'</span></div>';
-    html+='</div>';
-
-    html+='<div class="proposal-stats-row">';
-    html+='<div class="completeness-group">'+completenessRing+'<div class="completeness-info"><strong>Proposal Completeness</strong>'+totalFilled+' of '+totalSubs+' sub-sections filled</div></div>';
-    if(budgetTotal>0){
-      html+='<div class="budget-group">'+donutSvg+budgetLegend+'</div>';
-    }
-    html+='</div>';
-
-    html+='<div class="depth-grid">';
-    html+='<div class="depth-card"><div class="depth-card-label">Section 1</div><div class="depth-card-title">Excellence</div><div class="depth-card-status '+ds1.cls+'">'+ds1.text+'</div><div class="depth-card-bar"><div class="depth-card-bar-fill '+ds1.barCls+'" style="width:'+ds1.w+'%"></div></div></div>';
-    html+='<div class="depth-card"><div class="depth-card-label">Section 2</div><div class="depth-card-title">Impact</div><div class="depth-card-status '+ds2.cls+'">'+ds2.text+'</div><div class="depth-card-bar"><div class="depth-card-bar-fill '+ds2.barCls+'" style="width:'+ds2.w+'%"></div></div></div>';
-    html+='<div class="depth-card"><div class="depth-card-label">Section 3</div><div class="depth-card-title">Implementation</div><div class="depth-card-status '+ds3.cls+'">'+ds3.text+'</div><div class="depth-card-bar"><div class="depth-card-bar-fill '+ds3.barCls+'" style="width:'+ds3.w+'%"></div></div></div>';
-    html+='</div>';
-
-    html+=partnerHtml;
-    html+=wpHtml;
-    html+=reviewHtml;
-
-    html+='<div class="proposal-actions">';
-    html+='<button class="proposal-action-btn primary" id="dlDocx"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Download Proposal (DOCX)</button>';
-    html+='<button class="proposal-action-btn secondary" id="dlJson"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Download JSON</button>';
-    html+='</div>';
-    html+='</div>';
-    return html;
-  }
-
-  document.addEventListener('click',function(e){
-    if(e.target.closest('#dlDocx'))downloadDOCX();
-    if(e.target.closest('#dlJson'))downloadJSON();
-  });
-
-  function addMessage(content,type,proposalData){
-    if(type==='bot'&&!proposalData){
-      var stripped=(content||'').replace(/^=\s*/,'').trim();
-      if(!stripped||stripped==='null'||stripped==='undefined')return;
-    }
-    var welcome=document.getElementById('welcomeScreen');
-    if(welcome&&!welcome.classList.contains('mini')){
-      welcome.classList.add('mini');
-      if(currentStep===0)setProgressStep(1);
-    }
-    var msg=document.createElement('div');
-    msg.className='message '+type;
-    var avatarText=type==='bot'?'C':'Y';
-    var parsedContent;
-    if(type==='bot'){
-      parsedContent=parseMarkdown(content);
-      if(proposalData)parsedContent+=buildProposalCard(proposalData);
-    }else{
-      parsedContent='<p>'+esc(content)+'</p>';
-    }
-    msg.innerHTML='<div class="msg-avatar" aria-hidden="true">'+avatarText+'</div><div class="msg-content">'+parsedContent+'</div>';
-    container.appendChild(msg);
-    if(container.lastElementChild)container.lastElementChild.scrollIntoView({block:'nearest'});
-    if(type==='bot'){
-      lastBotRaw=content;botMessageCount++;
-      detectStep(content);
-      detectProgramme(content);
-    }
-    if(type==='user'){
-      detectProgramme(content);
-    }
-    updateSidebarChecklist();
-  }
-
-  function showTyping(){
-    var typing=document.createElement('div');
-    typing.className='typing';typing.id='typingIndicator';
-    typing.innerHTML='<div class="msg-avatar" aria-hidden="true">C</div><div class="typing-bubble"><span class="typing-label">composing</span><div class="typing-dots" aria-label="Assistant is typing"><span></span><span></span><span></span></div></div>';
-    container.appendChild(typing);if(container.lastElementChild)container.lastElementChild.scrollIntoView({block:'nearest'});
-  }
-  function hideTyping(){var el=document.getElementById('typingIndicator');if(el)el.remove()}
-
-  function showError(msg){var t=document.getElementById('errorToast');if(!t)return;t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none'},4000)}
-  function showSuccess(msg){var t=document.getElementById('successToast');if(!t)return;t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none'},3000)}
-
-  function fmtElapsed(s){var m=Math.floor(s/60),ss=s%60;return m+':'+(ss<10?'0':'')+ss}
-
-  function compileBrief(progLabel,title,acronym,budget,duration,desc){
-    var parts=[];
-    parts.push('I want to prepare a '+progLabel+' proposal. Please generate the complete full proposal now as structured JSON, filling every section.');
-    parts.push('');
-    if(title)parts.push('Project title: '+title+'.');
-    if(acronym)parts.push('Acronym: '+acronym+'.');
-    if(budget)parts.push('Total budget: '+budget+(/^[\d.,\s]+$/.test(budget)?' EUR':'')+'.');
-    if(duration)parts.push('Duration: '+duration+(/^\s*\d+\s*$/.test(duration)?' months':'')+'.');
-    parts.push('');
-    parts.push(desc);
-    parts.push('');
-    parts.push('I confirm the details are correct. Go ahead and generate the complete proposal now as structured JSON.');
-    return parts.join('\n');
-  }
-
-  async function pollJob(job){
-    var startMs=Date.now(),maxMs=15*60*1000;
-    while(Date.now()-startMs<maxMs){
-      await new Promise(function(r){setTimeout(r,15000)});
-      var pr=null;
-      try{
-        var res=await fetch(JOB_STATUS_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({job_id:job,token:sessionToken})});
-        pr=await res.json();
-        /* ownership lost / job unknown: stop immediately, do not keep polling for 15 minutes */
-        if(res.status===403||(pr&&pr.error&&!pr.status))return {status:'gone',error_code:'forbidden'};
-      }catch(e){pr=null}
-      if(!pr)continue;
-      if(pr.status==='ready')return pr;
-      if(pr.status==='failed'||pr.status==='expired'||pr.status==='gone')return pr;
-    }
-    return null;
-  }
-
-  var ACTIVE_JOB_KEY='cedulor_active_job';
-  function saveActiveJob(job_id,progLabel,acronym){try{sessionStorage.setItem(ACTIVE_JOB_KEY,JSON.stringify({job_id:job_id,progLabel:progLabel,acronym:acronym||'',ts:Date.now()}))}catch(e){}}
-  function clearActiveJob(){try{sessionStorage.removeItem(ACTIVE_JOB_KEY)}catch(e){}}
-
-  /* Shared generating UI + poll + render. Used by a fresh generate AND by resume-on-load so a
-     tab close mid-production never loses an already-paid document (server holds it for 1h). */
-  async function runJob(job_id,progLabel,acronym){
-    isWaiting=true;genBtn.disabled=true;
-    var welcome=document.getElementById('welcomeScreen');
-    if(welcome&&!welcome.classList.contains('mini')){welcome.classList.add('mini');setProgressStep(1)}
-    showGenOverlay();
-    var elapsedEl=document.getElementById('genElapsed');
-    var progressEl=document.getElementById('genProgress');
-    if(progressEl)progressEl.style.display='block';
-    var t0=Date.now();
-    var timer=setInterval(function(){
-      var s=Math.floor((Date.now()-t0)/1000);
-      if(elapsedEl)elapsedEl.textContent='Producing draft  '+fmtElapsed(s);
-      if(progressEl)progressEl.textContent='Producing your '+progLabel+' draft  '+fmtElapsed(s);
-    },1000);
-    function cleanup(){clearInterval(timer);hideGenOverlay();if(progressEl){progressEl.style.display='none';progressEl.textContent=''}isWaiting=false;genBtn.disabled=false}
-    try{
-      var result=await pollJob(job_id);
-      cleanup();
-      if(!result){
-        /* We stopped polling but the job may still be producing server-side. Do not imply a free
-           retry; reconcile the badge from the server and let the user reopen to pick it up. */
-        try{await refreshUsage()}catch(e){}
-        showError('Your draft is still being produced. Your remaining uses are shown below; reopen this page shortly to collect it.');
-        return;
-      }
-      if(result.status!=='ready'){
-        clearActiveJob();
-        try{await refreshUsage()}catch(e){} /* reflect any server-side refund of a failed/expired job */
-        if(result.error_code==='needs_more_info'){
-          showError('We need a bit more detail to generate this draft. Please add specifics (objectives, methodology, work packages, budget) and generate again. Your uses were not spent.');
-        } else {
-          showError('Generation did not complete ('+(result.error_code||result.status)+'). Your remaining uses are shown below.');
-        }
-        return;
-      }
-      clearActiveJob();
-      lastProposalData=result.proposal_json;
-      if(typeof lastProposalData==='string'){try{lastProposalData=JSON.parse(lastProposalData)}catch(e){}}
-      lastDocxBase64=result.docx_base64;
-      lastDocxFilename=result.filename||((acronym||'Cedulor')+'_Proposal_Draft.docx');
-      document.getElementById('docxBtn').classList.add('visible');
-      addMessage('Your '+progLabel+' proposal draft is ready. Download it as a Word document below.','bot',lastProposalData);
-      setProgressStep(6);
-      try{await refreshUsage()}catch(e){} /* server is the source of truth for remaining uses */
-      if(remainingUses<=0)showExhausted();
-    }catch(err){
-      cleanup();
-      showError('Connection failed. Please try again.');console.error(err);
-    }
-  }
-
-  async function generateProposal(){
-    if(!sessionToken){openGateForGenerate();return}
-    if(remainingUses<=0){showExhausted();return}
-    if(isWaiting)return;
-    if(!progSelect.value){showError('Please select a programme first.');progSelect.focus();return}
-    var desc=messageInput.value.trim();
-    if(desc.length<40){showError('Please describe your project in a little more detail before generating.');messageInput.focus();return}
-
-    var progLabel=progSelect.options[progSelect.selectedIndex].text;
-    var title=(document.getElementById('fldTitle').value||'').trim();
-    var acronym=(document.getElementById('fldAcronym').value||'').trim();
-    var budget=(document.getElementById('fldBudget').value||'').trim();
-    var duration=(document.getElementById('fldDuration').value||'').trim();
-    var message=compileBrief(progLabel,title,acronym,budget,duration,desc);
-
-    isWaiting=true;genBtn.disabled=true;
-    addMessage((title?title+' ('+(acronym||progLabel)+')':progLabel)+': preparing your proposal draft.','user');
-
-    var acc=null;
-    try{
-      var res=await fetch(GEN_BASE+'/'+progSelect.value,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:sessionToken,message:message,session_id:CONFIG.sessionId})});
-      if(res.status===401){isWaiting=false;genBtn.disabled=false;clearToken();lockInput();return}
-      try{acc=await res.json()}catch(e){acc=null}
-      if(res.status===402||(acc&&(acc.status==='quota_exceeded'||acc.error==='quota_exceeded'))){isWaiting=false;genBtn.disabled=false;try{await refreshUsage()}catch(e){}showExhausted();return}
-      if(!acc||!acc.job_id){isWaiting=false;genBtn.disabled=false;showError('Could not start generation. Please try again.');return}
-    }catch(err){
-      isWaiting=false;genBtn.disabled=false;showError('Connection failed. Please try again.');console.error(err);return;
-    }
-    /* Accepted: the server created the job and debited one use. Persist so a reload can resume it. */
-    saveActiveJob(acc.job_id,progLabel,acronym);
-    await runJob(acc.job_id,progLabel,acronym);
-  }
-
-  /* On load, if a recent job is still pending for this session, resume polling it rather than
-     losing a paid document to a tab close or refresh. */
-  async function resumeActiveJob(){
-    if(isWaiting||!sessionToken)return;
-    var raw=null;try{raw=sessionStorage.getItem(ACTIVE_JOB_KEY)}catch(e){}
-    if(!raw)return;
-    var j=null;try{j=JSON.parse(raw)}catch(e){}
-    if(!j||!j.job_id){clearActiveJob();return}
-    if(Date.now()-(j.ts||0)>55*60*1000){clearActiveJob();return} /* past the server payload TTL */
-    await runJob(j.job_id,j.progLabel||'proposal',j.acronym||'');
-  }
-
-  function downloadDOCX(){
-    if(!lastDocxBase64){showError('No proposal document available yet.');return}
-    try{
-      var byteChars=atob(lastDocxBase64);var byteNumbers=new Array(byteChars.length);
-      for(var i=0;i<byteChars.length;i++)byteNumbers[i]=byteChars.charCodeAt(i);
-      var blob=new Blob([new Uint8Array(byteNumbers)],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
-      var link=document.createElement('a');link.href=URL.createObjectURL(blob);
-      link.download=lastDocxFilename;document.body.appendChild(link);link.click();
-      document.body.removeChild(link);URL.revokeObjectURL(link.href);
-      showSuccess('Proposal document downloaded.');
-    }catch(err){console.error('DOCX download error:',err);showError('Failed to download DOCX.')}
-  }
-
-  function downloadJSON(){
-    if(!lastProposalData){showError('No proposal data available yet.');return}
-    try{
-      var jsonStr=JSON.stringify(lastProposalData,null,2);
-      var blob=new Blob([jsonStr],{type:'application/json'});
-      var acronym=lastProposalData.metadata&&lastProposalData.metadata.acronym?lastProposalData.metadata.acronym:'proposal';
-      var link=document.createElement('a');link.href=URL.createObjectURL(blob);
-      link.download=acronym+'_proposal_data.json';document.body.appendChild(link);link.click();
-      document.body.removeChild(link);URL.revokeObjectURL(link.href);
-      showSuccess('Proposal JSON downloaded.');
-    }catch(err){console.error('JSON download error:',err);showError('Failed to download JSON.')}
-  }
-
-})();
-</script>
+</footer>
 </body>
 </html>
